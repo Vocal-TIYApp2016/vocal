@@ -15,7 +15,10 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
+# Users
+gem 'simple_token_authentication', '~> 1.0'
 gem 'devise'
+# Pagination
 gem 'kaminari'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -23,15 +26,18 @@ gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
+# Cleaner console
 gem 'pry-rails', '~> 0.3.4'
+# Secure keys
 gem "figaro"
+# ActiveModelSerializers
 gem 'active_model_serializers', '~> 0.10.0'
 # Search/Filter
 gem 'pg_search'
 gem 'ransack'
 # For single-page front end
 gem 'webpack-rails'
-# For images
+# Spaghetti for images
 gem 'sinatra', github: 'sinatra/sinatra'
 gem "refile", require: "refile/rails", github: 'refile/refile'
 gem "refile-mini_magick"
@@ -40,9 +46,11 @@ gem 'refile-postgres', '~> 1.4'
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+# Advanced functionality for better_errors
 gem "binding_of_caller"
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+# For Heroku
 gem 'rails_12factor', group: :production
 
 

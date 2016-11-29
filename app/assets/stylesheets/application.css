@@ -13,3 +13,173 @@
  *= require_tree .
  *= require_self
  */
+* {
+   box-sizing: border-box;
+}
+img {
+   width: 100%;
+}
+ body {
+   background-color: #223843;
+ }
+ .logoFont {
+    color: white;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    margin-left: 10px;
+}
+.landingBtn {
+   background-color: white;
+   border-radius: 30px;
+   width: 250px;
+   height: 33px;
+   text-transform: uppercase;
+   color: #223843;
+   letter-spacing: 2px;
+   margin: 10px;
+   margin-top: 40vh;
+}
+
+.fieldForm {
+   background: transparent;
+   border: none;
+   border-bottom: 1px solid white;
+   display: block;
+   width: 100%;
+   color: white;
+   font-size: 30px;
+   text-transform: uppercase;
+   font-weight: lighter;
+   letter-spacing: 3px;
+}
+.hideFileButton {
+   width: 0.1px;
+   height: 0.1px;
+   opacity: 0;
+   overflow: hidden;
+   position: absolute;
+   z-index: -1;
+}
+.avatarText {
+   color: white;
+   font-size: 30px;
+   text-transform: uppercase;
+   letter-spacing: 3px;
+   background: transparent;
+   border: 1px solid white;
+   border-radius: 0;
+   font-weight: lighter;
+   margin-top: 10px;
+   width: 100%;
+}
+.avatarText:hover {
+   cursor: pointer;
+   background-color: white;
+   color: #223843;
+}
+.signupBtn {
+   margin-top: 20px;
+}
+
+.navItems {
+   color: white;
+   font-weight: bold;
+   font-size: 15px;
+   text-transform: uppercase;
+   letter-spacing: 2px;
+   margin-right: 15px;
+   margin-top: 20px;
+}
+
+.profileImg {
+   width: 180px;
+   height: 180px;
+   margin-top: 50px;
+}
+
+.profileText {
+   color: white;
+   text-transform: uppercase;
+   letter-spacing: 2px;
+}
+.profileTextTwo {
+   color: white;
+   text-transform: uppercase;
+   letter-spacing: 2px;
+}
+
+.linkStyle {
+   display: inline-block;
+}
+
+.linkStyle:hover {
+   text-decoration: none;
+}
+
+.titleFont {
+   background-color: #223843 ;
+   color: white;
+   font-size: 36px;
+   letter-spacing: 3px;
+   text-align: center;
+   /*border-right: 1px solid white;*/
+   text-transform: uppercase;
+}
+
+.legislatorInfo {
+   background-color: white;
+   padding: 0px;
+   border-right: 3px solid #223843;
+}
+.newsInfo {
+   background-color: white;
+   padding: 0px;
+   border-right: 3px solid #223843;
+   border-bottom: 1px solid grey;
+}
+
+.legislatorImg {
+   height: 80px;
+   width: 80px;
+   margin: 3px;
+   display: inline-block;
+   padding-top: 15px;
+}
+.legText {
+   color: #223843;
+   text-transform: uppercase;
+   letter-spacing: 2px;
+   font-size: 15px;
+   padding-top: 25px;
+}
+.followBtn {
+   margin-top: 25px;
+}
+
+
+.headlineText {
+   color: #223843;
+   font-size: 20px;
+   letter-spacing: 2px;
+}
+
+.dateAndSourceText {
+   color: #8B2635;
+   font-size: 14px;
+   text-transform: uppercase;
+   letter-spacing: 1.5px;
+}
+.legislationBtn {
+   width: 100%;
+   height: 115px;
+   margin-bottom: 5px;
+   margin-top: 5px;
+   background-color: #D8D8D8;
+}
+.billDesc {
+   overflow: hidden;
+   text-overflow: ellipsis;
+}
+.legislationInfo {
+   background-color: white;
+}

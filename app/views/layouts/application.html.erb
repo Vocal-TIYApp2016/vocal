@@ -3,12 +3,18 @@
   <head>
     <title>Vocal</title>
     <%= csrf_meta_tags %>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+   <%= stylesheet_link_tag 'application', media:'all' %>
+   <%= javascript_include_tag *webpack_asset_paths('application', extension: 'js') %>
+   <%= stylesheet_link_tag *webpack_asset_paths('application', extension: 'css') %>
+   <script src="http://localhost:3808/webpack-dev-server.js"></script>
+ </head>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-
-  <body>
-    <%= yield %>
-  </body>
+ <body>
+   <div id="app"></div>
+   <script src="https://use.fontawesome.com/622f283375.js"></script>
+ </body>
 </html>
