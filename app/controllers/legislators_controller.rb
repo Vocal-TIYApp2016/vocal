@@ -1,2 +1,0 @@
-class LegislatorsController < ApplicationController
-end
