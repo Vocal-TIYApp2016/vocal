@@ -48,7 +48,7 @@ class SignIn extends React.Component {
           </div>
           <div className="col-sm-12">
             <div className="form-group">
-                <button id="signup" type="button" className="btn landingBtn signupBtn  block-center" onClick={this.signIn}>sign up</button>
+                <button id="signup" type="button" className="btn landingBtn signupBtn  block-center" onClick={this.signIn}>sign in</button>
             </div>
           </div>
        </div>
@@ -57,4 +57,5 @@ class SignIn extends React.Component {
     </div>
     </div>
   }
+}
 export default SignIn
