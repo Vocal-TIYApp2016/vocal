@@ -24,7 +24,7 @@ class SignIn extends React.Component {
       .then(this.signedinHandler)
   }
   signedinHandler() {
-    sessionStorage.setItem('api_token', response.user.api_token)
+    sessionStorage.setItem('api_token', response.user_session)
     sessionStorage.setItem('user', JSON.stringify(response.user))
   }
   render() {
@@ -43,7 +43,7 @@ class SignIn extends React.Component {
           <div className="col-sm-12">
             <div className="form-group">
               <label htmlFor="password"></label>
-                <input type="text" id="password" name="password" className="fieldForm" required value={this.state.password} onChange={(e) => this.setState({password:e.target.value})} placeholder="password" />
+                <input type="password" id="password" name="password" className="fieldForm" required value={this.state.password} onChange={(e) => this.setState({password:e.target.value})} placeholder="password" />
             </div>
           </div>
           <div className="col-sm-12">
