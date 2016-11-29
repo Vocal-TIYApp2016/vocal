@@ -4,6 +4,7 @@ import { Router, Route, Link, browserHistory } from 'react-router'
 class ProfileHeader extends React.Component {
   constructor(props) {
     super(props)
+    this.updateUser = this.updateUser.bind(this)
     this.state = {
       firstName: '',
       lastName: '',
@@ -12,6 +13,23 @@ class ProfileHeader extends React.Component {
       // points: '',
     }
   }
+  componentDidMount() {
+       var user = JSON.parse(sessionStorage.getItem('user'))
+       fetch('https://still-springs-37963.herokuapp.com/users/me?api_token=' + sessionStorage.getItem('api_token'))
+       // adding the username of whoever signed up/logged in to the fetch URL.
+       .then(response => response.json())
+       // .then(response => console.log(response))
+       .then(this.updateUser)
+   }
+
+   updateUser(userData) {
+       this.setState ({
+           photo: userData.user.profile_image,
+           firstName: userData.user.first_name,
+           lastName: userData.user.last_name,
+           username: userData.user.username
+       })
+   }
 
 
   render(){

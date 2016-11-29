@@ -33,10 +33,10 @@ class SignUp extends React.Component {
       method: 'POST'
     })
     .then(response => response.json())
-    // .then(response => console.log(response))
     .then(this.signedupHandler)
   }
   signedupHandler(response) {
+    console.log(response)
     sessionStorage.setItem('api_token', response.authentication_token)
     sessionStorage.setItem('user', JSON.stringify(response.username))
     // window.location.href = '/Profile'
