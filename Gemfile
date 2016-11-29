@@ -16,6 +16,7 @@ gem 'coffee-rails', '~> 4.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 # Users
+gem 'simple_token_authentication', '~> 1.0'
 gem 'devise'
 # Pagination
 gem 'kaminari'

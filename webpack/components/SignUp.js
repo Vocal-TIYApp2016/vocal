@@ -19,14 +19,14 @@ class SignUp extends React.Component {
 
   signUp () {
     var formData = new FormData()
-    formData.append('first_name', this.state.firstName)
-    formData.append('last_name', this.state.lastName)
-    formData.append('email', this.state.email)
-    formData.append('username', this.state.username)
-    formData.append('password', this.state.password)
-    formData.append('password_confirmation', this.state.confirmPassword)
-    formData.append('profile_image', this.state.photo)
-    formData.append('zip_code', this.state.zip)
+    formData.append('user[first_name]', this.state.firstName)
+    formData.append('user[last_name]', this.state.lastName)
+    formData.append('user[email]', this.state.email)
+    formData.append('user[username]', this.state.username)
+    formData.append('user[password]', this.state.password)
+    formData.append('user[password_confirmation]', this.state.confirmPassword)
+    formData.append('user[profile_image]', this.state.photo)
+    formData.append('user[zip_code]', this.state.zip)
     console.log(formData)
     fetch('/users', {
       body: formData,
