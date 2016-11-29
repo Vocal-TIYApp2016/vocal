@@ -1,2 +1,0 @@
-class Legislator < ApplicationRecord
-end
