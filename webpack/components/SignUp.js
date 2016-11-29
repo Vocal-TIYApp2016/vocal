@@ -28,7 +28,7 @@ class SignUp extends React.Component {
     formData.append('password_confirmation', this.state.confirmPassword)
     formData.append('profile_image', this.state.photo)
     formData.append('zip_code', this.state.zip)
-    // console.log(formData)
+    console.log(formData)
     fetch('/users', {
       body: formData,
       method: 'POST'
