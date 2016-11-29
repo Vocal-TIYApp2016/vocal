@@ -24,7 +24,7 @@ class SignIn extends React.Component {
       .then(this.signedinHandler)
   }
   signedinHandler() {
-    sessionStorage.setItem('api_token', response.user_session)
+    sessionStorage.setItem('api_token', response.authentication_token)
     sessionStorage.setItem('user', JSON.stringify(response.user))
   }
   render() {
