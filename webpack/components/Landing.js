@@ -11,7 +11,7 @@ class Landing extends React.Component {
 
 
 render() {
-  return <div className="container-fluid blueBackground">
+  return <div className="container-fluid">
           <h1 className="logoFont">vocal</h1>
             <div className="row text-center">
                 <div className='col-sm-6 col-sm-offset-3'>

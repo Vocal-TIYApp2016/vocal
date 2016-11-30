@@ -38,6 +38,7 @@ class SignUp extends React.Component {
   signedupHandler(response) {
     // console.log(response)
     sessionStorage.setItem('user_id', response.id)
+    window.location.href = '/profile'
   }
 
   render() {
@@ -91,9 +92,9 @@ class SignUp extends React.Component {
               </div>
               <div className="col-sm-12">
                 <div className="form-group">
-                    <Link to='/profile'>
+
                     <button id="signup" type="button" className="btn landingBtn signupBtn  block-center" onClick={this.signUp}>sign up</button>
-                    </Link>
+              
                 </div>
               </div>
             </div>
