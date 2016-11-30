@@ -2,18 +2,18 @@ import React from 'react'
 import { Router, Route, Link, browserHistory } from 'react-router'
 import NewsItem from './NewsItem'
 
-class NewsItems extends React.Component {
+class LegislatorNewsItems extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      newsItems: [
+      LegislatorNewsItems: [
         {
         headline: 'lorem lorem lorem lorem',
         source: 'New york times',
         date: '12/1/16',
       },
       {
-      headline: 'lorem lorem lorem lorem headline',
+      headline: 'lorem lorem LEGISLATOR lorem lorem headline',
       source: 'cnn',
       date: '12/3/16',
     }
@@ -22,7 +22,7 @@ class NewsItems extends React.Component {
   }
 
   render() {
-    var news = this.state.newsItems.map((data, i) => {
+    var news = this.state.LegislatorNewsItems.map((data, i) => {
       return <NewsItem data={data} key={i} />
     })
     return <div>
@@ -36,4 +36,4 @@ class NewsItems extends React.Component {
   }
 }
 
-export default NewsItems
+export default LegislatorNewsItems

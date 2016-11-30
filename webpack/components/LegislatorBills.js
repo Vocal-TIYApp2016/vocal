@@ -2,11 +2,11 @@ import React from 'react'
 import { Router, Route, Link, browserHistory } from 'react-router'
 import Legislation from './Legislation'
 
-class Legislations extends React.Component {
+class LegislatorBills extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      allBills: [
+      legislatorBills: [
         {
         billName: 'HB1001',
         billDesc: 'lorem ;aslkdfjasd;lfkjasdlkfjsdlkfjsdlkfoiuewrijdsfncxvlkjdsfoiuewkljdsfiojewr',
@@ -20,7 +20,7 @@ class Legislations extends React.Component {
   }
 
   render() {
-    var bill = this.state.allBills.map((data, i) => {
+    var bill = this.state.legislatorBills.map((data, i) => {
       return <Legislation data={data} key={i} />
     })
     return <div>
@@ -34,4 +34,4 @@ class Legislations extends React.Component {
   }
 }
 
-export default Legislations
+export default LegislatorBills

@@ -4,28 +4,30 @@ import { Router, Route, Link, browserHistory } from 'react-router'
 class ProfileHeader extends React.Component {
   constructor(props) {
     super(props)
-    this.updateUser = this.updateUser.bind(this)
+    this.updateLegislator = this.updateLegislator.bind(this)
     this.logout = this.logout.bind(this)
     this.state = {
+      title: "--",
       firstName: "--",
       lastName: "--",
       photo: null,
-      username: "--",
+      party: "--",
       // points: '',
     }
   }
   componentDidMount() {
     fetch('/users/' +  sessionStorage.getItem('user_id'))
     .then(response => response.json())
-    .then(this.updateUser)
+    .then(this.updateLegislator)
    }
 
-   updateUser(userData) {
+   updateLegislator(userData) {
     this.setState ({
       photo: userData.profile_image,
       firstName: userData.first_name,
       lastName: userData.last_name,
-      username: userData.username
+      party: userData.party,
+      title: userData.title
     })
    }
 
@@ -42,8 +44,9 @@ class ProfileHeader extends React.Component {
         <div className='col-sm-4'>
           <img src={this.state.photo} alt='profile photo' className='img-responsive center-block img-circle profileImg' />
           <br />
-          <h2 className="text-center profileText">{this.state.firstName} {this.state.lastName}</h2>
-          <h5 className="text-center profileTextTwo">{this.state.username} | 200</h5>
+          <h2 className="text-center profileText">{this.state.title}<br/>
+          {this.state.firstName} {this.state.lastName}</h2>
+          <h5 className="text-center profileTextTwo">{this.state.party} | followBtn</h5>
         </div>
         <div className='col-sm-4'>
           <ul className='text-right list-unstyled list-inline'>

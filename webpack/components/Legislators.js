@@ -28,7 +28,7 @@ class Legislators extends React.Component {
       return <Legislator data={data} key={i} />
     })
     return <div>
-      <div  className="col-sm-3">
+      <div  className="col-sm-3 columnContainer">
         <div className="text-center titleFont">Legislators</div>
          <div className='profileBox'>
           {legislator}
