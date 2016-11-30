@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 end
   # get '/legislators' => ''
   root 'home#static'
+  
+  get 'users/:id' => 'users#show'
 
   get "/:thing" => 'home#static'
 end
