@@ -48,6 +48,10 @@ gem 'refile-postgres', '~> 1.4'
 # gem 'bcrypt', '~> 3.1.7'
 # Advanced functionality for better_errors
 gem "binding_of_caller"
+# API Connection/manipulation
+gem 'omniauth', '~> 1.3', '>= 1.3.1'
+gem 'omniauth-google-oauth2', '~> 0.4.1'
+gem 'typhoeus'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 # For Heroku

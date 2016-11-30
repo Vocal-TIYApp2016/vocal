@@ -22,6 +22,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+
   def self.find_for_database_authentication(warden_conditions)
      conditions = warden_conditions.dup
      if login = conditions.delete(:login)
@@ -30,7 +31,6 @@ class User < ApplicationRecord
        where(conditions.to_h).first
      end
   end
-
 
   def validate_username
     if User.where(email: username).exists?
