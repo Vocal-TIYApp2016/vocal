@@ -26,7 +26,9 @@ class Legislations extends React.Component {
     return <div>
       <div  className="col-sm-3">
         <div className="text-center titleFont">Legislation</div>
+          <div className='profileBox'>
           {bill}
+          </div>
       </div>
     </div>
   }
