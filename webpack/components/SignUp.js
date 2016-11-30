@@ -7,13 +7,13 @@ class SignUp extends React.Component {
     this.signUp = this.signUp.bind(this)
     this.signedupHandler = this.signedupHandler.bind(this)
     this.state = {
-      firstName: '',
-      lastName: '',
-      username: '',
-      email: '',
-      password: '',
+      firstName: "",
+      lastName: "",
+      username: "",
+      email: "",
+      password: "",
       photo: null,
-      zip: ''
+      zip: ""
     }
   }
 
@@ -38,7 +38,6 @@ class SignUp extends React.Component {
   signedupHandler(response) {
     console.log(response)
     sessionStorage.setItem('user_id', response.id)
-    sessionStorage.setItem('user', JSON.stringify(response.user))
   }
 
   render() {

@@ -7,10 +7,10 @@ class ProfileHeader extends React.Component {
     this.updateUser = this.updateUser.bind(this)
     this.logout = this.logout.bind(this)
     this.state = {
-      firstName: '',
-      lastName: '',
+      firstName: "--",
+      lastName: "--",
       photo: null,
-      username: '',
+      username: "--",
       // points: '',
     }
   }
