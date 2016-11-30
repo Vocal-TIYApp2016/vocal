@@ -183,3 +183,8 @@ img {
 .legislationInfo {
    background-color: white;
 }
+.profileBox{
+   height: 400px;
+   overflow: scroll;
+   background-color: white;
+}
