@@ -27,7 +27,7 @@ class SignUp extends React.Component {
     formData.append('user[password_confirmation]', this.state.confirmPassword)
     formData.append('user[profile_image]', this.state.photo)
     formData.append('user[zip_code]', this.state.zip)
-    console.log(formData)
+    // console.log(formData)
     fetch('/users', {
       body: formData,
       method: 'POST'
@@ -37,10 +37,10 @@ class SignUp extends React.Component {
   }
   signedupHandler(response) {
     console.log(response)
-    sessionStorage.setItem('api_token', response.authentication_token)
-    sessionStorage.setItem('user', JSON.stringify(response.username))
-    // window.location.href = '/Profile'
+    sessionStorage.setItem('user_id', response.id)
+    sessionStorage.setItem('user', JSON.stringify(response.user))
   }
+
   render() {
     return <div>
       <div className="container-fluid">

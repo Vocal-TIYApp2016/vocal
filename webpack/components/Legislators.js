@@ -30,7 +30,9 @@ class Legislators extends React.Component {
     return <div>
       <div  className="col-sm-3">
         <div className="text-center titleFont">Legislators</div>
+         <div className='profileBox'>
           {legislator}
+          </div>
       </div>
     </div>
   }

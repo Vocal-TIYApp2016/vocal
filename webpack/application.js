@@ -6,7 +6,6 @@ import SignUp from './components/SignUp'
 import SignIn from './components/SignIn'
 import Profile from './components/Profile'
 
-
 document.addEventListener('DOMContentLoaded', function(event) {
    ReactDOM.render(
        <Router history = {browserHistory}>
