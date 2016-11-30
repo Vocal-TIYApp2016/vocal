@@ -36,7 +36,7 @@ class SignUp extends React.Component {
     .then(this.signedupHandler)
   }
   signedupHandler(response) {
-    console.log(response)
+    // console.log(response)
     sessionStorage.setItem('user_id', response.id)
   }
 

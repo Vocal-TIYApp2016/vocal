@@ -19,9 +19,7 @@
 img {
    width: 100%;
 }
- body {
-   background-color: #223843;
- }
+
  .logoFont {
     color: white;
     letter-spacing: 5px;
@@ -172,9 +170,8 @@ img {
 .legislationBtn {
    width: 100%;
    height: 115px;
-   margin-bottom: 5px;
-   margin-top: 5px;
    background-color: #D8D8D8;
+   margin: 5px;
 }
 .billDesc {
    overflow: hidden;
@@ -183,8 +180,18 @@ img {
 .legislationInfo {
    background-color: white;
 }
-.profileBox{
-   height: 400px;
-   overflow: scroll;
+/*.profileBox{
+   height: 500px;
+   overflow-y: hidden;
+   overflow-x: scroll;
    background-color: white;
+}*/
+/*.columnContainer {
+   padding: 0px;
+   padding-left: -15px;
+}*/
+
+.blueBackground {
+   background-color: #223843;
+
 }
