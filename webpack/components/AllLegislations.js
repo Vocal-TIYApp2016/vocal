@@ -31,21 +31,23 @@ class AllLegislations extends React.Component {
       <br/>
         <div className="row">
           <div className="col-sm-3">
-   <div className="input-group">
-     <input type="text" className="form-control " placeholder="Search for..." />
-     <span className="input-group-btn">
-       <button className="btn btn-default" type="button">
-<span className="glyphicon glyphicon-search" aria-hidden="true"></span></button>
-     </span>
-     </div>
-            <ul className='list-unstyled yearsNav'>
-              <li>2014</li>
-              <li>2015</li>
-              <li>2016</li>
+            <ul className='list-unstyled yearsNav text-right'>
+            <li className="input-group">
+              <input type="text" className="form-control" placeholder="Search for..." />
+              <span className="input-group-btn">
+                <button className="btn btn-default" type="button">
+         <span className="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+              </span>
+              </li><br/>
+              <li className='btn legText yearText'>2016</li>
+              <li className='btn legText yearText'>2015</li>
+              <li className='btn legText yearText'>2014</li>
             </ul>
           </div>
-          <div className="col-sm-9 borderBills">
+          <div className="col-sm-9 borderBills" id="page-wrap">
             {alllegislation}
+
+
           </div>
         </div>
       </div>

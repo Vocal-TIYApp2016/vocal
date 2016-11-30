@@ -218,19 +218,18 @@ body {
 .smlProfileImg {
    width: 70px;
    height: 70px;
-   border: 1px solid white;
    margin-top: 20px;
    vertical-align: middle;
 }
 .yearsNav {
-   position: fixed;
-   margin: 20px;
    color: #223843;
+   width: 100%;
 }
 
 .borderBills {
    border: 1px solid rgb(223, 223, 223);
    padding: 10px;
+   border-radius: 4px;
 }
 
 .accordionHeaderText {
@@ -260,4 +259,25 @@ body {
 }
 .legislatorBackground{
    background-color: white;
+}
+.yearText {
+   border: 1px solid lightgrey;
+   width: 100%;
+   border-radius: 0;
+   color: #223843;
+   height: 35px;
+   padding-top: 5px;
+   border-radius: 4px;
+}
+
+.yearText:hover {
+   background-color: #e6e6e6;
+}
+
+/*.fixedGroup {
+   position: fixed;
+}*/
+
+#page-wrap {
+   height: 500px;
 }

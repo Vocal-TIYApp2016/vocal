@@ -7,7 +7,7 @@ class ShortHeader extends React.Component {
     this.updatePhoto = this.updatePhoto.bind(this)
     this.logout = this.logout.bind(this)
     this.state = {
-      photo: null,
+      photo: null
     }
   }
   componentDidMount() {
@@ -38,7 +38,7 @@ class ShortHeader extends React.Component {
             <Link to="/legislation" className="linkStyle"><li className='navItems'>Legislation</li></Link>
             <Link to="/settings" className="linkStyle"><li className='navItems'>Settings</li></Link>
             <Link to="/" className="linkStyle" onClick={this.logout}><li className='navItems'>Logout</li></Link>
-            <Link className="linkStyle" to='/Profile'><li><img src={this.state.photo} alt='profile photo' className='img-responsive img-circle smlProfileImg' /></li></Link>
+            <Link className="linkStyle" to='/Profile'><li><img src='https://unsplash.it/400?random' alt='profile photo' className='img-responsive img-circle smlProfileImg' /></li></Link>
           </ul>
         </div>
       </div>
