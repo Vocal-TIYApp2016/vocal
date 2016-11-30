@@ -11,5 +11,5 @@ end
   get '/:session/legislators' => redirect('https://api.iga.in.gov/legislators')
   get '/users/:id' => 'users#show'
 
-  get "/:thing" => 'home#static'
+  get "/:catchall" => 'home#static'
 end
