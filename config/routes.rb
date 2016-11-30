@@ -7,8 +7,9 @@ Rails.application.routes.draw do
 end
   # get '/legislators' => ''
   root 'home#static'
-  
-  get 'users/:id' => 'users#show'
+
+  get '/:session/legislators' => redirect('https://api.iga.in.gov/legislators')
+  get '/users/:id' => 'users#show'
 
   get "/:thing" => 'home#static'
 end
