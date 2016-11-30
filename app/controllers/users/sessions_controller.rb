@@ -10,7 +10,7 @@ class Users::SessionsController < Devise::SessionsController
 
   # POST /resource/sign_in
   def create
-    resource = User.find_for_database_authentication(email: params[:email])
+    resource = User.find_for_database_authentication(login: params[:login])
     if resource.nil?
       render :json=> {:success=>false, :message=>"Error with your login or password"}, :status=>401
     end
@@ -31,7 +31,7 @@ class Users::SessionsController < Devise::SessionsController
   # protected
 
   # If you have extra params to permit, append them to the sanitizer.
-  def configure_sign_in_params
-    devise_parameter_sanitizer.permit(:sign_in, keys: [:email || :username])
-  end
+  # def configure_sign_in_params
+  #   devise_parameter_sanitizer.permit(:sign_in, keys: [:email || :username, :password])
+  # end
 end
