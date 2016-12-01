@@ -29,7 +29,7 @@ class Settings extends React.Component {
     console.log(formData)
     fetch('/users', {
       body: formData,
-      method: 'POST'
+      method: 'PATCH'
     })
     .then(response => response.json())
     // .then(response => console.log(response))
@@ -102,4 +102,4 @@ class Settings extends React.Component {
 
   }
 }
-export default SignUp
+export default Settings

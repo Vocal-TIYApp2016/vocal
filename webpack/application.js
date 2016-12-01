@@ -8,6 +8,7 @@ import Profile from './components/Profile'
 import LegislatorProfile from './components/LegislatorProfile'
 import AllLegislations from './components/AllLegislations'
 import AllLegislators from './components/AllLegislators'
+import Settings from './components/Settings'
 
 document.addEventListener('DOMContentLoaded', function(event) {
    ReactDOM.render(
@@ -19,6 +20,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
            <Route path='/legislatorprofile' component={LegislatorProfile} />
            <Route path='/legislation' component={AllLegislations} />
            <Route path='/legislators' component={AllLegislators} />
+           <Route path='/settings' component={Settings} />
        </Router> ,
        document.querySelector('#app')
    )
