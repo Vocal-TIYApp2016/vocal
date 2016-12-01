@@ -29,14 +29,14 @@ class Settings extends React.Component {
     console.log(formData)
     fetch('/users', {
       body: formData,
-      method: 'PATCH'
+      method: 'PATCH',
     })
     .then(response => response.json())
     // .then(response => console.log(response))
     .then(this.settingsHandler)
   }
   settingsHandler(response) {
-    sessionStorage.setItem('api_token', response.authentication_id)
+    // sessionStorage.setItem('api_token', response.authentication_id)
     window.location.href = '/Profile'
   }
   render() {
@@ -50,43 +50,43 @@ class Settings extends React.Component {
               <div className="col-sm-6">
                 <div className="form-group">
                   <label htmlFor="firstName"></label>
-                    <input type="text" id="firstName" name="firstName" className="fieldForm" required value={this.state.firstname} onChange={(e) => this.setState({firstName:e.target.value})} placeholder="FIRST" />
+                    <input type="text" id="firstName" name="firstName" className="fieldForm" value={this.state.firstname} onChange={(e) => this.setState({firstName:e.target.value})} placeholder="FIRST" />
                 </div>
               </div>
               <div className="col-sm-6">
                 <div className="form-group">
                   <label htmlFor="lastName"></label>
-                    <input type="text" id="lastName" name="lastName" className="fieldForm" required value={this.state.lastname} onChange={(e) => this.setState({lastName:e.target.value})} placeholder="LAST" />
+                    <input type="text" id="lastName" name="lastName" className="fieldForm" value={this.state.lastname} onChange={(e) => this.setState({lastName:e.target.value})} placeholder="LAST" />
                 </div>
               </div>
               <div className="col-sm-12">
                 <div className="form-group">
                   <label htmlFor="email"></label>
-                    <input type="text" id="email" name="email" className="fieldForm" required value={this.state.email} onChange={(e) => this.setState({email:e.target.value})} placeholder="email" />
+                    <input type="text" id="email" name="email" className="fieldForm" value={this.state.email} onChange={(e) => this.setState({email:e.target.value})} placeholder="email" />
                 </div>
               </div>
               <div className="col-sm-12">
                 <div className="form-group">
                   <label htmlFor="username"></label>
-                    <input type="text" id="username" name="username" className="fieldForm" required value={this.state.username} onChange={(e) => this.setState({username:e.target.value})} placeholder="username" />
+                    <input type="text" id="username" name="username" className="fieldForm" value={this.state.username} onChange={(e) => this.setState({username:e.target.value})} placeholder="username" />
                 </div>
               </div>
               <div className="col-sm-12">
                 <div className="form-group">
                   <label htmlFor="password"></label>
-                    <input type="password" id="password" name="password" className="fieldForm" required value={this.state.password} onChange={(e) => this.setState({password:e.target.value})} placeholder="password" />
+                    <input type="password" id="password" name="password" className="fieldForm" value={this.state.password} onChange={(e) => this.setState({password:e.target.value})} placeholder="password" />
                 </div>
               </div>
               <div className="col-sm-6">
                 <div className="form-group">
                   <label htmlFor="zip"></label>
-                    <input type="text" id="zip" name="zip" className="fieldForm" required value={this.state.zip} onChange={(e) => this.setState({zip:e.target.value})} placeholder="zip" />
+                    <input type="text" id="zip" name="zip" className="fieldForm" value={this.state.zip} onChange={(e) => this.setState({zip:e.target.value})} placeholder="zip" />
                 </div>
               </div>
               <div className="col-sm-6">
                 <div className="form-group">
                   <label htmlFor="photo" className="btn avatarText">change Avatar</label>
-                    <input onChange={(e) => this.setState({photo: e.target.files[0]})} type="file" id="photo" name="photo" className="hideFileButton" required />
+                    <input onChange={(e) => this.setState({photo: e.target.files[0]})} type="file" id="photo" name="photo" className="hideFileButton" />
                 </div>
               </div>
               <div className="col-sm-12">
