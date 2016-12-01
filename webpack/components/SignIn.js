@@ -13,8 +13,8 @@ class SignIn extends React.Component {
   }
     signIn () {
       var formData = new FormData()
-      formData.append('username', this.state.username)
-      formData.append('password', this.state.password)
+      formData.append('login[username]', this.state.username)
+      formData.append('login[password]', this.state.password)
       console.log(formData)
       fetch('/users/sign_in', {
         body: formData,
