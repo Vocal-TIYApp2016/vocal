@@ -9,7 +9,7 @@ class ProfileHeader extends React.Component {
     this.state = {
       firstName: "--",
       lastName: "--",
-      photo: null,
+      photo: '',
       username: "--",
       // points: '',
     }

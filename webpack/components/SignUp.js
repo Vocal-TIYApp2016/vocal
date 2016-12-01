@@ -12,7 +12,6 @@ class SignUp extends React.Component {
       username: '',
       email: '',
       password: '',
-      confirmPassword: '',
       photo: null,
       zip: ''
     }
@@ -37,7 +36,7 @@ class SignUp extends React.Component {
     .then(this.signedupHandler)
   }
   signedupHandler(response) {
-    sessionStorage.setItem('api_token', response.user_session)
+    sessionStorage.setItem('user_id', response.id)
     window.location.href = '/Profile'
   }
   render() {
@@ -77,12 +76,6 @@ class SignUp extends React.Component {
                     <input type="password" id="password" name="password" className="fieldForm" required value={this.state.password} onChange={(e) => this.setState({password:e.target.value})} placeholder="password" />
                 </div>
               </div>
-              <div className="col-sm-12">
-                <div className="form-group">
-                  <label htmlFor="password"></label>
-                    <input type="password" id="confirmPassword" name="confirmPassword" className="fieldForm" required value={this.state.confirmPassword} onChange={(e) => this.setState({confirmPassword:e.target.value})} placeholder="confirm password" />
-                </div>
-              </div>
               <div className="col-sm-6">
                 <div className="form-group">
                   <label htmlFor="zip"></label>
@@ -98,10 +91,6 @@ class SignUp extends React.Component {
               <div className="col-sm-12">
                 <div className="form-group">
                     <button id="signup" type="button" className="btn landingBtn signupBtn  block-center" onClick={this.signUp}>sign up</button>
-<<<<<<< HEAD
-
-=======
->>>>>>> 53f3ec1e236ef38cc12326001622039861541662
                 </div>
               </div>
             </div>
