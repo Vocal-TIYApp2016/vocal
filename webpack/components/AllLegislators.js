@@ -48,7 +48,7 @@ class AllLegislators extends React.Component {
     return <div>
       <div className='container-fluid'>
         <ShortHeader />
-      </div> <br/> <br/>
+      </div> <br/>
       <div className="container-fluid legislatorBackground">
         {alllegislators}
       </div>
