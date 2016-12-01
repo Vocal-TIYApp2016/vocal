@@ -10,21 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161129224156) do
+ActiveRecord::Schema.define(version: 20161130212414) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "legislators", force: :cascade do |t|
-    t.string   "position",    default: "", null: false
-    t.string   "session",     default: "", null: false
-    t.string   "party",       default: "", null: false
-    t.string   "first_name",  default: "", null: false
-    t.string   "last_name",   default: "", null: false
-    t.string   "full_name",   default: "", null: false
-    t.string   "leg_img_url", default: "", null: false
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "party"
+    t.string   "chamber"
+    t.text     "commitees",                 array: true
+    t.string   "bills"
+    t.string   "leg_image_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "users", force: :cascade do |t|

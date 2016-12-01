@@ -1,13 +1,15 @@
 Rails.application.routes.draw do
+
+  resources :legislators
+  root 'home#static'
+
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     sessions: 'users/sessions'
   } do
-  post '/users' => 'users/registrations#create', as: :sign_up, constraints: {format: /(json)/}
-end
-  root 'home#static'
+    post '/users' => 'users/registrations#create', as: :sign_up, constraints: {format: /(json)/}
+  end
 
-  get '/:session/legislators' => redirect('https://api.iga.in.gov/legislators')
   get '/users/:id' => 'users#show'
 
   get '/:catchall' => 'home#static'
