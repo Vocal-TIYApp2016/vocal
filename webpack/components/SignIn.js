@@ -16,7 +16,7 @@ class SignIn extends React.Component {
       formData.append('login[username]', this.state.username)
       formData.append('login[password]', this.state.password)
       console.log(formData)
-      fetch('/sessions/sign_in', {
+      fetch('/users/sign_in', {
         body: formData,
         method: 'POST'
       })
