@@ -37,7 +37,6 @@ class SignUp extends React.Component {
   }
   signedupHandler(response) {
     sessionStorage.setItem('api_token', response.user_session)
-    sessionStorage.setItem('user', JSON.stringify(response.username))
     window.location.href = '/Profile'
   }
   render() {
@@ -92,6 +91,10 @@ class SignUp extends React.Component {
               <div className="col-sm-12">
                 <div className="form-group">
                     <button id="signup" type="button" className="btn landingBtn signupBtn  block-center" onClick={this.signUp}>sign up</button>
+<<<<<<< HEAD
+
+=======
+>>>>>>> 53f3ec1e236ef38cc12326001622039861541662
                 </div>
               </div>
             </div>
