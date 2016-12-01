@@ -33,6 +33,7 @@ class SignUp extends React.Component {
       method: 'POST'
     })
     .then(response => response.json())
+    // .then(response => console.log(response))
     .then(this.signedupHandler)
   }
   signedupHandler(response) {
@@ -94,7 +95,7 @@ class SignUp extends React.Component {
                 <div className="form-group">
 
                     <button id="signup" type="button" className="btn landingBtn signupBtn  block-center" onClick={this.signUp}>sign up</button>
-              
+
                 </div>
               </div>
             </div>
