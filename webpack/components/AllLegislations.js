@@ -26,7 +26,7 @@ class AllLegislations extends React.Component {
     return <div>
       <div className='container-fluid'>
         <ShortHeader />
-      </div> <br/> <br/>
+      </div> <br/>
       <div className="container-fluid whiteBackground">
       <br/>
         <div className="row">
