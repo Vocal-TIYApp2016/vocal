@@ -36,7 +36,7 @@ class SignUp extends React.Component {
     .then(this.signedupHandler)
   }
   signedupHandler(response) {
-    sessionStorage.setItem('user_id', response.id)
+    sessionStorage.setItem('api_token', response.authentication_token)
     window.location.href = '/Profile'
   }
   render() {

@@ -15,7 +15,7 @@ class ProfileHeader extends React.Component {
     }
   }
   componentDidMount() {
-    fetch('/users/' +  sessionStorage.getItem('user_id'))
+    fetch('/self/?authentication_token=' +  sessionStorage.getItem('api_token'))
     .then(response => response.json())
     .then(this.updateUser)
    }
