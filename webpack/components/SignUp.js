@@ -25,7 +25,6 @@ class SignUp extends React.Component {
     formData.append('user[email', this.state.email)
     formData.append('user[username]', this.state.username)
     formData.append('user[password]', this.state.password)
-    formData.append('user[password_confirmation]', this.state.confirmPassword)
     formData.append('user[profile_image]', this.state.photo)
     formData.append('user[zip_code]', this.state.zip)
     console.log(formData)
@@ -39,7 +38,6 @@ class SignUp extends React.Component {
   }
   signedupHandler(response) {
     sessionStorage.setItem('api_token', response.user_session)
-    sessionStorage.setItem('user', JSON.stringify(response.username))
     window.location.href = '/Profile'
   }
   render() {
@@ -100,6 +98,10 @@ class SignUp extends React.Component {
               <div className="col-sm-12">
                 <div className="form-group">
                     <button id="signup" type="button" className="btn landingBtn signupBtn  block-center" onClick={this.signUp}>sign up</button>
+<<<<<<< HEAD
+
+=======
+>>>>>>> 53f3ec1e236ef38cc12326001622039861541662
                 </div>
               </div>
             </div>
