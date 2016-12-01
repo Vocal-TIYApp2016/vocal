@@ -7,13 +7,14 @@ class SignUp extends React.Component {
     this.signUp = this.signUp.bind(this)
     this.signedupHandler = this.signedupHandler.bind(this)
     this.state = {
-      firstName: "",
-      lastName: "",
-      username: "",
-      email: "",
-      password: "",
+      firstName: '',
+      lastName: '',
+      username: '',
+      email: '',
+      password: '',
+      confirmPassword: '',
       photo: null,
-      zip: ""
+      zip: ''
     }
   }
 
@@ -21,25 +22,24 @@ class SignUp extends React.Component {
     var formData = new FormData()
     formData.append('user[first_name]', this.state.firstName)
     formData.append('user[last_name]', this.state.lastName)
-    formData.append('user[email]', this.state.email)
+    formData.append('user[email', this.state.email)
     formData.append('user[username]', this.state.username)
     formData.append('user[password]', this.state.password)
     formData.append('user[profile_image]', this.state.photo)
     formData.append('user[zip_code]', this.state.zip)
-    // console.log(formData)
+    console.log(formData)
     fetch('/users', {
       body: formData,
       method: 'POST'
     })
     .then(response => response.json())
+    // .then(response => console.log(response))
     .then(this.signedupHandler)
   }
   signedupHandler(response) {
-    // console.log(response)
-    sessionStorage.setItem('user_id', response.id)
-    window.location.href = '/profile'
+    sessionStorage.setItem('api_token', response.user_session)
+    window.location.href = '/Profile'
   }
-
   render() {
     return <div>
       <div className="container-fluid">
@@ -77,6 +77,12 @@ class SignUp extends React.Component {
                     <input type="password" id="password" name="password" className="fieldForm" required value={this.state.password} onChange={(e) => this.setState({password:e.target.value})} placeholder="password" />
                 </div>
               </div>
+              <div className="col-sm-12">
+                <div className="form-group">
+                  <label htmlFor="password"></label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" className="fieldForm" required value={this.state.confirmPassword} onChange={(e) => this.setState({confirmPassword:e.target.value})} placeholder="confirm password" />
+                </div>
+              </div>
               <div className="col-sm-6">
                 <div className="form-group">
                   <label htmlFor="zip"></label>
@@ -91,9 +97,11 @@ class SignUp extends React.Component {
               </div>
               <div className="col-sm-12">
                 <div className="form-group">
-
                     <button id="signup" type="button" className="btn landingBtn signupBtn  block-center" onClick={this.signUp}>sign up</button>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 53f3ec1e236ef38cc12326001622039861541662
                 </div>
               </div>
             </div>
