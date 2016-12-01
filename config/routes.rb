@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     registrations: 'users/registrations',
     sessions: 'users/sessions'
   } do
-    post '/users' => 'users/registrations#create', as: :sign_up, constraints: {format: /(json)/},
+    post '/users' => 'users/registrations#create', as: :sign_up, constraints: {format: /(json)/}
     post '/sessions/sign_in' => 'users/sessions#create', as: :sign_in, constraints: {format: /(json)/}
   end
 
