@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   def show_self
     if current_user
       @user = current_user
-      render json: @user except: :authentication_token
+      render json: @user, except: :authentication_token
     else
       render json: @users.errors.full_messages
     end
