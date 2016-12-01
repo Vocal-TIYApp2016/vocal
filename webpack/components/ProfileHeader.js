@@ -22,10 +22,10 @@ class ProfileHeader extends React.Component {
 
    updateUser(userData) {
     this.setState ({
-      photo: userData.profile_image,
-      firstName: userData.first_name,
-      lastName: userData.last_name,
-      username: userData.username
+      photo: userData.user.profile_image,
+      firstName: userData.user.first_name,
+      lastName: userData.user.last_name,
+      username: userData.user.username
     })
    }
 
