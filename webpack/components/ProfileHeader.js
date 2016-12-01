@@ -9,23 +9,23 @@ class ProfileHeader extends React.Component {
     this.state = {
       firstName: "--",
       lastName: "--",
-      photo: null,
+      photo: '',
       username: "--",
       // points: '',
     }
   }
   componentDidMount() {
-    fetch('/users/' +  sessionStorage.getItem('user_id'))
+    fetch('/self/?authentication_token=' +  sessionStorage.getItem('api_token'))
     .then(response => response.json())
     .then(this.updateUser)
    }
 
    updateUser(userData) {
     this.setState ({
-      photo: userData.profile_image,
-      firstName: userData.first_name,
-      lastName: userData.last_name,
-      username: userData.username
+      photo: userData.user.profile_image,
+      firstName: userData.user.first_name,
+      lastName: userData.user.last_name,
+      username: userData.user.username
     })
    }
 

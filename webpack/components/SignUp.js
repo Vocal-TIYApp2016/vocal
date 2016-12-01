@@ -12,7 +12,6 @@ class SignUp extends React.Component {
       username: '',
       email: '',
       password: '',
-      confirmPassword: '',
       photo: null,
       zip: ''
     }
@@ -22,10 +21,9 @@ class SignUp extends React.Component {
     var formData = new FormData()
     formData.append('user[first_name]', this.state.firstName)
     formData.append('user[last_name]', this.state.lastName)
-    formData.append('user[email', this.state.email)
+    formData.append('user[email]', this.state.email)
     formData.append('user[username]', this.state.username)
     formData.append('user[password]', this.state.password)
-    formData.append('user[password_confirmation]', this.state.confirmPassword)
     formData.append('user[profile_image]', this.state.photo)
     formData.append('user[zip_code]', this.state.zip)
     console.log(formData)
@@ -38,8 +36,7 @@ class SignUp extends React.Component {
     .then(this.signedupHandler)
   }
   signedupHandler(response) {
-    sessionStorage.setItem('api_token', response.user_session)
-    sessionStorage.setItem('user', JSON.stringify(response.username))
+    sessionStorage.setItem('api_token', response.user.authentication_token)
     window.location.href = '/Profile'
   }
   render() {
@@ -77,12 +74,6 @@ class SignUp extends React.Component {
                 <div className="form-group">
                   <label htmlFor="password"></label>
                     <input type="password" id="password" name="password" className="fieldForm" required value={this.state.password} onChange={(e) => this.setState({password:e.target.value})} placeholder="password" />
-                </div>
-              </div>
-              <div className="col-sm-12">
-                <div className="form-group">
-                  <label htmlFor="password"></label>
-                    <input type="password" id="confirmPassword" name="confirmPassword" className="fieldForm" required value={this.state.confirmPassword} onChange={(e) => this.setState({confirmPassword:e.target.value})} placeholder="confirm password" />
                 </div>
               </div>
               <div className="col-sm-6">
