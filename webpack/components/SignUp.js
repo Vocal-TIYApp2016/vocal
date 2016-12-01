@@ -21,7 +21,7 @@ class SignUp extends React.Component {
     var formData = new FormData()
     formData.append('user[first_name]', this.state.firstName)
     formData.append('user[last_name]', this.state.lastName)
-    formData.append('user[email', this.state.email)
+    formData.append('user[email]', this.state.email)
     formData.append('user[username]', this.state.username)
     formData.append('user[password]', this.state.password)
     formData.append('user[profile_image]', this.state.photo)
