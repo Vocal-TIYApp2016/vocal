@@ -24,11 +24,13 @@ class Legislations extends React.Component {
       return <Legislation data={data} key={i} />
     })
     return <div>
+    <div className='hiddenSection'>
       <div  className="col-sm-3 columnContainer">
         <div className="text-center titleFont">Legislation</div>
           <div className='profileBox'>
           {bill}
           </div>
+      </div>
       </div>
     </div>
   }

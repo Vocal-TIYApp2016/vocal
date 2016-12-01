@@ -1,5 +1,6 @@
 import React from 'react'
 import { Router, Route, Link, browserHistory } from 'react-router'
+import { DropdownButton, MenuItem } from 'react-bootstrap'
 
 class ProfileHeader extends React.Component {
   constructor(props) {
@@ -49,9 +50,12 @@ class ProfileHeader extends React.Component {
           <ul className='text-right list-unstyled list-inline'>
             <Link to="/legislators" className="linkStyle"><li className='navItems'>Legislators</li></Link>
             <Link to="/legislation" className="linkStyle"><li className='navItems'>Legislation</li></Link>
-            <Link to="/settings" className="linkStyle"><li className='navItems'>Settings</li></Link>
-            <Link to="/" className="linkStyle" onClick={this.logout}><li className='navItems'>Logout</li></Link>
-
+            <li className='dropdownText'>
+            <DropdownButton title='' id="bg-nested-dropdown" className='glyphicon glyphicon-cog dropdownBtn'>
+             <MenuItem eventKey="1"><Link to='/Settings'>Settings</Link></MenuItem>
+             <MenuItem eventKey="2"><Link to="/" onClick={this.logout}>Logout</Link></MenuItem>
+           </DropdownButton>
+           </li>
           </ul>
         </div>
       </div>

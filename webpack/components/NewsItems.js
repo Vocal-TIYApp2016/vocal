@@ -25,7 +25,7 @@ class NewsItems extends React.Component {
     var news = this.state.newsItems.map((data, i) => {
       return <NewsItem data={data} key={i} />
     })
-    return <div>
+    return <div className='hiddenSection'>
       <div className="col-sm-6 columnContainer">
         <div className="text-center titleFont">News Feed</div>
         <div className='profileBox'>

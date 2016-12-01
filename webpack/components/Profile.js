@@ -14,11 +14,22 @@ class Profile extends React.Component {
       </div> <br/> <br/>
       <div className="container-fluid">
         <div className="row">
-          <Legislators />
-          <NewsItems />
-          <Legislations />
+        <div className="mobileReveal">
+          <div className='col-xs-4'>
+            <button className='btn btn-block mobileNavbar'>Legislators</button>
+          </div>
+          <div className='col-xs-4'>
+          <button className='btn btn-block mobileNavbar'>News Feed</button>
+          </div>
+          <div className='col-xs-4'>
+          <button className='btn btn-block mobileNavbar'>Legislation</button>
+          </div>
         </div>
+        <Legislators />
+        <NewsItems />
+        <Legislations />
       </div>
+    </div>
     </div>
   }
 }
