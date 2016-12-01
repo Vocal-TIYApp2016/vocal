@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     post '/users' => 'users/registrations#create', as: :sign_up, constraints: {format: /(json)/}
   end
 
-  get '/self/:authentication_token' => 'users#show_self'
+  get '/self' => 'users#show_self'
   get '/users/:id' => 'users#show'
 
   get '/:catchall' => 'home#static'
