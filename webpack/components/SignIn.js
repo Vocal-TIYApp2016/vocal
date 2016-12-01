@@ -16,7 +16,7 @@ class SignIn extends React.Component {
       formData.append('login[username]', this.state.username)
       formData.append('login[password]', this.state.password)
       console.log(formData)
-      fetch('/users/sign_in', {
+      fetch('/sessions/sign_in', {
         body: formData,
         method: 'POST'
       })
@@ -24,8 +24,8 @@ class SignIn extends React.Component {
       .then(this.signedinHandler)
   }
   signedinHandler(response) {
-    sessionStorage.setItem('api_token', response.authentication_token)
-    sessionStorage.setItem('user', JSON.stringify(response.user))
+    sessionStorage.setItem('api_token', response.user.authentication_token)
+    window.location.href = '/Profile'
   }
   render() {
     return <div>
