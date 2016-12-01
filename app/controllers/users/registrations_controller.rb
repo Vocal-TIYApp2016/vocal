@@ -20,8 +20,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
       return
     else
       warden.custom_failure!
+      puts user.errors.full_messages
       render json: user.errors, status:422
     end
+
   end
 
   # GET /resource/edit
