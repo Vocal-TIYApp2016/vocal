@@ -16,6 +16,87 @@ class AllLegislations extends React.Component {
           coAuthors: ['john', 'john','john', 'john','john', 'john'],
           longDesc: 'loremsjkflseijiasejfelisafjdaslk;fjadslk;fjdsalkfjaslkf;adjsf;kladjflkdsjfsd;kljasdlsk;afjadslkfajsdlk'
         },
+        {
+          title: 'hb101',
+          shortDesc: 'education education education',
+          authorPic: null,
+          authorName: 'john',
+          coAuthors: ['john', 'john','john', 'john','john', 'john'],
+          longDesc: 'loremsjkflseijiasejfelisafjdaslk;fjadslk;fjdsalkfjaslkf;adjsf;kladjflkdsjfsd;kljasdlsk;afjadslkfajsdlk'
+        },
+        {
+          title: 'hb101',
+          shortDesc: 'education education education',
+          authorPic: null,
+          authorName: 'john',
+          coAuthors: ['john', 'john','john', 'john','john', 'john'],
+          longDesc: 'loremsjkflseijiasejfelisafjdaslk;fjadslk;fjdsalkfjaslkf;adjsf;kladjflkdsjfsd;kljasdlsk;afjadslkfajsdlk'
+        },
+        {
+          title: 'hb101',
+          shortDesc: 'education education education',
+          authorPic: null,
+          authorName: 'john',
+          coAuthors: ['john', 'john','john', 'john','john', 'john'],
+          longDesc: 'loremsjkflseijiasejfelisafjdaslk;fjadslk;fjdsalkfjaslkf;adjsf;kladjflkdsjfsd;kljasdlsk;afjadslkfajsdlk'
+        },
+        {
+          title: 'hb101',
+          shortDesc: 'education education education',
+          authorPic: null,
+          authorName: 'john',
+          coAuthors: ['john', 'john','john', 'john','john', 'john'],
+          longDesc: 'loremsjkflseijiasejfelisafjdaslk;fjadslk;fjdsalkfjaslkf;adjsf;kladjflkdsjfsd;kljasdlsk;afjadslkfajsdlk'
+        },
+        {
+          title: 'hb101',
+          shortDesc: 'education education education',
+          authorPic: null,
+          authorName: 'john',
+          coAuthors: ['john', 'john','john', 'john','john', 'john'],
+          longDesc: 'loremsjkflseijiasejfelisafjdaslk;fjadslk;fjdsalkfjaslkf;adjsf;kladjflkdsjfsd;kljasdlsk;afjadslkfajsdlk'
+        },
+        {
+          title: 'hb101',
+          shortDesc: 'education education education',
+          authorPic: null,
+          authorName: 'john',
+          coAuthors: ['john', 'john','john', 'john','john', 'john'],
+          longDesc: 'loremsjkflseijiasejfelisafjdaslk;fjadslk;fjdsalkfjaslkf;adjsf;kladjflkdsjfsd;kljasdlsk;afjadslkfajsdlk'
+        },
+        {
+          title: 'hb101',
+          shortDesc: 'education education education',
+          authorPic: null,
+          authorName: 'john',
+          coAuthors: ['john', 'john','john', 'john','john', 'john'],
+          longDesc: 'loremsjkflseijiasejfelisafjdaslk;fjadslk;fjdsalkfjaslkf;adjsf;kladjflkdsjfsd;kljasdlsk;afjadslkfajsdlk'
+        },
+        {
+          title: 'hb101',
+          shortDesc: 'education education education',
+          authorPic: null,
+          authorName: 'john',
+          coAuthors: ['john', 'john','john', 'john','john', 'john'],
+          longDesc: 'loremsjkflseijiasejfelisafjdaslk;fjadslk;fjdsalkfjaslkf;adjsf;kladjflkdsjfsd;kljasdlsk;afjadslkfajsdlk'
+        },
+        {
+          title: 'hb101',
+          shortDesc: 'education education education',
+          authorPic: null,
+          authorName: 'john',
+          coAuthors: ['john', 'john','john', 'john','john', 'john'],
+          longDesc: 'loremsjkflseijiasejfelisafjdaslk;fjadslk;fjdsalkfjaslkf;adjsf;kladjflkdsjfsd;kljasdlsk;afjadslkfajsdlk'
+        },
+        {
+          title: 'hb101',
+          shortDesc: 'education education education',
+          authorPic: null,
+          authorName: 'john',
+          coAuthors: ['john', 'john','john', 'john','john', 'john'],
+          longDesc: 'loremsjkflseijiasejfelisafjdaslk;fjadslk;fjdsalkfjaslkf;adjsf;kladjflkdsjfsd;kljasdlsk;afjadslkfajsdlk'
+        },
+
       ]
     }
   }
@@ -44,7 +125,7 @@ class AllLegislations extends React.Component {
               <li className='btn legText yearText'>2014</li>
             </ul>
           </div>
-          <div className="col-sm-9 borderBills" id="page-wrap">
+          <div className="col-sm-9 borderBills whiteBackground">
             {alllegislation}
 
 

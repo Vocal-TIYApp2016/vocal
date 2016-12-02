@@ -9,6 +9,9 @@ import LegislatorProfile from './components/LegislatorProfile'
 import AllLegislations from './components/AllLegislations'
 import AllLegislators from './components/AllLegislators'
 import Settings from './components/Settings'
+import MobileLegislations from './components/MobileLegislations'
+import MobileLegislators from './components/MobileLegislators'
+import MobileNewsItems from './components/MobileNewsItems'
 
 document.addEventListener('DOMContentLoaded', function(event) {
    ReactDOM.render(
@@ -17,9 +20,12 @@ document.addEventListener('DOMContentLoaded', function(event) {
            <Route path='/signup' component={SignUp} />
            <Route path='/signin' component={SignIn} />
            <Route path='/profile' component={Profile} />
+           <Route path='/legislation' component={MobileLegislations} />
+           <Route path='/news' component={MobileNewsItems} />
+           <Route path='/legislators' component={MobileLegislators} />
            <Route path='/legislatorprofile' component={LegislatorProfile} />
-           <Route path='/legislation' component={AllLegislations} />
-           <Route path='/legislators' component={AllLegislators} />
+           <Route path='/alllegislation' component={AllLegislations} />
+           <Route path='/alllegislators' component={AllLegislators} />
            <Route path='/settings' component={Settings} />
        </Router> ,
        document.querySelector('#app')
