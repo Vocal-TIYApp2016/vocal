@@ -38,17 +38,11 @@ def chamber_finder(proto_title)
   return title
 end
 
-def picture_finder(proto_link)
-  assembled = assembler("https://api.iga.in.gov/#{proto_link}")
-  picture_link = assembled[:pngDownloadLink]
-  return picture_link
-end
-
 def committees_list(proto_link)
   list = []
   assembled = assembler("https://api.iga.in.gov/#{proto_link}")
   assembled[:committees].each do |committee|
-    list << committee[:name]
+    list << committee
   end
 end
 
@@ -60,7 +54,7 @@ def authored_list(proto_link)
   authored_link = assembled_bills[:authored][:link]
   assembled_authored = assembler("https://api.iga.in.gov/#{authored_link}")
   assembled_authored[:items].each do |item|
-    list << item[:link]
+    list << item
   end
 end
 
@@ -72,28 +66,31 @@ def sponsored_list(proto_link)
   sponsored_link = assembled_bills[:sponsored][:link]
   assembled_sponsored = assembler("https://api.iga.in.gov/#{sponsored_link}")
   assembled_sponsored[:items].each do |item|
-    list << item[:link]
+    list << item
   end
 end
 
 def legislator_factory(year)
   assembled = assembler("https://api.iga.in.gov/#{year.to_s}/legislators")
   n = 1
+  sample = 5
     assembled[:items].each do |proto|
-      Legislator.create!(
-        first_name: proto[:firstName],
-        last_name: proto[:lastName],
-        party: proto[:party],
-        chamber: chamber_finder(proto[:position_title]),
-        title: proto[:position_title],
-        remote_leg_image_url: "http://iga.in.gov/legislative/#{year.to_s}/portraits/" + picture_finder(proto[:link]),
-        committees: committees_list(proto[:link]),
-        authored: authored_list(proto[:link]),
-        sponsored: sponsored_list(proto[:link])
-        )
+      until n > sample do
+        Legislator.create!(
+          first_name: proto[:firstName],
+          last_name: proto[:lastName],
+          party: proto[:party],
+          chamber: chamber_finder(proto[:position_title]),
+          title: proto[:position_title],
+          remote_leg_image_url: "http://iga.in.gov/legislative/#{year.to_s}/portraits/legislator_#{proto[:link].to_s[18..-1]}",
+          committees: committees_list(proto[:link]),
+          authored: authored_list(proto[:link]),
+          sponsored: sponsored_list(proto[:link])
+          )
         puts "#{year}, #{n}"
         n +=1
       end
+    end
 end
 
 
