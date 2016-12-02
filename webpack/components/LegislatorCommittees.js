@@ -5,17 +5,23 @@ import LegislatorCommittee from './LegislatorCommittee'
 class LegislatorCommittees extends React.Component {
   constructor(props) {
     super(props)
+    this.updateCommittees = this.updateCommittees.bind(this)
     this.state = {
-      committees: [
-        {
-        title: 'lorem lorem lorem'
-      },
-      {
-      title: 'title title title'
-    }
-    ]
-    }
+      committees: []
   }
+}
+
+  componentDidMount() {
+    fetch('/legislators/' +  sessionStorage.getItem('legislator_id'))
+    .then(response => response.json())
+    .then(this.updateCommittees)
+    // .then(response => console.log(response))
+   }
+   updateCommittees(data) {
+     this.setState ({
+       committees: data.legislator.committees
+     })
+   }
 
   render() {
     var committee = this.state.committees.map((data, i) => {
