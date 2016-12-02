@@ -15,8 +15,6 @@ class ApplicationController < ActionController::Base
 
   private
 
-  private
-
   def current_user
     @current_user ||= User.find_by(authentication_token: params[:authentication_token])
   end
