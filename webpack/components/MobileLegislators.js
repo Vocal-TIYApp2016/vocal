@@ -29,18 +29,7 @@ class MobileLegislators extends React.Component {
       return <Legislator data={data} key={i} />
     })
     return <div>
-      <ProfileHeader />
-      <div className="mobileReveal">
-        <div className='col-xs-4 noPadding'>
-        <Link to='/legislators'><button className='btn btn-block mobileNavbar'>Legislators</button></Link>
-        </div>
-        <div className='col-xs-4'>
-        <Link to='/news'><button className='btn btn-block mobileNavbar'>News Feed</button></Link>
-        </div>
-        <div className='col-xs-4'>
-        <Link to='/legislation'><button className='btn btn-block mobileNavbar'>Legislation</button></Link>
-        </div>
-      </div>
+     
       <div className="col-xs-12 columnContainer">
          <div className='profileBox'>
           {legislator}
