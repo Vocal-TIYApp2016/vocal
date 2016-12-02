@@ -42,7 +42,7 @@ class ProfileHeader extends React.Component {
           <h1 className='logoFont'>vocal</h1>
         </div>
         <div className='col-sm-4'>
-          <img src={this.state.photo} alt='profile photo' className='img-responsive center-block img-circle profileImg' />
+          <img src={this.state.photo} alt='profile photo' className='center-block img-circle profileImg img-responsive' />
           <br />
           <h2 className="text-center profileText">{this.state.firstName} {this.state.lastName}</h2>
           <h5 className="text-center profileTextTwo">{this.state.username} | 200</h5>
