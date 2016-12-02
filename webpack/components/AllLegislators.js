@@ -19,10 +19,9 @@ class AllLegislators extends React.Component {
   fetchAllLegislators(){
       fetch('/legislators')
       .then(response => response.json())
-      // .then(response => this.setState({legislators: response.legislators}))
-      .then(response => console.log(response))
+      .then(response => this.setState({legislators: response.legislators}))
+      // .then(response => console.log(response))
   }
-
 
   render() {
     var alllegislators = this.state.legislators.map((data, i) => {

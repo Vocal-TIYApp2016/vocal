@@ -37,13 +37,13 @@ class SignIn extends React.Component {
           <div className="col-sm-12">
             <div className="form-group">
               <label htmlFor="username"></label>
-                <input type="text" id="username" name="username" className="fieldForm" required value={this.state.username} onChange={(e) => this.setState({username:e.target.value})} placeholder="username" />
+                <input type="text" id="username" name="username" className="fieldForm" required value={this.state.username} onChange={(e) => this.setState({username:e.target.value})} placeholder="USERNAME" />
             </div>
           </div>
           <div className="col-sm-12">
             <div className="form-group">
               <label htmlFor="password"></label>
-                <input type="password" id="password" name="password" className="fieldForm" required value={this.state.password} onChange={(e) => this.setState({password:e.target.value})} placeholder="password" />
+                <input type="password" id="password" name="password" className="fieldForm" required value={this.state.password} onChange={(e) => this.setState({password:e.target.value})} placeholder="PASSWORD" />
             </div>
           </div>
           <div className="col-sm-12">
