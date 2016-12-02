@@ -79,7 +79,7 @@ class SignUp extends React.Component {
               <div className="col-sm-6">
                 <div className="form-group">
                   <label htmlFor="zip"></label>
-                    <input type="text" id="zip" name="zip" className="fieldForm" required value={this.state.zip} onChange={(e) => this.setState({zip:e.target.value})} placeholder="zip" />
+                    <input type="tel" id="zip" name="zip" className="fieldForm" required value={this.state.zip} onChange={(e) => this.setState({zip:e.target.value})} placeholder="zip" />
                 </div>
               </div>
               <div className="col-sm-6">
