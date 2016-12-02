@@ -264,6 +264,8 @@ GEM
       actionpack (>= 3.2.6, < 6)
       devise (>= 3.2, < 6)
     slop (3.6.0)
+    socialization (1.2.0)
+      activerecord
     spring (2.0.0)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
@@ -338,6 +340,7 @@ DEPENDENCIES
   shoulda-matchers
   simple_token_authentication (~> 1.0)
   sinatra!
+  socialization
   spring
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)

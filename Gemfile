@@ -18,6 +18,7 @@ gem 'coffee-rails', '~> 4.2'
 # Users
 gem 'simple_token_authentication', '~> 1.0'
 gem 'devise'
+gem 'socialization'
 # Pagination
 gem 'kaminari'
 # Use jquery as the JavaScript library

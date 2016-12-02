@@ -31,13 +31,12 @@ end
 
 def chamber_finder(proto_title)
   if proto_title == "Senator"
-    return "Senate"
+    title = "Senate"
   elsif proto_title == "Representative"
-    return "House"
+    title = "House"
   end
+  return title
 end
-
-
 
 def picture_finder(proto_link)
   assembled = assembler("https://api.iga.in.gov/#{proto_link}")
@@ -48,11 +47,9 @@ end
 def committees_list(proto_link)
   list = []
   assembled = assembler("https://api.iga.in.gov/#{proto_link}")
-  puts assembled.inspect
   assembled[:committees].each do |committee|
     list << committee[:name]
   end
-  return list
 end
 
 def authored_list(proto_link)
@@ -81,20 +78,22 @@ end
 
 def legislator_factory(year)
   assembled = assembler("https://api.iga.in.gov/#{year.to_s}/legislators")
-
+  n = 1
     assembled[:items].each do |proto|
       Legislator.create!(
         first_name: proto[:firstName],
         last_name: proto[:lastName],
         party: proto[:party],
-        chamber: chamber_finder(proto[:title]),
-        title: proto[:title],
-        remote_leg_image_url: "http://iga.in.gov/legislative/(#{year})/portraits/" + picture_finder(proto[:link]),
+        chamber: chamber_finder(proto[:position_title]),
+        title: proto[:position_title],
+        remote_leg_image_url: "http://iga.in.gov/legislative/#{year.to_s}/portraits/" + picture_finder(proto[:link]),
         committees: committees_list(proto[:link]),
         authored: authored_list(proto[:link]),
+        sponsored: sponsored_list(proto[:link])
         )
-    end
-
+        puts "#{year}, #{n}"
+        n +=1
+      end
 end
 
 

@@ -11,6 +11,8 @@ Rails.application.routes.draw do
     post '/users/sign_in' => 'users/sessions#create', as: :sign_in, constraints: {format: /(json)/}
   end
 
+  get '/legislators' => 'legislators#index'
+  get '/legislators/:id' => 'legislators#show'
   get '/self' => 'users#show_self'
   get '/users/:id' => 'users#show'
   # patch for update
