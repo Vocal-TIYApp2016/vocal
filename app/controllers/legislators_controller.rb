@@ -6,12 +6,12 @@ class LegislatorsController < ApplicationController
   end
 
   def show
-    @legislator = Legislator.find(param[:id])
+    @legislator = Legislator.find(params[:id])
     render json: @legislator
   end
 
   def filter
-    
+
   end
 
 end
