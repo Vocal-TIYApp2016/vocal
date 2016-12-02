@@ -1,7 +1,7 @@
 import React from 'react'
 import { Router, Route, Link, browserHistory } from 'react-router'
 
-class ProfileHeader extends React.Component {
+class LegislatorHeader extends React.Component {
   constructor(props) {
     super(props)
     this.updateLegislator = this.updateLegislator.bind(this)
@@ -16,18 +16,19 @@ class ProfileHeader extends React.Component {
     }
   }
   componentDidMount() {
-    fetch('/users/' +  sessionStorage.getItem('user_id'))
+    fetch('/legislators/' +  sessionStorage.getItem('legislator_id'))
     .then(response => response.json())
     .then(this.updateLegislator)
+    // .then(response => console.log(response))
    }
 
    updateLegislator(userData) {
     this.setState ({
-      photo: userData.profile_image,
-      firstName: userData.first_name,
-      lastName: userData.last_name,
-      party: userData.party,
-      title: userData.title
+      photo: userData.legislator.leg_image,
+      firstName: userData.legislator.first_name,
+      lastName: userData.legislator.last_name,
+      party: userData.legislator.party,
+      title: userData.legislator.title
     })
    }
 
@@ -61,4 +62,4 @@ class ProfileHeader extends React.Component {
     </div>
   }
 }
-export default ProfileHeader
+export default LegislatorHeader

@@ -6,7 +6,7 @@ import LegislatorNewsItems from './LegislatorNewsItems'
 import LegislatorCommittees from './LegislatorCommittees'
 
 
-class Profile extends React.Component {
+class LegislatorProfile extends React.Component {
   render() {
     return <div>
       <div className='container-fluid'>
@@ -23,4 +23,4 @@ class Profile extends React.Component {
     </div>
   }
 }
-export default Profile
+export default LegislatorProfile
