@@ -13,6 +13,7 @@ class User < ApplicationRecord
 
   validate :validate_username
 
+  acts_as_follower
   acts_as_token_authenticatable
   attachment :profile_image
   attr_accessor :login
