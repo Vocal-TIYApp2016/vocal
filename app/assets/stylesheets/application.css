@@ -350,37 +350,41 @@ body {
 
 /*mobile classes*/
 @media all and (max-width: 767px) {
-.mobLandingBtnIn {
-  margin-top: 0px;
+   .mobLandingBtnIn {
+     margin-top: 0px;
+   }
+   .mobLandingBtnUp {
+      text-align: center;
+   }
+   .mobLandingBtnRow {
+      text-align: center;
+   }
+   .mobLandingBtnUpRight {
+      text-align: center;
+   }
+   .avatarText {
+      font-size: 30px;
+   }
+   .followBtn {
+     width: 100%
+   }
+   .hiddenSection{
+      display: none;
+   }
 }
-.mobLandingBtnUp {
-   text-align: center;
-}
-.mobLandingBtnRow {
-   text-align: center;
-}
-.mobLandingBtnUpRight {
-   text-align: center;
-}
-.avatarText {
-   font-size: 30px;
-}
-.followBtn {
-  width: 100%
-}
-.hiddenSection{
-   display: none;
-}
-}
+
 @media all and (max-width: 1017px) {
    .profileNav {
       display: inline;
    }
+}
+
 @media all and (min-width: 767px) and (max-width: 1500px) {
    .mobileReveal {
       display: none;
    }
 }
+
 @media all and (min-width: 1017px) and (max-width:1500px) {
    .mobileReveal {
       display: none;

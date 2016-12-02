@@ -6,41 +6,24 @@ import ShortHeader from './ShortHeader'
 class AllLegislators extends React.Component {
   constructor(props) {
     super(props)
+    this.fetchAllLegislators = this.fetchAllLegislators.bind(this)
     this.state = {
-      legislators: [
-        {
-          firstName: 'Bill',
-          lastName: 'Tooty',
-          title: 'President',
-          photo: null
-        },
-        {
-          firstName: 'Bill',
-          lastName: 'Tooty',
-          title: 'President',
-          photo: null
-        },
-        {
-          firstName: 'Bill',
-          lastName: 'Tooty',
-          title: 'President',
-          photo: null
-        },
-        {
-          firstName: 'Bill',
-          lastName: 'Tooty',
-          title: 'President',
-          photo: null
-        },
-        {
-          firstName: 'Bill',
-          lastName: 'Tooty',
-          title: 'President',
-          photo: null
-        },
-      ]
+      legislators: []
     }
   }
+
+  componentDidMount() {
+      this.fetchAllLegislators()
+  }
+
+  fetchAllLegislators(){
+      fetch('/legislators')
+      .then(response => response.json())
+      // .then(response => this.setState({legislators: response.legislators}))
+      .then(response => console.log(response))
+  }
+
+
   render() {
     var alllegislators = this.state.legislators.map((data, i) => {
       return <SingleLegislator data={data} key={i} />
