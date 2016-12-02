@@ -10,13 +10,11 @@ class SingleLegislator extends React.Component {
 
   render() {
     return <div>
-
         <div className='col-sm-3'>
-          <img src='https://unsplash.it/400?random' className='profileImg img-response img-circle center-block' alt='important person' />
+          <img src={this.props.data.leg_image} className='profileImg img-response img-circle center-block' alt='legislator photo' />
           <div className='text-center legText'>{this.props.data.title} <br/>
-          {this.props.data.firstName} {this.props.data.lastName}</div>
+          {this.props.data.first_name} {this.props.data.last_name}</div>
         </div>
-
     </div>
   }
 }

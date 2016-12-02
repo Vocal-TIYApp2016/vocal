@@ -19,10 +19,11 @@ document.addEventListener('DOMContentLoaded', function(event) {
            <Route path='/' component={Landing} />
            <Route path='/signup' component={SignUp} />
            <Route path='/signin' component={SignIn} />
-           <Route path='/profile' component={Profile} />
-           <Route path='/legislation' component={MobileLegislations} />
-           <Route path='/news' component={MobileNewsItems} />
-           <Route path='/legislators' component={MobileLegislators} />
+           <Route path='/profile' component={Profile}>
+               <Route path='legislation' component={MobileLegislations} />
+               <Route path='news' component={MobileNewsItems} />
+               <Route path='legislators' component={MobileLegislators} />
+           </Route>
            <Route path='/legislatorprofile' component={LegislatorProfile} />
            <Route path='/alllegislation' component={AllLegislations} />
            <Route path='/alllegislators' component={AllLegislators} />
