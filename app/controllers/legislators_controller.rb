@@ -10,4 +10,8 @@ class LegislatorsController < ApplicationController
     render json: @legislator
   end
 
+  def filter
+    
+  end
+
 end
