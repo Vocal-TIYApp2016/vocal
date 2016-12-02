@@ -72,10 +72,8 @@ end
 
 def legislator_factory(year)
   assembled = assembler("https://api.iga.in.gov/#{year.to_s}/legislators")
-  n = 1
-  sample = 5
-    assembled[:items].each do |proto|
-      until n > sample do
+    n = 1
+    assembled[:items][0..5].each do |proto|
         Legislator.create!(
           first_name: proto[:firstName],
           last_name: proto[:lastName],
@@ -88,9 +86,8 @@ def legislator_factory(year)
           sponsored: sponsored_list(proto[:link])
           )
         puts "#{year}, #{n}"
-        n +=1
+        n += 1
       end
-    end
 end
 
 
