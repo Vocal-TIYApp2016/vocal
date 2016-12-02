@@ -18,8 +18,12 @@
 
 # Ignore application configuration
 /config/application.yml
+
 # Added by webpack-rails
 /node_modules
+
+# Ignore pipeline js
+/app/assets/javascripts
 
 .DS\_Store
 *.sw?
