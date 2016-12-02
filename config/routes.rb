@@ -18,4 +18,5 @@ Rails.application.routes.draw do
   get '/users/:id' => 'users#show'
   # patch for update
   get '/:catchall' => 'home#static'
+  get '/:catchall/:catchall' => 'home#static'
 end
