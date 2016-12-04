@@ -3,7 +3,7 @@ require "refile/s3"
 aws = {
   access_key_id: "#{ENV['AWS_ACCESS_KEY_ID']}",
   secret_access_key: "#{ENV['AWS_SECRET_ACCESS_KEY']}",
-  region: "us-east-1",
+  region: "us-east-2",
   bucket: "vocal-in.herokuapp.com",
 }
 Refile.cache = Refile::S3.new(prefix: "cache", **aws)
