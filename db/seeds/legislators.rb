@@ -76,7 +76,7 @@ end
 def legislator_factory(year)
   assembled = assembler("https://api.iga.in.gov/#{year.to_s}/legislators")
     n = 1
-    assembled[:items][87..-1].each do |proto|
+    assembled[:items].each do |proto|
         Legislator.create!(
           first_name: proto[:firstName],
           last_name: proto[:lastName],
@@ -95,5 +95,5 @@ end
 
 
 # legislator_factory(2016)
-legislator_factory(2015)
-# legislator_factory(2014)
+# legislator_factory(2015)
+legislator_factory(2014)
