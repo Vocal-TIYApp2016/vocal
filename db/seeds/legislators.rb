@@ -73,7 +73,7 @@ end
 def legislator_factory(year)
   assembled = assembler("https://api.iga.in.gov/#{year.to_s}/legislators")
     n = 1
-    assembled[:items].each do |proto|
+    assembled[:items][0..4].each do |proto|
         Legislator.create!(
           first_name: proto[:firstName],
           last_name: proto[:lastName],
