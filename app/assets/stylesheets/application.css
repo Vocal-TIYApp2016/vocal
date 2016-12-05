@@ -28,6 +28,7 @@ body {
     letter-spacing: 5px;
     text-transform: uppercase;
     margin-left: 10px;
+    display: inline-block;
 }
 .landingBtn {
    background-color: white;
