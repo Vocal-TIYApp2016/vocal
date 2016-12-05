@@ -101,9 +101,13 @@ body {
 }
 
 .profileImg {
-   /*width: 200px;
-   height: 200px;*/
    margin-top: 50px;
+   cursor: pointer;
+}
+#fixedPhoto {
+    width: 200px;
+    height: 200px;
+    cursor: default;
 }
 
 .profileText {
@@ -145,16 +149,14 @@ body {
 
 .legislatorInfo {
    background-color: white;
-   padding: 0px;
-   border-right: 3px solid #223843;
 }
 .newsInfo {
    background-color: white;
    padding: 0px;
    border-right: 3px solid #223843;
+   border-left: 3px solid #223843;
    border-bottom: 1px solid grey;
 }
-
 .legislatorImg {
    height: 80px;
    width: 80px;
@@ -167,7 +169,7 @@ body {
    text-transform: uppercase;
    letter-spacing: 2px;
    font-size: 15px;
-   padding-top: 25px;
+   padding-top: 20px;
 }
 .followBtn {
    margin-top: 25px;
@@ -204,10 +206,7 @@ body {
    overflow-x: scroll;
    background-color: white;
 }*/
-/*.columnContainer {
-   padding: 0px;
-   padding-left: -15px;
-}*/
+
 .billBtn {
    width: 100%;
    height: 45px;

@@ -6,16 +6,19 @@ import { Accordian, Panel, Button } from 'react-bootstrap'
 
 var resultsArray = []
 var alllegislators = []
+var results = []
 
 class AllLegislators extends React.Component {
   constructor(props) {
     super(props)
     this.fetchAllLegislators = this.fetchAllLegislators.bind(this)
     this.filterResult = this.filterResult.bind(this)
+    // this.doesItContain = this.doesItContain.bind(this)
     this.state = {
       legislators: [],
       open: false,
-      searchText: ''
+      searchText: '',
+      results: []
     }
   }
 
@@ -26,26 +29,35 @@ class AllLegislators extends React.Component {
   fetchAllLegislators(){
       fetch('/legislators')
       .then(response => response.json())
-      .then(response => this.setState({legislators: response.legislators}))
+      .then(response => this.setState({legislators: response.legislators, results: response.legislators}))
+
   }
+
 
   filterResult(e){
-    var searchText = e.target.value
-    var searchResults = this.state.legislators.forEach(function(element){
-      return element.first_name
+    resultsArray = []
+    var searchText = e.target.value.charAt(0).toUpperCase() + e.target.value.slice(1)
+    var defaultArray = this.state.legislators
+    var newResults = defaultArray.forEach(function(element){
+      if(element.first_name.includes(searchText) || element.last_name.includes(searchText))
+      {
+        resultsArray.push(element)
+      }
     })
-    console.log(searchResults)
-    // console.log(searchResults)
+    this.setState({results: resultsArray})
+    console.log(this.state.results)
   }
-
-
-
-
-
   render() {
-    alllegislators = this.state.legislators.map((data, i) => {
+    // alllegislators = this.state.legislators.map((data, i) => {
+    //   return <SingleLegislator data={data} key={i} />
+    // })
+
+    var searchalllegislators = this.state.results.map((data, i) => {
       return <SingleLegislator data={data} key={i} />
     })
+
+
+
     return <div>
       <div className='container-fluid'>
         <ShortHeader />
@@ -56,15 +68,19 @@ class AllLegislators extends React.Component {
           <div className="col-sm-3 hiddenSection">
             <ul className='list-unstyled yearsNav text-right'>
             <li className="input-group">
-              <input type="text" id='legislatorSearch' className="form-control" placeholder="Search for..." onChange={this.filterResult} />
+              <input type="text" id='legislatorSearch' className="form-control" placeholder="Search for..." onKeyDown={this.filterResult} />
               <span className="input-group-btn">
                 <button className="btn btn-default" type="button">
          <span className="glyphicon glyphicon-search" aria-hidden="true"></span></button>
               </span>
             </li><br/>
-              <li className='btn legText yearText'>2016</li>
-              <li className='btn legText yearText'>2015</li>
-              <li className='btn legText yearText'>2014</li>
+              <div className="legText text-center">Filter by Year</div>
+                <li className='btn legText yearText'>2016</li>
+                <li className='btn legText yearText'>2015</li>
+                <li className='btn legText yearText'>2014</li>
+              <div className="legText text-center">Filter by Title</div>
+                <li className='btn legText yearText'>Senator</li>
+                <li className='btn legText yearText'>Representative</li>
             </ul>
           </div>
 
@@ -80,16 +96,16 @@ class AllLegislators extends React.Component {
             <div className="navItems text-left">filter</div>
           </Button>
           <Panel collapsible expanded={this.state.open}>
-            Filter by Year
+          <div className="legText text-left">Filter by Year</div>
           <ul className='list-unstyled yearsNav text-right'>
             <li className='btn legText yearText'>2016</li>
             <li className='btn legText yearText'>2015</li>
             <li className='btn legText yearText'>2014</li>
-          </ul><br/>
-          Filter by Title
+          </ul>
+          <div className="legText text-left">Filter by Title</div>
           <ul className="list-unstyled yearsNav text-right">
-          <li className='btn legText yearText'>Senate</li>
-          <li className='btn legText yearText'>House</li>
+          <li className='btn legText yearText'>Senator</li>
+          <li className='btn legText yearText'>Representative</li>
           </ul>
           </Panel>
           </div>
@@ -97,6 +113,7 @@ class AllLegislators extends React.Component {
           <div className="col-sm-9 borderBills whiteBackground">
           <div onClick={this.showLegislator}>
             {alllegislators}
+            {searchalllegislators}
           </div>
           </div>
         </div>
