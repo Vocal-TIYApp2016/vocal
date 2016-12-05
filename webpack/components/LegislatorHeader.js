@@ -1,10 +1,13 @@
 import React from 'react'
 import { Router, Route, Link, browserHistory } from 'react-router'
+import { DropdownButton, MenuItem } from 'react-bootstrap'
+
 
 class LegislatorHeader extends React.Component {
   constructor(props) {
     super(props)
     this.updateLegislator = this.updateLegislator.bind(this)
+    this.updatePhoto = this.updatePhoto.bind(this)
     this.logout = this.logout.bind(this)
     this.state = {
       title: "--",
@@ -12,6 +15,7 @@ class LegislatorHeader extends React.Component {
       lastName: "--",
       photo: null,
       party: "--",
+      userPhoto: null,
       // points: '',
     }
   }
@@ -20,6 +24,10 @@ class LegislatorHeader extends React.Component {
     .then(response => response.json())
     .then(this.updateLegislator)
     // .then(response => console.log(response))
+
+    fetch('/self/?authentication_token=' +  sessionStorage.getItem('api_token'))
+    .then(response => response.json())
+    .then(this.updatePhoto)
    }
 
    updateLegislator(userData) {
@@ -31,6 +39,12 @@ class LegislatorHeader extends React.Component {
       title: userData.legislator.title
     })
    }
+
+    updatePhoto(userData) {
+     this.setState ({
+       userPhoto: userData.user.profile_image,
+     })
+    }
 
    logout(){
      sessionStorage.removeItem('user_id')
@@ -53,9 +67,13 @@ class LegislatorHeader extends React.Component {
           <ul className='text-right list-unstyled list-inline'>
             <Link to="/legislators" className="linkStyle"><li className='navItems'>Legislators</li></Link>
             <Link to="/legislation" className="linkStyle"><li className='navItems'>Legislation</li></Link>
-            <Link to="/settings" className="linkStyle"><li className='navItems'>Settings</li></Link>
-            <Link to="/" className="linkStyle" onClick={this.logout}><li className='navItems'>Logout</li></Link>
-
+            <span className='navItems dropdownText'>
+            <DropdownButton title='' id="bg-nested-dropdown" className='glyphicon glyphicon-cog dropdownBtn'>
+             <MenuItem eventKey="1"><Link to='/Settings'>Settings</Link></MenuItem>
+             <MenuItem eventKey="2"><Link to="/" onClick={this.logout}>Logout</Link></MenuItem>
+           </DropdownButton>
+           </span>
+            <Link className="linkStyleImg" to='/Profile'><li><img src={this.state.userPhoto} alt='profile photo' className='img-responsive img-circle smlProfileImg' /></li></Link>
           </ul>
         </div>
       </div>

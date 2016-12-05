@@ -14,6 +14,18 @@ class LegislatorProfile extends React.Component {
       </div> <br/> <br/>
       <div className="container-fluid">
         <div className="row">
+          <div className="mobileReveal">
+            <div className='col-xs-4'>
+            <Link to='/legislatorprofile/committees'><button className='btn btn-block mobileNavbar'>Committees</button></Link>
+            </div>
+            <div className='col-xs-4'>
+            <Link to='/legislatorprofile/news'><button className='btn btn-block mobileNavbar'>News Feed</button></Link>
+            </div>
+            <div className='col-xs-4'>
+            <Link to='/legislatorprofile/legislation'><button className='btn btn-block mobileNavbar'>Legislation</button></Link>
+            </div>
+            {this.props.children}
+          </div>
           <LegislatorCommittees />
           <LegislatorNewsItems />
           <LegislatorBills />

@@ -2,18 +2,18 @@ import React from 'react'
 import { Router, Route, Link, browserHistory } from 'react-router'
 import NewsItem from './NewsItem'
 
-class LegislatorNewsItems extends React.Component {
+class MobileLegNewsItems extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      LegislatorNewsItems: [
+      newsItems: [
         {
         headline: 'lorem lorem lorem lorem',
         source: 'New york times',
         date: '12/1/16',
       },
       {
-      headline: 'lorem lorem LEGISLATOR lorem lorem headline',
+      headline: 'lorem lorem lorem lorem headline',
       source: 'cnn',
       date: '12/3/16',
     }
@@ -22,20 +22,18 @@ class LegislatorNewsItems extends React.Component {
   }
 
   render() {
-    var news = this.state.LegislatorNewsItems.map((data, i) => {
+    var news = this.state.newsItems.map((data, i) => {
       return <NewsItem data={data} key={i} />
     })
     return <div>
-    <div className='hiddenSection'>
-      <div className="col-sm-6 columnContainer">
-        <div className="text-center titleFont">News Feed</div>
+
+      <div className="col-xs-12 columnContainer">
         <div className='profileBox'>
           {news}
           </div>
       </div>
     </div>
-    </div>
   }
 }
 
-export default LegislatorNewsItems
+export default MobileLegNewsItems
