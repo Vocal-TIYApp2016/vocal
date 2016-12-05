@@ -14,7 +14,7 @@ def raw_parts(end_point)
     method: :get,
     params: {
       per_page: "160"
-    }
+    },
     headers: {
       Accept: "application/vnd.myiga.v1+json",
       Authorization: "#{ENV['IGA_TOKEN']}"
