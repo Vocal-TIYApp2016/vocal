@@ -12,6 +12,9 @@ import Settings from './components/Settings'
 import MobileLegislations from './components/MobileLegislations'
 import MobileLegislators from './components/MobileLegislators'
 import MobileNewsItems from './components/MobileNewsItems'
+import MobileLegLegislation from './components/MobileLegLegislation'
+import MobileLegCommittees from './components/MobileLegCommittees'
+import MobileLegNewsItems from './components/MobileLegNewsItems'
 
 document.addEventListener('DOMContentLoaded', function(event) {
    ReactDOM.render(
@@ -24,7 +27,11 @@ document.addEventListener('DOMContentLoaded', function(event) {
                <Route path='news' component={MobileNewsItems} />
                <Route path='legislators' component={MobileLegislators} />
            </Route>
-           <Route path='/legislatorprofile' component={LegislatorProfile} />
+           <Route path='/legislatorprofile' component={LegislatorProfile} >
+               <Route path='committees' component={MobileLegCommittees} />
+               <Route path='news' component={MobileLegNewsItems} />
+               <Route path='legislation' component={MobileLegLegislation} />
+           </Route>
            <Route path='/alllegislation' component={AllLegislations} />
            <Route path='/alllegislators' component={AllLegislators} />
            <Route path='/settings' component={Settings} />

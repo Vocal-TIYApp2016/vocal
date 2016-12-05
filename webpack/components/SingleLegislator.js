@@ -10,7 +10,7 @@ class SingleLegislator extends React.Component {
   showLegislator(response) {
     sessionStorage.removeItem('legislator_id', this.props.data.id)
     sessionStorage.setItem('legislator_id', this.props.data.id)
-    window.location.href = '/legislatorprofile'
+    window.location.href = '/legislatorprofile/committees'
   }
 
   render() {

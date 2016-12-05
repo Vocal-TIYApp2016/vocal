@@ -2,7 +2,7 @@ import React from 'react'
 import { Router, Route, Link, browserHistory } from 'react-router'
 import LegislatorCommittee from './LegislatorCommittee'
 
-class LegislatorCommittees extends React.Component {
+class MobileLegCommittees extends React.Component {
   constructor(props) {
     super(props)
     this.updateCommittees = this.updateCommittees.bind(this)
@@ -28,16 +28,16 @@ class LegislatorCommittees extends React.Component {
       return <LegislatorCommittee data={data} key={i} />
     })
     return <div>
-    <div className='hiddenSection'>
-      <div  className="col-sm-3 columnContainer">
+
+      <div  className="col-xs-12 columnContainer">
         <div className="text-center titleFont">Committees</div>
          <div className='profileBox'>
           {committee}
           </div>
       </div>
     </div>
-  </div>
+
   }
 }
 
-export default LegislatorCommittees
+export default MobileLegCommittees
