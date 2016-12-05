@@ -41,7 +41,7 @@ gem 'webpack-rails'
 # Spaghetti for images
 gem 'sinatra', github: 'sinatra/sinatra'
 gem "refile", require: "refile/rails", github: 'refile/refile'
-gem "refile-mini_magick"
+gem 'refile-mini_magick'
 gem 'refile-postgres', '~> 1.4'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'

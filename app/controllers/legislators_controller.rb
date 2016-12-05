@@ -7,6 +7,8 @@ class LegislatorsController < ApplicationController
 
   def show
     @legislator = Legislator.find(params[:id])
+    @authored =
+    @sponsored = 
     render json: @legislator
   end
 
