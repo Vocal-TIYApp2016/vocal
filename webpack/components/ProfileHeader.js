@@ -46,7 +46,7 @@ class ProfileHeader extends React.Component {
               <Link to="/alllegislation" className="linkStyle"><li className='navItems'>Legislation</li></Link>
               <li className='dropdownText'>
               <DropdownButton title='' id="bg-nested-dropdown" className='glyphicon glyphicon-cog dropdownBtn'>
-               <MenuItem eventKey="1"><Link to='/Settings'>Settings</Link></MenuItem>
+               <MenuItem eventKey="1"><Link to='/settings'>Settings</Link></MenuItem>
                <MenuItem eventKey="2"><Link to="/" onClick={this.logout}>Logout</Link></MenuItem>
              </DropdownButton>
              </li>
@@ -55,7 +55,7 @@ class ProfileHeader extends React.Component {
         </div>
         <div className="row">
         <div className='col-sm-12'>
-          <img src={this.state.photo} alt='profile photo' className='center-block img-circle profileImg img-responsive' />
+          <img src={this.state.photo} alt='profile photo' className='center-block img-circle profileImg img-responsive' id="fixedPhoto"/>
           <br />
           <h2 className="text-center profileText">{this.state.firstName} {this.state.lastName}</h2>
           <h5 className="text-center profileTextTwo">{this.state.username} | 200</h5>
@@ -70,7 +70,7 @@ class ProfileHeader extends React.Component {
             <DropdownButton title='' id="bg-nested-dropdown" className='glyphicon glyphicon-cog dropdownBtn'>
              <MenuItem eventKey="1"><Link to='/alllegislators'>Legislators</Link></MenuItem>
              <MenuItem eventKey="2"><Link to='/alllegislation'>Legislation</Link></MenuItem>
-             <MenuItem eventKey="3"><Link to='/Settings'>Settings</Link></MenuItem>
+             <MenuItem eventKey="3"><Link to='/settings'>Settings</Link></MenuItem>
              <MenuItem eventKey="4"><Link to="/" onClick={this.logout}>Logout</Link></MenuItem>
            </DropdownButton>
             </div>

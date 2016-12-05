@@ -57,15 +57,15 @@ class LegislatorHeader extends React.Component {
         <div className='col-sm-12'>
           <h1 className='logoFont'>vocal</h1>
           <ul className='inlineHeader pull-right list-unstyled list-inline'>
-              <Link to="/legislators" className="linkStyle"><li className='navItems'>Legislators</li></Link>
-              <Link to="/legislation" className="linkStyle"><li className='navItems'>Legislation</li></Link>
+              <Link to="/alllegislators" className="linkStyle"><li className='navItems'>Legislators</li></Link>
+              <Link to="/alllegislation" className="linkStyle"><li className='navItems'>Legislation</li></Link>
               <span className='navItems dropdownText'>
               <DropdownButton title='' id="bg-nested-dropdown" className='glyphicon glyphicon-cog dropdownBtn'>
-               <MenuItem eventKey="1"><Link to='/Settings'>Settings</Link></MenuItem>
+               <MenuItem eventKey="1"><Link to='/settings'>Settings</Link></MenuItem>
                <MenuItem eventKey="2"><Link to="/" onClick={this.logout}>Logout</Link></MenuItem>
              </DropdownButton>
              </span>
-              <Link className="linkStyleImg" to='/Profile'><li><img src={this.state.userPhoto} alt='profile photo' className='img-responsive img-circle smlProfileImg' /></li></Link>
+              <Link className="linkStyleImg" to='/profile/legislators'><li><img src={this.state.userPhoto} alt='profile photo' className='img-responsive img-circle smlProfileImg' /></li></Link>
             </ul>
         </div>
       </div>
@@ -88,7 +88,7 @@ class LegislatorHeader extends React.Component {
              <MenuItem eventKey="1"><Link to='/profile/legislators'>Profile</Link></MenuItem>
              <MenuItem eventKey="2"><Link to='/alllegislators'>Legislators</Link></MenuItem>
              <MenuItem eventKey="2"><Link to='/alllegislation'>Legislation</Link></MenuItem>
-             <MenuItem eventKey="3"><Link to='/Settings'>Settings</Link></MenuItem>
+             <MenuItem eventKey="3"><Link to='/settings'>Settings</Link></MenuItem>
              <MenuItem eventKey="4"><Link to="/" onClick={this.logout}>Logout</Link></MenuItem>
            </DropdownButton>
             </div>
