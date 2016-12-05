@@ -30,7 +30,6 @@ class MobileLegCommittees extends React.Component {
     return <div>
 
       <div  className="col-xs-12 columnContainer">
-        <div className="text-center titleFont">Committees</div>
          <div className='profileBox'>
           {committee}
           </div>
