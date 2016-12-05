@@ -30,6 +30,9 @@ body {
     margin-left: 10px;
     display: inline-block;
 }
+.inlineHeader {
+   display: inline-block;
+}
 .landingBtn {
    background-color: white;
    border-radius: 30px;
@@ -98,8 +101,8 @@ body {
 }
 
 .profileImg {
-   width: 200px;
-   height: 200px;
+   /*width: 200px;
+   height: 200px;*/
    margin-top: 50px;
 }
 
@@ -347,6 +350,11 @@ body {
 
 /*mobile classes*/
 @media all and (max-width: 767px) {
+   .profileImg {
+      width: 200px;
+      height: 200px;
+      margin-top: 50px;
+   }
    .mobLandingBtnIn {
      margin-top: 0px;
    }
