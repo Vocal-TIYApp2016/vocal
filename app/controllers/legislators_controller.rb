@@ -8,12 +8,12 @@ class LegislatorsController < ApplicationController
   def show
     @legislator = Legislator.find(params[:id])
     @authored =
-    @sponsored = 
+    @sponsored =
     render json: @legislator
   end
 
   def filter
-
+    
   end
 
 end

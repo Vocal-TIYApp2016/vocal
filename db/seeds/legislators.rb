@@ -12,6 +12,9 @@ def raw_parts(end_point)
   Typhoeus.get(
     end_point.to_s,
     method: :get,
+    params: {
+      per_page = 160
+    }
     headers: {
       Accept: "application/vnd.myiga.v1+json",
       Authorization: "#{ENV['IGA_TOKEN']}"
@@ -73,7 +76,7 @@ end
 def legislator_factory(year)
   assembled = assembler("https://api.iga.in.gov/#{year.to_s}/legislators")
     n = 1
-    assembled[:items][0..4].each do |proto|
+    assembled[:items].each do |proto|
         Legislator.create!(
           first_name: proto[:firstName],
           last_name: proto[:lastName],

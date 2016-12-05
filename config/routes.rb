@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get '/legislators' => 'legislators#index'
   get '/legislators/:id' => 'legislators#show'
   get '/legislators/filter' => 'legislators#filter'
+  get '/legislators/search' => 'legislators#search'
   get '/self' => 'users#show_self'
   get '/users/:id' => 'users#show'
   # patch for update
