@@ -13,7 +13,7 @@ def raw_parts(end_point)
     end_point.to_s,
     method: :get,
     params: {
-      per_page = 160
+      per_page: "160"
     }
     headers: {
       Accept: "application/vnd.myiga.v1+json",
