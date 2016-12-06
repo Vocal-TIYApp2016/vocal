@@ -19,6 +19,8 @@ gem 'coffee-rails', '~> 4.2'
 gem 'simple_token_authentication', '~> 1.0'
 gem 'devise'
 gem 'socialization'
+# Mailer
+gem 'sendgrid'
 # Caching
 gem 'dalli'
 # Pagination
