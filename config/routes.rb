@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   end
   get   '/legislators/:id' => 'legislators#show'
   get   '/legislators/search' => 'legislators#search'
+  
 # => Follow Logic
   post  '/legislators/:id/follow' => 'legislators#follow_unfollow'
 
