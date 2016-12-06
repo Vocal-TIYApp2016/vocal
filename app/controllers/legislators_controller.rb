@@ -14,7 +14,7 @@ class LegislatorsController < ApplicationController
 
   def filter
     if params[:search]
-      @legislaters = Legislator.search_by_full_name(params[:search])
+      @legislators = Legislator.search_by_full_name(params[:search])
       render json: @legislators
     elsif params[:q]
       @legislators = Legislator.ransack(params[:q]).result
