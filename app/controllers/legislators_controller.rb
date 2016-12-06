@@ -9,7 +9,7 @@ class LegislatorsController < ApplicationController
 
   def show
     @legislator = Legislator.find(params[:id])
-    render json: @legislator
+    render json: @legislator, serializer: SingleLegislatorSerializer
   end
 
   def filter

@@ -17,40 +17,41 @@ class Legislator < ApplicationRecord
         },
       )
       hydra.queue(request)
-      request
+      puts request.inspect
     end
     hydra.run
-    responses = requests.map do |request|
-      JSON.parse(request.response.body)
+    requests.each do |request|
+    # = requests.map do |request|
+    #   JSON.parse(request.response.body)
+      puts JSON.parse(request)
     end
-    responses.each do |response|
-      cache response
-    end
-    responses
+    # responses.each do |response|
+    #   cache response
+    # end
+    # responses
   end
 
-  def sponsored_expanded
-    hydra = Typhoeus::Hydra.new
-    sponsored.each.map do |bill|
-      request = Typhoeus::Request.new(
-      "https://api.iga.in.gov#{bill["link"]}",
-        method: :get,
-        headers: {
-          Accept: "application/vnd.myiga.v1+json",
-          Authorization: "#{ENV['IGA_TOKEN']}"
-        },
-      )
-      hydra.queue(request)
-      request
-    end
-    hydra.run
-    responses = requests.map do |request|
-      JSON.parse(request.response.body)
-    end
-    responses.each do |response|
-      cache response
-    end
-    responses
-  end
+  # def sponsored_expanded
+  #   hydra = Typhoeus::Hydra.new
+  #   sponsored.each.map do |bill|
+  #     request = Typhoeus::Request.new(
+  #     "https://api.iga.in.gov#{bill["link"]}",
+  #       method: :get,
+  #       headers: {
+  #         Accept: "application/vnd.myiga.v1+json",
+  #         Authorization: "#{ENV['IGA_TOKEN']}"
+  #       },
+  #     )
+  #     hydra.queue(request)
+  #   end
+  #   hydra.run
+  #   responses = requests.map do |request|
+  #     JSON.parse(request.response.body)
+  #   end
+  #   responses.each do |response|
+  #     cache response
+  #   end
+  #   responses
+  # end
 
 end
