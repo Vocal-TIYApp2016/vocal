@@ -12,6 +12,9 @@ def raw_parts(end_point)
   Typhoeus.get(
     end_point.to_s,
     method: :get,
+    params: {
+      per_page: "160"
+    },
     headers: {
       Accept: "application/vnd.myiga.v1+json",
       Authorization: "#{ENV['IGA_TOKEN']}"
@@ -40,7 +43,7 @@ end
 
 def committees_list(proto_link)
   list = []
-  assembled = assembler("https://api.iga.in.gov/#{proto_link}")
+  assembled = assembler("https://api.iga.in.gov#{proto_link}")
   assembled[:committees].each do |committee|
     list << committee
   end
@@ -48,11 +51,11 @@ end
 
 def authored_list(proto_link)
   list = []
-  assembled = assembler("https://api.iga.in.gov/#{proto_link}")
+  assembled = assembler("https://api.iga.in.gov#{proto_link}")
   bills_link = assembled[:bills][:link]
-  assembled_bills = assembler("https://api.iga.in.gov/#{bills_link}")
+  assembled_bills = assembler("https://api.iga.in.gov#{bills_link}")
   authored_link = assembled_bills[:authored][:link]
-  assembled_authored = assembler("https://api.iga.in.gov/#{authored_link}")
+  assembled_authored = assembler("https://api.iga.in.gov#{authored_link}")
   assembled_authored[:items].each do |item|
     list << item
   end
@@ -60,11 +63,11 @@ end
 
 def sponsored_list(proto_link)
   list = []
-  assembled = assembler("https://api.iga.in.gov/#{proto_link}")
+  assembled = assembler("https://api.iga.in.gov#{proto_link}")
   bills_link = assembled[:bills][:link]
-  assembled_bills = assembler("https://api.iga.in.gov/#{bills_link}")
+  assembled_bills = assembler("https://api.iga.in.gov#{bills_link}")
   sponsored_link = assembled_bills[:sponsored][:link]
-  assembled_sponsored = assembler("https://api.iga.in.gov/#{sponsored_link}")
+  assembled_sponsored = assembler("https://api.iga.in.gov#{sponsored_link}")
   assembled_sponsored[:items].each do |item|
     list << item
   end
@@ -73,8 +76,11 @@ end
 def legislator_factory(year)
   assembled = assembler("https://api.iga.in.gov/#{year.to_s}/legislators")
     n = 1
-    assembled[:items][0..4].each do |proto|
+    assembled[:items].each do |proto|
+      next if proto[:link] == "/2014/legislators/timothy_harman_1112"
+      next if proto[:link] == "/2015/legislators/james_merritt_140"
         Legislator.create!(
+          year: year
           first_name: proto[:firstName],
           last_name: proto[:lastName],
           party: proto[:party],

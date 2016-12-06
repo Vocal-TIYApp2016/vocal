@@ -13,7 +13,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
 
   def create
-
     user = User.new(sign_up_params)
     if user.save
       render json: user, status:201
@@ -32,9 +31,17 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # PUT /resource
-  # def update
-  #   super
-  # end
+  def update
+    user = User.find_by(:email)
+    user.update(account_update_params)
+    if user.save
+      render json:user, status: 201
+    else
+      warden.custom_failure!
+      puts user.errors.full_messages
+      render json: user.erros, status: 422
+    end
+  end
 
   # DELETE /resource
   # def destroy
