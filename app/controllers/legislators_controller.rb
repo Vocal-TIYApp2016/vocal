@@ -13,15 +13,13 @@ class LegislatorsController < ApplicationController
   end
 
   def filter
-    if params[:filter] == "2016"
-      @legislators = Legislator.where(id: 1..150)
-    elsif params[:filter] == "2015"
-      @legislators = Legislator.where(id: 151..337)
-    elsif params[:filter] == "2014"
-      @legislators = Legislator.where(id: 338..-1)
+    if params[:search]
+      @legislaters = Legislator.search_by_full_name(params[:search])
+      render json: @legislators
+    elsif params[:q]
+      @legislators = Legislator.ransack(params[:q]).result
+      render json: @legislators
     end
-    render json: @legislators
   end
-
 
 end
