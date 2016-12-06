@@ -13,6 +13,9 @@ class AllLegislators extends React.Component {
     super(props)
     this.fetchAllLegislators = this.fetchAllLegislators.bind(this)
     this.filterResult = this.filterResult.bind(this)
+    this.get2014 = this.get2014.bind(this)
+    this.get2015 = this.get2015.bind(this)
+    this.get2016 = this.get2016.bind(this)
     // this.doesItContain = this.doesItContain.bind(this)
     this.state = {
       legislators: [],
@@ -27,7 +30,7 @@ class AllLegislators extends React.Component {
   }
 
   fetchAllLegislators(){
-      fetch('/legislators')
+      fetch('/legislators/filter?q[year_eq]=2016')
       .then(response => response.json())
       .then(response => this.setState({legislators: response.legislators, results: response.legislators}))
 
@@ -46,6 +49,21 @@ class AllLegislators extends React.Component {
     })
     this.setState({results: resultsArray})
     console.log(this.state.results)
+  }
+  get2014(){
+    fetch('/legislators/filter?q[year_eq]=2014')
+    .then(response => response.json())
+    .then(response => this.setState({legislators: response.legislators, results: response.legislators}))
+  }
+  get2015(){
+    fetch('/legislators/filter?q[year_eq]=2015')
+    .then(response => response.json())
+    .then(response => this.setState({legislators: response.legislators, results: response.legislators}))
+  }
+  get2016(){
+    fetch('/legislators/filter?q[year_eq]=2016')
+    .then(response => response.json())
+    .then(response => this.setState({legislators: response.legislators, results: response.legislators}))
   }
   render() {
     // alllegislators = this.state.legislators.map((data, i) => {
@@ -75,9 +93,9 @@ class AllLegislators extends React.Component {
               </span>
             </li><br/>
               <div className="legText text-center">Filter by Year</div>
-                <li className='btn legText yearText'>2016</li>
-                <li className='btn legText yearText'>2015</li>
-                <li className='btn legText yearText'>2014</li>
+                <li className='btn legText yearText' onClick={this.get2016}>2016</li>
+                <li className='btn legText yearText' onClick={this.get2015}>2015</li>
+                <li className='btn legText yearText' onClick={this.get2014}>2014</li>
               <div className="legText text-center">Filter by Title</div>
                 <li className='btn legText yearText'>Senator</li>
                 <li className='btn legText yearText'>Representative</li>
