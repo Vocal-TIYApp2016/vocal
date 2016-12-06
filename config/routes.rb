@@ -21,9 +21,9 @@ Rails.application.routes.draw do
     registrations: 'users/registrations',
     sessions: 'users/sessions'
   } do
-    post  '/users' => 'users/registrations#create', as: :sign_up, constraints: {format: /(json)/}
-    post  '/users/sign_in' => 'users/sessions#create', as: :sign_in, constraints: {format: /(json)/}
-    patch '/users/edit_account' => 'users/registrations#update', as: :update, constraints: {format: /(json)/}
+    post  '/users' => 'users/registrations#create', as: 'sign_up', constraints: {format: /(json)/}
+    patch '/users' => 'devise/registrations#update', :as => 'user_registration', constraints: {format: /(json)/}
+    post  '/users/sign_in' => 'users/sessions#create', as: 'sign_in', constraints: {format: /(json)/}
   end
   get   '/self' => 'users#show_self'
   get   '/users/:id' => 'users#show'
