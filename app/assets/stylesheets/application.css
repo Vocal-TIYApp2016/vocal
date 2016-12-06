@@ -397,15 +397,20 @@ body {
    margin-top: 10px;
    width: 100%;
    margin: 0;
+   text-decoration: none;
+
 }
 .mobileNavbar:hover {
    background-color: white;
-   color: #224843;
+   color: #223843;
    text-decoration: none;
+
 }
-.mobileNavbar:target {
-   border-bottom: 3px solid white;
+.mobileNavbar:focus {
+   background-color: white;
+   color: #223843;
 }
+
 #navBorders {
    border-left: 1px solid white;
    border-right: 1px solid white;
@@ -444,6 +449,14 @@ body {
    }
    .hiddenSection{
       display: none;
+   }
+   .legislatorImg {
+      height: 80px;
+      width: 80px;
+      margin: 3px;
+      margin-left: 30px;
+      display: inline-block;
+      padding-top: 15px;
    }
    .mobileNavbar {
       font-size: 15px;

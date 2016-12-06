@@ -6,100 +6,23 @@ import ShortHeader from './ShortHeader'
 class AllLegislations extends React.Component {
   constructor(props) {
     super(props)
+    // this.fetchAllLegislation = this.fetchAllLegislation.bind(this)
     this.state = {
-      bills: [
-        {
-          title: 'hb101',
-          shortDesc: 'education education education',
-          authorPic: null,
-          authorName: 'john',
-          coAuthors: ['john', 'john','john', 'john','john', 'john'],
-          longDesc: 'loremsjkflseijiasejfelisafjdaslk;fjadslk;fjdsalkfjaslkf;adjsf;kladjflkdsjfsd;kljasdlsk;afjadslkfajsdlk'
-        },
-        {
-          title: 'hb101',
-          shortDesc: 'education education education',
-          authorPic: null,
-          authorName: 'john',
-          coAuthors: ['john', 'john','john', 'john','john', 'john'],
-          longDesc: 'loremsjkflseijiasejfelisafjdaslk;fjadslk;fjdsalkfjaslkf;adjsf;kladjflkdsjfsd;kljasdlsk;afjadslkfajsdlk'
-        },
-        {
-          title: 'hb101',
-          shortDesc: 'education education education',
-          authorPic: null,
-          authorName: 'john',
-          coAuthors: ['john', 'john','john', 'john','john', 'john'],
-          longDesc: 'loremsjkflseijiasejfelisafjdaslk;fjadslk;fjdsalkfjaslkf;adjsf;kladjflkdsjfsd;kljasdlsk;afjadslkfajsdlk'
-        },
-        {
-          title: 'hb101',
-          shortDesc: 'education education education',
-          authorPic: null,
-          authorName: 'john',
-          coAuthors: ['john', 'john','john', 'john','john', 'john'],
-          longDesc: 'loremsjkflseijiasejfelisafjdaslk;fjadslk;fjdsalkfjaslkf;adjsf;kladjflkdsjfsd;kljasdlsk;afjadslkfajsdlk'
-        },
-        {
-          title: 'hb101',
-          shortDesc: 'education education education',
-          authorPic: null,
-          authorName: 'john',
-          coAuthors: ['john', 'john','john', 'john','john', 'john'],
-          longDesc: 'loremsjkflseijiasejfelisafjdaslk;fjadslk;fjdsalkfjaslkf;adjsf;kladjflkdsjfsd;kljasdlsk;afjadslkfajsdlk'
-        },
-        {
-          title: 'hb101',
-          shortDesc: 'education education education',
-          authorPic: null,
-          authorName: 'john',
-          coAuthors: ['john', 'john','john', 'john','john', 'john'],
-          longDesc: 'loremsjkflseijiasejfelisafjdaslk;fjadslk;fjdsalkfjaslkf;adjsf;kladjflkdsjfsd;kljasdlsk;afjadslkfajsdlk'
-        },
-        {
-          title: 'hb101',
-          shortDesc: 'education education education',
-          authorPic: null,
-          authorName: 'john',
-          coAuthors: ['john', 'john','john', 'john','john', 'john'],
-          longDesc: 'loremsjkflseijiasejfelisafjdaslk;fjadslk;fjdsalkfjaslkf;adjsf;kladjflkdsjfsd;kljasdlsk;afjadslkfajsdlk'
-        },
-        {
-          title: 'hb101',
-          shortDesc: 'education education education',
-          authorPic: null,
-          authorName: 'john',
-          coAuthors: ['john', 'john','john', 'john','john', 'john'],
-          longDesc: 'loremsjkflseijiasejfelisafjdaslk;fjadslk;fjdsalkfjaslkf;adjsf;kladjflkdsjfsd;kljasdlsk;afjadslkfajsdlk'
-        },
-        {
-          title: 'hb101',
-          shortDesc: 'education education education',
-          authorPic: null,
-          authorName: 'john',
-          coAuthors: ['john', 'john','john', 'john','john', 'john'],
-          longDesc: 'loremsjkflseijiasejfelisafjdaslk;fjadslk;fjdsalkfjaslkf;adjsf;kladjflkdsjfsd;kljasdlsk;afjadslkfajsdlk'
-        },
-        {
-          title: 'hb101',
-          shortDesc: 'education education education',
-          authorPic: null,
-          authorName: 'john',
-          coAuthors: ['john', 'john','john', 'john','john', 'john'],
-          longDesc: 'loremsjkflseijiasejfelisafjdaslk;fjadslk;fjdsalkfjaslkf;adjsf;kladjflkdsjfsd;kljasdlsk;afjadslkfajsdlk'
-        },
-        {
-          title: 'hb101',
-          shortDesc: 'education education education',
-          authorPic: null,
-          authorName: 'john',
-          coAuthors: ['john', 'john','john', 'john','john', 'john'],
-          longDesc: 'loremsjkflseijiasejfelisafjdaslk;fjadslk;fjdsalkfjaslkf;adjsf;kladjflkdsjfsd;kljasdlsk;afjadslkfajsdlk'
-        },
-
-      ]
+      bills: []
     }
   }
+
+  // componentDidMount() {
+  //     this.fetchAllLegislation()
+  // }
+  //
+  // fetchAllLegislation(){
+  //     fetch('/2016/bills')
+  //     .then(response => response.json())
+  //   //.then(response => this.setState({legislators: response.legislators, results: response.legislators}))
+  //   .then(response => console.log(response))
+  // }
+
   render() {
     var alllegislation = this.state.bills.map((data, i) => {
       return <SingleLegislation data={data} key={i} />
@@ -131,8 +54,6 @@ class AllLegislations extends React.Component {
           </div>
           <div className="col-sm-9 borderBills whiteBackground">
             {alllegislation}
-
-
           </div>
         </div>
       </div>
