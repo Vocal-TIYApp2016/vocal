@@ -65,13 +65,13 @@ class LegislatorHeader extends React.Component {
                <MenuItem eventKey="2"><Link to="/" onClick={this.logout}>Logout</Link></MenuItem>
              </DropdownButton>
              </span>
-              <Link className="linkStyleImg" id="fixedPhoto" to='/profile/legislators'><li><img src={this.state.userPhoto} alt='profile photo' className='img-responsive img-circle smlProfileImg' /></li></Link>
+              <Link className="linkStyleImg" to='/profile/legislators'><li><img src={this.state.userPhoto} alt='profile photo' className='img-responsive img-circle smlProfileImg' /></li></Link>
             </ul>
         </div>
       </div>
       <div className="row">
         <div className='col-sm-12'>
-          <img src={this.state.photo} alt='profile photo' className='center-block img-circle profileImg img-responsive' />
+          <img src={this.state.photo} id="fixedPhoto" alt='profile photo' className='center-block img-circle profileImg img-responsive' />
           <br />
           <h2 className="text-center profileText">{this.state.title}<br/>
           {this.state.firstName} {this.state.lastName}</h2>

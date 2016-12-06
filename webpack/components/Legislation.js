@@ -40,8 +40,7 @@ class Legislation extends React.Component {
         >
           <Modal.Header closeButton>
             <Modal.Title id="contained-modal-title-lg">
-              <div className="headlineText text-left">{this.props.data.billName}:</div>
-              <div className='billDesc'>{this.props.data.billDesc}</div>
+              <div className="accordionHeaderText text-left">{this.props.data.billName}: {this.props.data.billDesc}</div>
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
@@ -55,14 +54,12 @@ class Legislation extends React.Component {
             <div className="authorText">{this.props.data.coAuthors}</div>
             </div>
             <div className="col-sm-12">
-            <div className="accordionHeaderText">
-              Digest
-              </div>
+              <div className="accordionHeaderText">Digest</div>
             </div>
             {this.props.data.longDesc}
           </Modal.Body>
           <Modal.Footer>
-            <Button onClick={this.hideModal}>Close</Button>
+            <Button className="profileFollowBtn" onClick={this.hideModal}>Close</Button>
           </Modal.Footer>
         </Modal>
       </ButtonToolbar>
