@@ -23,6 +23,9 @@ class Legislator < ApplicationRecord
     responses = requests.map do |request|
       JSON.parse(request.response.body)
     end
+    responses.each do |response|
+      cache response
+    end
     responses
   end
 
@@ -43,6 +46,9 @@ class Legislator < ApplicationRecord
     hydra.run
     responses = requests.map do |request|
       JSON.parse(request.response.body)
+    end
+    responses.each do |response|
+      cache response
     end
     responses
   end
