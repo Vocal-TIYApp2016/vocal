@@ -75,7 +75,8 @@ class LegislatorHeader extends React.Component {
           <br />
           <h2 className="text-center profileText">{this.state.title}<br/>
           {this.state.firstName} {this.state.lastName}</h2>
-          <h5 className="text-center profileTextTwo">{this.state.party} | followBtn</h5>
+          <h5 className="text-center profileTextTwo">{this.state.party} | <button className="btn followBtn">Follow</button></h5>
+
         </div>
       </div>
     </div>
@@ -100,7 +101,7 @@ class LegislatorHeader extends React.Component {
           <br />
           <h2 className="text-center profileText">{this.state.title}<br/>
           {this.state.firstName} {this.state.lastName}</h2>
-          <h5 className="text-center profileTextTwo">{this.state.party} | followBtn</h5>
+          <h5 className="text-center profileTextTwo">{this.state.party} | <button className="btn followBtn">Follow</button></h5>
           <br/>
          </div>
         </div>
