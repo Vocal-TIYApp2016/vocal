@@ -7,17 +7,17 @@ class Legislator extends React.Component {
   }
 
   render() {
-    return <div>    
+    return <div>
     <div className="row legislatorInfo">
-      <div className="col-xs-3 img-responsive legislatorImg">
+      <div className="col-xs-3 legislatorImg">
         <img className='img-circle' src={this.props.data.photo}/>
       </div>
-      <div className="col-xs-6 text-center legText">
-        {this.props.data.title} <br/>
-        {this.props.data.firstName} {this.props.data.lastName}
+      <div className="col-xs-6 legText text-center">
+        {this.props.data.title}<br/>
+         {this.props.data.firstName} {this.props.data.lastName}
       </div>
-      <div className="col-xs-3 text-center">
-        <button className='btn block-center followBtn'>+</button>
+      <div className="col-xs-3">
+        <button className='btn block-center btn-block followBtn pull-right'>+</button>
       </div>
      </div>
     </div>

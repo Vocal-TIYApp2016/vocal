@@ -25,7 +25,7 @@ class SignIn extends React.Component {
   }
   signedinHandler(response) {
     sessionStorage.setItem('api_token', response.user.authentication_token)
-    window.location.href = '/profile/legislation'
+    location.href = '/profile/legislation'
   }
   render() {
     return <div>
