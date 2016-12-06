@@ -65,7 +65,7 @@ class LegislatorHeader extends React.Component {
                <MenuItem eventKey="2"><Link to="/" onClick={this.logout}>Logout</Link></MenuItem>
              </DropdownButton>
              </span>
-              <Link className="linkStyleImg" to='/profile/legislators'><li><img src={this.state.userPhoto} alt='profile photo' className='img-responsive img-circle smlProfileImg' /></li></Link>
+              <Link className="linkStyleImg" id="fixedPhoto" to='/profile/legislators'><li><img src={this.state.userPhoto} alt='profile photo' className='img-responsive img-circle smlProfileImg' /></li></Link>
             </ul>
         </div>
       </div>

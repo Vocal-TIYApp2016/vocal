@@ -54,8 +54,10 @@ class Legislation extends React.Component {
               <div className="accordionHeaderText">Co-Authors</div>
             <div className="authorText">{this.props.data.coAuthors}</div>
             </div>
-            <div className="col-sm-12 accordionHeaderText">
+            <div className="col-sm-12">
+            <div className="accordionHeaderText">
               Digest
+              </div>
             </div>
             {this.props.data.longDesc}
           </Modal.Body>
@@ -64,14 +66,6 @@ class Legislation extends React.Component {
           </Modal.Footer>
         </Modal>
       </ButtonToolbar>
-
-
-
-
-
-
-
-
       </div>
     </div>
     </div>
