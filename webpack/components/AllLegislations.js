@@ -120,6 +120,7 @@ class AllLegislations extends React.Component {
          <span className="glyphicon glyphicon-search" aria-hidden="true"></span></button>
               </span>
               </li><br/>
+              <div className="legText text-center">Filter by Year</div>
               <li className='btn legText yearText'>2016</li>
               <li className='btn legText yearText'>2015</li>
               <li className='btn legText yearText'>2014</li>
