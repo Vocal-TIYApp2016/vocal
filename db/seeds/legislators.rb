@@ -80,7 +80,7 @@ def legislator_factory(year)
       next if proto[:link] == "/2014/legislators/timothy_harman_1112"
       next if proto[:link] == "/2015/legislators/james_merritt_140"
         Legislator.create!(
-          year: year
+          year: year,
           first_name: proto[:firstName],
           last_name: proto[:lastName],
           party: proto[:party],
