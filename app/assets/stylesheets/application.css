@@ -115,6 +115,7 @@ body {
    margin-top: 50px;
    cursor: pointer;
 }
+
 #fixedPhoto {
     width: 200px;
     height: 200px;
@@ -167,6 +168,8 @@ body {
    border-right: 3px solid #223843;
    border-left: 3px solid #223843;
    border-bottom: 1px solid grey;
+   padding-top: 10px;
+   padding-bottom: 10px;
 }
 .legislatorImg {
    height: 80px;
@@ -217,7 +220,6 @@ body {
 }
 
 .headlineText {
-   color: #223843;
    font-size: 20px;
    letter-spacing: 2px;
 }
@@ -227,6 +229,9 @@ body {
    font-size: 14px;
    text-transform: uppercase;
    letter-spacing: 1.5px;
+}
+#floatRight {
+   float: right;
 }
 .legislationBtn {
    width: 100%;
@@ -316,6 +321,7 @@ body {
    font-weight: lighter;
    letter-spacing: 3px;
    padding: 0;
+   text-overflow:ellipsis;
 }
 .authorText {
    color: #223843;
@@ -393,10 +399,16 @@ body {
    margin: 0;
 }
 .mobileNavbar:hover {
-   border-bottom: 3px solid white;
+   background-color: white;
+   color: #224843;
+   text-decoration: none;
 }
 .mobileNavbar:target {
    border-bottom: 3px solid white;
+}
+#navBorders {
+   border-left: 1px solid white;
+   border-right: 1px solid white;
 }
 
 
@@ -433,6 +445,9 @@ body {
    .hiddenSection{
       display: none;
    }
+   .mobileNavbar {
+      font-size: 15px;
+   }
 }
 
 @media all and (max-width: 1017px) {
@@ -441,7 +456,7 @@ body {
    }
 }
 
-@media all and (min-width: 767px) and (max-width: 1500px) {
+@media all and (min-width: 768px) and (max-width: 1500px) {
    .mobileReveal {
       display: none;
    }

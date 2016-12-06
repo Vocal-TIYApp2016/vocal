@@ -15,13 +15,13 @@ class Profile extends React.Component {
       <div className="container-fluid">
         <div className="row">
         <div className="mobileReveal">
-          <div className='col-xs-4'>
+          <div className='col-xs-4 noPadding'>
           <Link to='/profile/legislators'><button className='btn btn-block mobileNavbar'>Legislators</button></Link>
           </div>
-          <div className='col-xs-4'>
+          <div className='col-xs-4 noPadding' id="navBorders">
           <Link to='/profile/news'><button className='btn btn-block mobileNavbar'>News Feed</button></Link>
           </div>
-          <div className='col-xs-4'>
+          <div className='col-xs-4 noPadding'>
           <Link to='/profile/legislation'><button className='btn btn-block mobileNavbar'>Legislation</button></Link>
           </div>
           {this.props.children}
