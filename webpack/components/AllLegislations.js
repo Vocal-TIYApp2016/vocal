@@ -116,7 +116,7 @@ class AllLegislations extends React.Component {
             <li className="input-group">
               <input type="text" className="form-control" placeholder="Search for..." />
               <span className="input-group-btn">
-                <button className="btn btn-default" type="button">
+                <button className="btn" type="button">
          <span className="glyphicon glyphicon-search" aria-hidden="true"></span></button>
               </span>
               </li><br/>
@@ -124,6 +124,9 @@ class AllLegislations extends React.Component {
               <li className='btn legText yearText'>2016</li>
               <li className='btn legText yearText'>2015</li>
               <li className='btn legText yearText'>2014</li>
+            <div className="legText text-center">Filter by Type</div>
+              <li className='btn legText yearText'>Senate Bills</li>
+              <li className='btn legText yearText'>House Bills</li>
             </ul>
           </div>
           <div className="col-sm-9 borderBills whiteBackground">

@@ -30,7 +30,7 @@ class AllLegislators extends React.Component {
   }
 
   fetchAllLegislators(){
-      fetch('/legislators/filter?q[year_eq]=2016')
+      fetch('/legislators/')
       .then(response => response.json())
       .then(response => this.setState({legislators: response.legislators, results: response.legislators}))
 
@@ -86,9 +86,9 @@ class AllLegislators extends React.Component {
           <div className="col-sm-3 hiddenSection">
             <ul className='list-unstyled yearsNav text-right'>
             <li className="input-group">
-              <input type="text" id='legislatorSearch' className="form-control" placeholder="Search for..." onKeyDown={this.filterResult} />
+              <input type="text" id='legislatorSearch' className="form-control" placeholder="Search for..." onChange={this.filterResult} />
               <span className="input-group-btn">
-                <button className="btn btn-default" type="button">
+                <button className="btn" type="button">
          <span className="glyphicon glyphicon-search" aria-hidden="true"></span></button>
               </span>
             </li><br/>
