@@ -1,5 +1,7 @@
 import React from 'react'
 import { Router, Route, Link, browserHistory } from 'react-router'
+import { Accordian, Panel, Button } from 'react-bootstrap'
+
 
 class Legislation extends React.Component {
   constructor(props) {

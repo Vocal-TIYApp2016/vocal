@@ -80,9 +80,8 @@ class ProfileHeader extends React.Component {
           <div className='col-xs-12'>
           <img src={this.state.photo} alt='profile photo' className='img-responsive center-block img-circle profileImg' />
           <br />
-          <h2 className="text-center profileText">{this.state.title}<br/>
-          {this.state.firstName} {this.state.lastName}</h2>
-          <h5 className="text-center profileTextTwo">{this.state.party} | followBtn</h5>
+          <h2 className="text-center profileText">{this.state.firstName} {this.state.lastName}</h2>
+          <h5 className="text-center profileTextTwo">{this.state.username} | 200</h5>
           <br/>
          </div>
         </div>
