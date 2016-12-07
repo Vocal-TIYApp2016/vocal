@@ -10,6 +10,7 @@ class LegislatorHeader extends React.Component {
     this.updatePhoto = this.updatePhoto.bind(this)
     this.logout = this.logout.bind(this)
     this.follow = this.follow.bind(this)
+    this.updateFollowBtn = this.updateFollowBtn.bind(this)
     this.state = {
       title: "--",
       firstName: "--",
@@ -25,11 +26,14 @@ class LegislatorHeader extends React.Component {
     fetch('/legislators/' +  sessionStorage.getItem('legislator_id'))
     .then(response => response.json())
     .then(this.updateLegislator)
-    // .then(response => console.log(response))
 
-    fetch('/self/?authentication_token=' +  sessionStorage.getItem('api_token'))
+    fetch('/self?' + 'user_email=' + sessionStorage.getItem('email') + '&user_token=' +  sessionStorage.getItem('api_token'))
     .then(response => response.json())
     .then(this.updatePhoto)
+
+    fetch('/self?' + 'user_email=' + sessionStorage.getItem('email') + '&user_token=' +  sessionStorage.getItem('api_token'))
+    .then(response => response.json())
+    .then(this.updateFollowBtn)
    }
 
    updateLegislator(userData) {
@@ -48,8 +52,21 @@ class LegislatorHeader extends React.Component {
      })
     }
 
-   logout(){
-     sessionStorage.removeItem('user_id')
+    updateFollowBtn(userData) {
+      var followBtn = 'follow'
+      userData.user.followed.forEach(function(data) {
+          if (Number(data.id) === Number(sessionStorage.getItem('legislator_id'))) {
+            followBtn = 'unfollow'
+            console.log('true')
+          }
+      })
+      this.setState({
+        updateFollowBtn: followBtn
+      })
+    }
+
+  logout(){
+    sessionStorage.removeItem('user_id')
   }
 
   follow(){
@@ -57,23 +74,13 @@ class LegislatorHeader extends React.Component {
     formData.append('legislator[id]', sessionStorage.getItem('legislator_id'))
     formData.append('user[authentication_token]', sessionStorage.getItem('api_token'))
     formData.append('user[email]', sessionStorage.getItem('email'))
+
     fetch('/legislators/' +  sessionStorage.getItem('legislator_id') + '/follow?' + 'user_email=' + sessionStorage.getItem('email') + '&user_token=' + sessionStorage.getItem('api_token'), {
       body: formData,
       method: 'POST'
     })
     .then(response => response.json())
-    .then(this.updateFollowBtn())
-    // .then(response => console.log(response))
-  }
-  updateFollowBtn(){
-    if (this.state.updateFollowBtn === 'follow') {
-      this.setState ({
-        updateFollowBtn: 'Unfollow'
-      })
-    }
-    else this.setState ({
-      updateFollowBtn: 'Follow'
-    })
+    .then(this.updateFollowBtn)
   }
 
   render(){
@@ -102,6 +109,7 @@ class LegislatorHeader extends React.Component {
           <h2 className="text-center profileText">{this.state.title}<br/>
           {this.state.firstName} {this.state.lastName}</h2>
           <h5 className="text-center profileTextTwo">{this.state.party} | <button className="btn followBtn" onClick={this.follow}>{this.state.updateFollowBtn}</button></h5>
+
 
         </div>
       </div>
