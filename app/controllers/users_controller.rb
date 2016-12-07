@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id]).eager_load(:followees[Legislator])
+    @user = User.find(params[:id])
     render json: @user, except: :authentication_token
   end
 
