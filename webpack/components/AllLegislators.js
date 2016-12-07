@@ -70,22 +70,26 @@ class AllLegislators extends React.Component {
     this.setState({
       searchText: newText
     })
-    console.log(newText)
     setTimeout(() => this.firstFilterResult(), 0)
   }
   mainFilterResult(){
-    var searchTerm = this.state.searchText
+    const searchTerm = this.state.searchText
     var resultsArray = []
     var searchWords = searchTerm.split(' ')
     var upperTesteroni = searchWords.map(function(data){
       return data.charAt().toUpperCase() + data.slice(1)
     })
     var searchText = upperTesteroni.join(' ')
+    console.log(searchText)
     var defaultArray = this.state.legislators
+    console.log(this.state.legislators)
     var newResults = defaultArray.forEach(function(element){
-      if(element.full_name.includes(searchText))
+      var fullName = element.first_name + ' ' + element.last_name
+      console.log(element.full_name)
+      if(fullName.includes(searchText))
       {
         resultsArray.push(element)
+        console.log(resultsArray)
       }
     })
     this.setState({
