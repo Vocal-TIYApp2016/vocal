@@ -17,6 +17,7 @@ class LegislatorHeader extends React.Component {
       photo: null,
       party: "--",
       userPhoto: null,
+      updateFollowBtn: 'follow'
       // points: '',
     }
   }
@@ -55,12 +56,24 @@ class LegislatorHeader extends React.Component {
     var formData = new FormData()
     formData.append('legislator[id]', sessionStorage.getItem('legislator_id'))
     formData.append('user[authentication_token]', sessionStorage.getItem('api_token'))
-    fetch('/legislators/' +  sessionStorage.getItem('legislator_id') + '/follow', {
+    formData.append('user[email]', sessionStorage.getItem('email'))
+    fetch('/legislators/' +  sessionStorage.getItem('legislator_id') + '/follow?' + 'user_email=' + sessionStorage.getItem('email') + '&user_token=' + sessionStorage.getItem('api_token'), {
       body: formData,
       method: 'POST'
     })
     .then(response => response.json())
-    .then(response => console.log(response))
+    .then(this.updateFollowBtn())
+    // .then(response => console.log(response))
+  }
+  updateFollowBtn(){
+    if (this.state.updateFollowBtn === 'follow') {
+      this.setState ({
+        updateFollowBtn: 'Unfollow'
+      })
+    }
+    else this.setState ({
+      updateFollowBtn: 'Follow'
+    })
   }
 
   render(){
@@ -88,7 +101,7 @@ class LegislatorHeader extends React.Component {
           <br />
           <h2 className="text-center profileText">{this.state.title}<br/>
           {this.state.firstName} {this.state.lastName}</h2>
-          <h5 className="text-center profileTextTwo">{this.state.party} | <button className="btn followBtn" onClick={this.follow}>Follow</button></h5>
+          <h5 className="text-center profileTextTwo">{this.state.party} | <button className="btn followBtn" onClick={this.follow}>{this.state.updateFollowBtn}</button></h5>
 
         </div>
       </div>
