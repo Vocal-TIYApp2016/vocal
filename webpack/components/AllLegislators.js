@@ -406,7 +406,7 @@ setTimeout(() => this.secondFilterResult(), 0)
           </div>
           <div className="col-sm-3 mobileReveal">
           <div className="input-group">
-            <input type="text" className="form-control" placeholder="Search for..." />
+            <input type="text" className="form-control" placeholder="Search for..." onChange={this.setSearchText} />
             <span className="input-group-btn">
               <button className="btn btn-default" type="button">
           <span className="glyphicon glyphicon-search" aria-hidden="true"></span></button>
@@ -418,14 +418,15 @@ setTimeout(() => this.secondFilterResult(), 0)
           <Panel collapsible expanded={this.state.open}>
           <div className="legText text-left">Filter by Year</div>
           <ul className='list-unstyled yearsNav text-right'>
-            <li className='btn legText yearText' onClick={this.set2014}>{this.state.year2014Active}</li>
-            <li className='btn legText yearText' onClick={this.set2015}>{this.state.year2015Active}</li>
             <li className='btn legText yearText' onClick={this.set2016}>{this.state.year2016Active}</li>
+            <li className='btn legText yearText' onClick={this.set2015}>{this.state.year2015Active}</li>
+            <li className='btn legText yearText' onClick={this.set2014}>{this.state.year2014Active}</li>
           </ul>
           <div className="legText text-left">Filter by Title</div>
           <ul className="list-unstyled yearsNav text-right">
+          <li className='btn legText yearText' onClick={this.firstShowAll}>{this.state.allActive}</li>
           <li className='btn legText yearText' onClick={this.firstShowSenators}>{this.state.senatorsActive}</li>
-          <li className='btn legText yearText' onClick={this.firstShowReps}>{this.state.repsActive}</li>
+          <li className='btn legText yearText' onClick={this.firstShowReps}>{this.state.repsActive}</li>          
           </ul>
           </Panel>
           </div>
