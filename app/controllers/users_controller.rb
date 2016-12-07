@@ -1,7 +1,5 @@
 class UsersController < ApplicationController
 
-
-
   def show_self
     require_user
     @user = current_user
@@ -9,7 +7,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.find(params[:id]).eager_load(:followees[Legislator])
     render json: @user, except: :authentication_token
   end
 
