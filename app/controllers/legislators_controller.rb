@@ -9,7 +9,7 @@ class LegislatorsController < ApplicationController
 
   def show
     @legislator = Legislator.find(params[:id])
-    render json: @legislator
+    render json: @legislator, serializer: SingleLegislatorSerializer
   end
 
   def filter
@@ -22,29 +22,22 @@ class LegislatorsController < ApplicationController
     end
   end
 
-  def unfollowed
-    if current_user
-      @legislators = Legislator.all
-      @legislators -= current_user.followees(Legislator)
-      render json: @legislators
-    else
-      render json: @legislators.errors.full_messages
-    end
-  end
-
-  def followed
-    if current_user
-      @legislators = current_user.followees(Legislator)
-      render json: @legislators
-    else
-      render json: @legislators.errors.full_messages
-    end
-  end
+  # def unfollowed
+  #   if current_user
+  #     @legislators = Legislator.all
+  #     @legislators -= current_user.followees(Legislator)
+  #     render json: @legislators
+  #   else
+  #     render json: @legislators.errors.full_messages
+  #   end
+  # end
+  #
 
   def follow_unfollow
     current_user.toggle_follow!(Legislator.find(params[:id]))
     render json: current_user, except: :authentication_token
   end
+
 
 
 end
