@@ -7,7 +7,6 @@ class UserSerializer < ActiveModel::Serializer
 
   def followed
     @legislators = current_user.followees(Legislator)
-    # render json: @legislators
   end
 
 end
