@@ -4,6 +4,10 @@ class Legislator < ApplicationRecord
   acts_as_followable
   attachment :leg_image
 
+  def full_name
+    "#{first_name} #{last_name}"
+  end
+
   def authored_expanded
     hydra = Typhoeus::Hydra.new
     requests = authored.map do |bill|
