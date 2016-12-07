@@ -187,7 +187,9 @@ body {
    text-transform: uppercase;
    letter-spacing: 2px;
    font-size: 15px;
+   padding-top: 20px;
 }
+
 .followBtn {
    background-color: white;
    border-radius: 30px;
@@ -434,6 +436,7 @@ body {
   position: fixed;
   z-index: 1;
 }
+
 
 /*mobile classes*/
 @media all and (max-width: 767px) {

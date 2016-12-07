@@ -16,13 +16,12 @@ class Legislator extends React.Component {
  render() {
    return <div>
    <div className="row legislatorInfo" onClick={this.showLegislator}>
-     <div className="col-xs-2 legislatorImg border">
+     <div className="col-sm-4 legislatorImg">
        <img className='img-circle' src={this.props.data.leg_image_id} alt="legislator image"/>
      </div>
-     <div className="col-xs-10 legText border">
-       {this.props.data.title}<br/>
-       {this.props.data.first_name} {this.props.data.last_name}
-     </div>
+     <span className="col-sm-8 legText">
+       {this.props.data.title} {this.props.data.first_name} {this.props.data.last_name}
+     </span>
     </div>
    </div>
  }
