@@ -397,6 +397,7 @@ setTimeout(() => this.secondFilterResult(), 0)
                 <li className='btn legText yearText' onClick={this.set2016}>{this.state.year2016Active}</li>
                 <li className='btn legText yearText' onClick={this.set2015}>{this.state.year2015Active}</li>
                 <li className='btn legText yearText' onClick={this.set2014}>{this.state.year2014Active}</li>
+                <br/><br/>
               <div className="legText text-center">Filter by Title</div>
                 <li className='btn legText yearText' onClick={this.firstShowAll}>{this.state.allActive}</li>
                 <li className='btn legText yearText' onClick={this.firstShowSenators}>{this.state.senatorsActive}</li>
