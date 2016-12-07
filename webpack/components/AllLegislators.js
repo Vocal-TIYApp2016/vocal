@@ -30,13 +30,13 @@ class AllLegislators extends React.Component {
     this.lastGet2016 = this.lastGet2016.bind(this)
     this.lastGet2015 = this.lastGet2015.bind(this)
     this.lastGet2014 = this.lastGet2014.bind(this)
+    this.mainFilterResult = this.mainFilterResult.bind(this)
     this.state = {
       legislators: [],
       open: false,
       searchText: '',
       results: [],
       defaultAll: [],
-      searchResults: [],
       year2016: true,
       year2015: false,
       year2014: false,
@@ -60,11 +60,10 @@ class AllLegislators extends React.Component {
       fetch('/legislators/')
       .then(response => response.json())
       .then(response => this.setState({defaultAll: response.legislators}))
-      // .then(response => console.log(response))
+
       fetch('/legislators/filter?q[year_eq]=2016')
       .then(response => response.json())
       .then(response => this.setState({results: response.legislators, legislators: response.legislators}))
-
   }
   setSearchText(e){
     var newText = e.target.value
@@ -74,7 +73,7 @@ class AllLegislators extends React.Component {
     console.log(newText)
     setTimeout(() => this.firstFilterResult(), 0)
   }
-  firstFilterResult(){
+  mainFilterResult(){
     var searchTerm = this.state.searchText
     var resultsArray = []
     var searchWords = searchTerm.split(' ')
@@ -89,11 +88,12 @@ class AllLegislators extends React.Component {
         resultsArray.push(element)
       }
     })
-    // console.log(resultsArray)
     this.setState({
-      results: resultsArray,
-      searchResults: resultsArray})
-    // console.log(this.state.results)
+      results: resultsArray
+    })
+  }
+  firstFilterResult(){
+    this.mainFilterResult()
     if(this.state.year2014 === true){
       this.nextGet2014()
     }
@@ -105,51 +105,16 @@ class AllLegislators extends React.Component {
     }
   }
   nextFilterResult(){
-    var searchTerm = this.state.searchText
-    var resultsArray = []
-    var searchWords = searchTerm.split(' ')
-    var upperTesteroni = searchWords.map(function(data){
-      return data.charAt().toUpperCase() + data.slice(1)
-    })
-    var searchText = upperTesteroni.join(' ')
-    var defaultArray = this.state.legislators
-    var newResults = defaultArray.forEach(function(element){
-      if(element.full_name.includes(searchText))
-      {
-        resultsArray.push(element)
-      }
-    })
-    // console.log(resultsArray)
-    this.setState({
-      results: resultsArray})
+    this.mainFilterResult()
       if(this.state.senators === true){
         this.lastShowSenators()
       }
       else if(this.state.house === true){
         this.lastShowReps()
       }
-      // else{
-      //   this.lastShowAll()
-      // }
     }
     secondFilterResult(){
-      var searchTerm = this.state.searchText
-      var resultsArray = []
-      var searchWords = searchTerm.split(' ')
-      var upperTesteroni = searchWords.map(function(data){
-        return data.charAt().toUpperCase() + data.slice(1)
-      })
-      var searchText = upperTesteroni.join(' ')
-      var defaultArray = this.state.legislators
-      var newResults = defaultArray.forEach(function(element){
-        if(element.full_name.includes(searchText))
-        {
-          resultsArray.push(element)
-        }
-      })
-      // console.log(resultsArray)
-      this.setState({
-        results: resultsArray})
+      this.mainFilterResult()
         if(this.state.year2016 === true){
           this.lastGet2016()
         }
@@ -159,12 +124,7 @@ class AllLegislators extends React.Component {
         else if(this.state.year2014 === true){
           this.lastGet2014()
         }
-        // else{
-        //   this.lastShowAll()
-        // }
       }
-
-
   set2014(){
     this.setState({
       year2014: true,
@@ -177,14 +137,6 @@ class AllLegislators extends React.Component {
     setTimeout(() => this.firstGet2014(), 0)
   }
   firstGet2014(){
-    // fetch('/legislators/filter?q[year_eq]=2014')
-    // .then(response => response.json())
-    // .then(response => {
-    //   this.setState({legislators: response.legislators})
-    //   setTimeout(() => this.filterResult(), 0)
-    // })
-    // console.log(this.state.defaultAll)
-    console.log(this.state.year2014, this.state.year2015, this.state.year2016)
     var array2014 = []
     var newArray2014 = this.state.defaultAll.map(function(data){
       if(data.year === 2014){
@@ -195,14 +147,6 @@ class AllLegislators extends React.Component {
     setTimeout(() => this.nextFilterResult(), 0)
   }
   nextGet2014(){
-    // fetch('/legislators/filter?q[year_eq]=2014')
-    // .then(response => response.json())
-    // .then(response => {
-    //   this.setState({legislators: response.legislators})
-    //   setTimeout(() => this.filterResult(), 0)
-    // })
-    // console.log(this.state.defaultAll)
-    console.log(this.state.year2014, this.state.year2015, this.state.year2016)
     var array2014 = []
     var newArray2014 = this.state.results.map(function(data){
       if(data.year === 2014){
@@ -256,13 +200,6 @@ class AllLegislators extends React.Component {
     setTimeout(() => this.firstGet2015(), 0)
   }
   firstGet2015(){
-    // fetch('/legislators/filter?q[year_eq]=2015')
-    // .then(response => response.json())
-    // .then(response => {
-    //   this.setState({legislators: response.legislators})
-    //   setTimeout(() => this.filterResult(), 0)
-    // })
-    console.log(this.state.year2014, this.state.year2015, this.state.year2016)
     var array2015 = []
     var newArray2015 = this.state.defaultAll.map(function(data){
       if(data.year === 2015){
@@ -273,13 +210,6 @@ class AllLegislators extends React.Component {
     setTimeout(() => this.nextFilterResult(), 0)
   }
   nextGet2015(){
-    // fetch('/legislators/filter?q[year_eq]=2015')
-    // .then(response => response.json())
-    // .then(response => {
-    //   this.setState({legislators: response.legislators})
-    //   setTimeout(() => this.filterResult(), 0)
-    // })
-    console.log(this.state.year2014, this.state.year2015, this.state.year2016)
     var array2015 = []
     var newArray2015 = this.state.results.map(function(data){
       if(data.year === 2015){
@@ -306,13 +236,6 @@ class AllLegislators extends React.Component {
     setTimeout(() => this.firstGet2016(), 0)
   }
   firstGet2016(){
-    // fetch('/legislators/filter?q[year_eq]=2016')
-    // .then(response => response.json())
-    // .then(response => {
-    //   this.setState({legislators: response.legislators})
-    //   setTimeout(() => this.filterResult(), 0)
-    // })
-    console.log(this.state.year2014, this.state.year2015, this.state.year2016)
     var array2016 = []
     var newArray2016 = this.state.defaultAll.map(function(data){
       if(data.year === 2016){
@@ -323,13 +246,6 @@ class AllLegislators extends React.Component {
     setTimeout(() => this.nextFilterResult(), 0)
   }
   nextGet2016(){
-    // fetch('/legislators/filter?q[year_eq]=2016')
-    // .then(response => response.json())
-    // .then(response => {
-    //   this.setState({legislators: response.legislators})
-      // setTimeout(() => this.filterResult(), 0)
-    // })
-    console.log(this.state.year2014, this.state.year2015, this.state.year2016)
     var array2016 = []
     var newArray2016 = this.state.results.map(function(data){
       if(data.year === 2016){
@@ -419,14 +335,11 @@ setTimeout(() => this.secondFilterResult(), 0)
         senatorsActive: 'senators',
         repsActive: 'representatives'
       })
-      // var newRepArray = []
       var repArray = this.state.defaultAll
     this.setState({legislators: repArray})
     setTimeout(() => this.secondFilterResult(), 0)
   }
-  lastShowAll(){
-    console.log('hello')
-  }
+  lastShowAll(){}
   lastShowSenators(){
     this.setState({
       senators: true,
@@ -486,7 +399,6 @@ setTimeout(() => this.secondFilterResult(), 0)
                 <li className='btn legText yearText' onClick={this.firstShowReps}>{this.state.repsActive}</li>
             </ul>
           </div>
-
           <div className="col-sm-3 mobileReveal">
           <div className="input-group">
             <input type="text" className="form-control" placeholder="Search for..." />
@@ -512,7 +424,6 @@ setTimeout(() => this.secondFilterResult(), 0)
           </ul>
           </Panel>
           </div>
-
           <div className="col-sm-9 borderBills whiteBackground">
           <div onClick={this.showLegislator}>
             {searchalllegislators}
