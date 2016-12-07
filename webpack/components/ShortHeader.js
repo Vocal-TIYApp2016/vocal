@@ -12,9 +12,9 @@ class ShortHeader extends React.Component {
     }
   }
   componentDidMount() {
-    fetch('/self/?authentication_token=' +  sessionStorage.getItem('api_token'))
-    .then(response => response.json())
-    .then(this.updatePhoto)
+    fetch('/self?' + 'user_email=' + sessionStorage.getItem('email') + '&user_token=' +  sessionStorage.getItem('api_token'))
+    // .then(this.updatePhoto)
+    .then(response => console.log(response))
    }
 
    updatePhoto(userData) {
