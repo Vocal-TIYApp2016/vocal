@@ -26,7 +26,8 @@ class AllLegislators extends React.Component {
       legislators: [],
       open: false,
       searchText: '',
-      results: []
+      results: [],
+      defaultAll: []
     }
   }
 
@@ -35,10 +36,13 @@ class AllLegislators extends React.Component {
   }
 
   fetchAllLegislators(){
+      fetch('/legislators/')
+      .then(response => response.json())
+      .then(response => this.setState({defaultAll: response.legislators}))
+      // .then(response => console.log(response))
       fetch('/legislators/filter?q[year_eq]=2016')
       .then(response => response.json())
-      .then(response => this.setState({legislators: response.legislators, results: response.legislators}))
-      // .then(response => console.log(response))
+      .then(response => this.setState({results: response.legislators, legislators: response.legislators}))
 
   }
   setSearchText(e){
@@ -72,28 +76,53 @@ class AllLegislators extends React.Component {
   }
 
   get2014(){
-    fetch('/legislators/filter?q[year_eq]=2014')
-    .then(response => response.json())
-    .then(response => {
-      this.setState({legislators: response.legislators})
-      setTimeout(() => this.filterResult(), 0)
+    // fetch('/legislators/filter?q[year_eq]=2014')
+    // .then(response => response.json())
+    // .then(response => {
+    //   this.setState({legislators: response.legislators})
+    //   setTimeout(() => this.filterResult(), 0)
+    // })
+    // console.log(this.state.defaultAll)
+    var array2014 = []
+    var newArray2014 = this.state.defaultAll.map(function(data){
+      if(data.year === 2014){
+        array2014.push(data)
+      }
     })
+    this.setState({legislators: array2014})
+    setTimeout(() => this.filterResult(), 0)
   }
   get2015(){
-    fetch('/legislators/filter?q[year_eq]=2015')
-    .then(response => response.json())
-    .then(response => {
-      this.setState({legislators: response.legislators})
-      setTimeout(() => this.filterResult(), 0)
+    // fetch('/legislators/filter?q[year_eq]=2015')
+    // .then(response => response.json())
+    // .then(response => {
+    //   this.setState({legislators: response.legislators})
+    //   setTimeout(() => this.filterResult(), 0)
+    // })
+    var array2015 = []
+    var newArray2015 = this.state.defaultAll.map(function(data){
+      if(data.year === 2015){
+        array2015.push(data)
+      }
     })
+    this.setState({legislators: array2015})
+    setTimeout(() => this.filterResult(), 0)
   }
   get2016(){
-    fetch('/legislators/filter?q[year_eq]=2016')
-    .then(response => response.json())
-    .then(response => {
-      this.setState({legislators: response.legislators})
-      setTimeout(() => this.filterResult(), 0)
+    // fetch('/legislators/filter?q[year_eq]=2016')
+    // .then(response => response.json())
+    // .then(response => {
+    //   this.setState({legislators: response.legislators})
+    //   setTimeout(() => this.filterResult(), 0)
+    // })
+    var array2016 = []
+    var newArray2016 = this.state.defaultAll.map(function(data){
+      if(data.year === 2016){
+        array2016.push(data)
+      }
     })
+    this.setState({legislators: array2016})
+    setTimeout(() => this.filterResult(), 0)
   }
   showAll(){
 
