@@ -9,6 +9,7 @@ class LegislatorHeader extends React.Component {
     this.updateLegislator = this.updateLegislator.bind(this)
     this.updatePhoto = this.updatePhoto.bind(this)
     this.logout = this.logout.bind(this)
+    this.follow = this.follow.bind(this)
     this.state = {
       title: "--",
       firstName: "--",
@@ -50,6 +51,18 @@ class LegislatorHeader extends React.Component {
      sessionStorage.removeItem('user_id')
   }
 
+  follow(){
+    var formData = new FormData()
+    formData.append('legislator[id]', sessionStorage.getItem('legislator_id'))
+    formData.append('user[authentication_token]', sessionStorage.getItem('api_token'))
+    fetch('/legislators/' +  sessionStorage.getItem('legislator_id') + '/follow', {
+      body: formData,
+      method: 'POST'
+    })
+    .then(response => response.json())
+    .then(response => console.log(response))
+  }
+
   render(){
     return <div>
     <div className='hiddenSection'>
@@ -65,17 +78,17 @@ class LegislatorHeader extends React.Component {
                <MenuItem eventKey="2"><Link to="/" onClick={this.logout}>Logout</Link></MenuItem>
              </DropdownButton>
              </span>
-              <Link className="linkStyleImg" id="fixedPhoto" to='/profile/legislators'><li><img src={this.state.userPhoto} alt='profile photo' className='img-responsive img-circle smlProfileImg' /></li></Link>
+              <Link className="linkStyleImg" to='/profile/legislators'><li><img src={this.state.userPhoto} alt='profile photo' className='img-responsive img-circle smlProfileImg' /></li></Link>
             </ul>
         </div>
       </div>
       <div className="row">
         <div className='col-sm-12'>
-          <img src={this.state.photo} alt='profile photo' className='center-block img-circle profileImg img-responsive' />
+          <img src={this.state.photo} id="fixedPhoto" alt='profile photo' className='center-block img-circle profileImg img-responsive' />
           <br />
           <h2 className="text-center profileText">{this.state.title}<br/>
           {this.state.firstName} {this.state.lastName}</h2>
-          <h5 className="text-center profileTextTwo">{this.state.party} | <button className="btn followBtn">Follow</button></h5>
+          <h5 className="text-center profileTextTwo">{this.state.party} | <button className="btn followBtn" onClick={this.follow}>Follow</button></h5>
 
         </div>
       </div>

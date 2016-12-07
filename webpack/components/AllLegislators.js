@@ -4,9 +4,10 @@ import SingleLegislator from './SingleLegislator'
 import ShortHeader from './ShortHeader'
 import { Accordian, Panel, Button } from 'react-bootstrap'
 
-var resultsArray = []
-var alllegislators = []
-var results = []
+// var resultsArray = []
+// var alllegislators = []
+// var results = []
+// var senatorArray = []
 
 class AllLegislators extends React.Component {
   constructor(props) {
@@ -16,12 +17,17 @@ class AllLegislators extends React.Component {
     this.get2014 = this.get2014.bind(this)
     this.get2015 = this.get2015.bind(this)
     this.get2016 = this.get2016.bind(this)
+    this.showSenators = this.showSenators.bind(this)
+    this.showReps = this.showReps.bind(this)
+    this.showAll = this.showAll.bind(this)
+    this.setSearchText = this.setSearchText.bind(this)
     // this.doesItContain = this.doesItContain.bind(this)
     this.state = {
       legislators: [],
       open: false,
       searchText: '',
-      results: []
+      results: [],
+      defaultAll: []
     }
   }
 
@@ -32,50 +38,106 @@ class AllLegislators extends React.Component {
   fetchAllLegislators(){
       fetch('/legislators/')
       .then(response => response.json())
-      .then(response => this.setState({legislators: response.legislators, results: response.legislators}))
+      .then(response => this.setState({defaultAll: response.legislators}))
+      // .then(response => console.log(response))
+      fetch('/legislators/filter?q[year_eq]=2016')
+      .then(response => response.json())
+      .then(response => this.setState({results: response.legislators, legislators: response.legislators}))
 
+  }
+  setSearchText(e){
+    var newText = e.target.value
+    this.setState({
+      searchText: newText
+    })
+    console.log(newText)
+    setTimeout(() => this.filterResult(), 0)
   }
 
 
-  filterResult(e){
-    resultsArray = []
-    var searchText = e.target.value.charAt(0).toUpperCase() + e.target.value.slice(1)
+  filterResult(){
+    var searchTerm = this.state.searchText
+    var resultsArray = []
+    var searchWords = searchTerm.split(' ')
+    var upperTesteroni = searchWords.map(function(data){
+      return data.charAt().toUpperCase() + data.slice(1)
+    })
+    var searchText = upperTesteroni.join(' ')
     var defaultArray = this.state.legislators
     var newResults = defaultArray.forEach(function(element){
-      if(element.first_name.includes(searchText) || element.last_name.includes(searchText))
+      if(element.full_name.includes(searchText))
       {
         resultsArray.push(element)
       }
     })
+    // console.log(resultsArray)
     this.setState({results: resultsArray})
-    console.log(this.state.results)
+    // console.log(this.state.results)
   }
+
   get2014(){
-    fetch('/legislators/filter?q[year_eq]=2014')
-    .then(response => response.json())
-    .then(response => this.setState({legislators: response.legislators, results: response.legislators}))
+    // fetch('/legislators/filter?q[year_eq]=2014')
+    // .then(response => response.json())
+    // .then(response => {
+    //   this.setState({legislators: response.legislators})
+    //   setTimeout(() => this.filterResult(), 0)
+    // })
+    // console.log(this.state.defaultAll)
+    var array2014 = []
+    var newArray2014 = this.state.defaultAll.map(function(data){
+      if(data.year === 2014){
+        array2014.push(data)
+      }
+    })
+    this.setState({legislators: array2014})
+    setTimeout(() => this.filterResult(), 0)
   }
   get2015(){
-    fetch('/legislators/filter?q[year_eq]=2015')
-    .then(response => response.json())
-    .then(response => this.setState({legislators: response.legislators, results: response.legislators}))
+    // fetch('/legislators/filter?q[year_eq]=2015')
+    // .then(response => response.json())
+    // .then(response => {
+    //   this.setState({legislators: response.legislators})
+    //   setTimeout(() => this.filterResult(), 0)
+    // })
+    var array2015 = []
+    var newArray2015 = this.state.defaultAll.map(function(data){
+      if(data.year === 2015){
+        array2015.push(data)
+      }
+    })
+    this.setState({legislators: array2015})
+    setTimeout(() => this.filterResult(), 0)
   }
   get2016(){
-    fetch('/legislators/filter?q[year_eq]=2016')
-    .then(response => response.json())
-    .then(response => this.setState({legislators: response.legislators, results: response.legislators}))
-  }
-  render() {
-    // alllegislators = this.state.legislators.map((data, i) => {
-    //   return <SingleLegislator data={data} key={i} />
+    // fetch('/legislators/filter?q[year_eq]=2016')
+    // .then(response => response.json())
+    // .then(response => {
+    //   this.setState({legislators: response.legislators})
+    //   setTimeout(() => this.filterResult(), 0)
     // })
+    var array2016 = []
+    var newArray2016 = this.state.defaultAll.map(function(data){
+      if(data.year === 2016){
+        array2016.push(data)
+      }
+    })
+    this.setState({legislators: array2016})
+    setTimeout(() => this.filterResult(), 0)
+  }
+  showAll(){
 
+  }
+  showSenators(){
+
+  }
+  showReps(){
+
+  }
+
+  render() {
     var searchalllegislators = this.state.results.map((data, i) => {
       return <SingleLegislator data={data} key={i} />
     })
-
-
-
     return <div>
       <div className='container-fluid'>
         <ShortHeader />
@@ -86,7 +148,7 @@ class AllLegislators extends React.Component {
           <div className="col-sm-3 hiddenSection">
             <ul className='list-unstyled yearsNav text-right'>
             <li className="input-group">
-              <input type="text" id='legislatorSearch' className="form-control" placeholder="Search for..." onChange={this.filterResult} />
+              <input type="text" id='legislatorSearch' className="form-control" placeholder="Search for..." onChange={this.setSearchText} />
               <span className="input-group-btn">
                 <button className="btn" type="button">
          <span className="glyphicon glyphicon-search" aria-hidden="true"></span></button>
@@ -97,8 +159,10 @@ class AllLegislators extends React.Component {
                 <li className='btn legText yearText' onClick={this.get2015}>2015</li>
                 <li className='btn legText yearText' onClick={this.get2014}>2014</li>
               <div className="legText text-center">Filter by Title</div>
-                <li className='btn legText yearText'>Senator</li>
-                <li className='btn legText yearText'>Representative</li>
+                <li className='btn legText yearText' onClick={this.showSenators}>Senator</li>
+                <li className='btn legText yearText' onClick={this.showReps}>Representative</li>
+                <li className='btn legText yearText' onClick={this.showAll}>Show All</li>
+
             </ul>
           </div>
 
@@ -130,7 +194,6 @@ class AllLegislators extends React.Component {
 
           <div className="col-sm-9 borderBills whiteBackground">
           <div onClick={this.showLegislator}>
-            {alllegislators}
             {searchalllegislators}
           </div>
           </div>

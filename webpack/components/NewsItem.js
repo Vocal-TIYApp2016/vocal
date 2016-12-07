@@ -9,14 +9,12 @@ class NewsItem extends React.Component {
   render() {
     return <div>
     <div className="row newsInfo">
-      <div className="col-sm-9">
-        <div className="headlineText">{this.props.data.headline}</div>
+      <div className="col-sm-12">
+        <span className="text-left headlineText">{this.props.data.headline}</span>
+        <span className="text-right dateAndSourceText" id="floatRight">{this.props.data.date}</span>
         <div className="dateAndSourceText">{this.props.data.source}</div>
-      </div>
-      <div className="col-sm-3 text-right dateAndSourceText">
-        {this.props.data.date}
-      </div>
      </div>
+    </div>
     </div>
   }
 }
