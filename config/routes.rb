@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   end
   get   '/legislators/:id' => 'legislators#show'
   get   '/legislators/search' => 'legislators#search'
-  
+
 # => Follow Logic
   post  '/legislators/:id/follow' => 'legislators#follow_unfollow'
 
@@ -25,6 +25,7 @@ Rails.application.routes.draw do
     post  '/users/sign_in' => 'users/sessions#create', as: 'sign_in', constraints: {format: /(json)/}
   end
   get   '/self' => 'users#show_self'
+  # get   '/self/following' => 'users#followed'
   get   '/users/:id' => 'users#show'
 
 # Catchalls for React

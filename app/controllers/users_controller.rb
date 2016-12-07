@@ -1,7 +1,5 @@
 class UsersController < ApplicationController
 
-
-
   def show_self
     require_user
     @user = current_user

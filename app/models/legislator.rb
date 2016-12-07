@@ -5,35 +5,9 @@ class Legislator < ApplicationRecord
   acts_as_followable
   attachment :leg_image
 
-  def authored_expanded
-    hydra = Typhoeus::Hydra.new
-    requests = authored.map do |bill|
-      request = Typhoeus::Request.new(
-      "https://api.iga.in.gov#{bill["link"]}",
-        method: :get,
-        headers: {
-          Accept: "application/vnd.myiga.v1+json",
-          Authorization: "#{ENV['IGA_TOKEN']}"
-        },
-      )
-      hydra.queue(request)
-      puts request.inspect
-    end
-    hydra.run
-    requests.each do |request|
-    # = requests.map do |request|
-    #   JSON.parse(request.response.body)
-      puts JSON.parse(request)
-    end
-    # responses.each do |response|
-    #   cache response
-    # end
-    # responses
-  end
-
-  # def sponsored_expanded
+  # def authored_expanded
   #   hydra = Typhoeus::Hydra.new
-  #   sponsored.each.map do |bill|
+  #   requests = authored.map do |bill|
   #     request = Typhoeus::Request.new(
   #     "https://api.iga.in.gov#{bill["link"]}",
   #       method: :get,
@@ -43,13 +17,42 @@ class Legislator < ApplicationRecord
   #       },
   #     )
   #     hydra.queue(request)
+  #     request
   #   end
   #   hydra.run
   #   responses = requests.map do |request|
-  #     JSON.parse(request.response.body)
+  #     JSON.parse(request.response.body).deep_symbolize_keys
   #   end
-  #   responses.each do |response|
-  #     cache response
+  #     Rails.cache.fetch("#{cache_key}/authored", expires_in: 12.hours) do
+  #       responses.each.map do |response|
+  #       response[:latest_version]
+  #     end
+  #   end
+  #   responses
+  # end
+  #
+  # def sponsored_expanded
+  #   hydra = Typhoeus::Hydra.new
+  #   requests = sponsored.each.map do |bill|
+  #     request = Typhoeus::Request.new(
+  #     "https://api.iga.in.gov#{bill["link"]}",
+  #       method: :get,
+  #       headers: {
+  #         Accept: "application/vnd.myiga.v1+json",
+  #         Authorization: "#{ENV['IGA_TOKEN']}"
+  #       },
+  #     )
+  #     hydra.queue(request)
+  #     request
+  #   end
+  #   hydra.run
+  #   responses = requests.map do |request|
+  #     JSON.parse(request.response.body).deep_symbolize_keys
+  #   end
+  #     Rails.cache.fetch("#{cache_key}/sponsored", expires_in: 12.hours) do
+  #       responses.each.map do |response|
+  #       response[:latest_version]
+  #     end
   #   end
   #   responses
   # end

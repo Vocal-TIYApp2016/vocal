@@ -18,7 +18,7 @@ class LegislatorsController < ApplicationController
       render json: @legislators
     elsif params[:q]
       @legislators = Legislator.ransack(params[:q]).result
-      render json: @legislatorsx
+      render json: @legislators
     end
   end
 
@@ -32,19 +32,12 @@ class LegislatorsController < ApplicationController
   #   end
   # end
   #
-  # def followed
-  #   if current_user
-  #     @legislators = current_user.followees(Legislator)
-  #     render json: @legislators
-  #   else
-  #     render json: @legislators.errors.full_messages
-  #   end
-  # end
 
   def follow_unfollow
     current_user.toggle_follow!(Legislator.find(params[:id]))
     render json: current_user, except: :authentication_token
   end
+
 
 
 end
