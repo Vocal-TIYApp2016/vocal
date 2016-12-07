@@ -37,6 +37,7 @@ class SignUp extends React.Component {
   }
   signedupHandler(response) {
     sessionStorage.setItem('api_token', response.user.authentication_token)
+    sessionStorage.setItem('email', response.user.email)
     location.href = '/profile/legislation'
   }
   render() {

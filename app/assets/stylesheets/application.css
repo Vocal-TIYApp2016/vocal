@@ -256,6 +256,13 @@ body {
 }
 .modal-body {
    padding: 0;
+   overflow-x: scroll;
+}
+.modal-title {
+   overflow: hidden;
+}
+.custom-modal {
+   margin-top: 200px;
 }
 
 .legislationInfo {
@@ -412,8 +419,8 @@ body {
 }
 
 #navBorders {
-   border-left: 1px solid white;
-   border-right: 1px solid white;
+   border-left: 2px solid white;
+   border-right: 2px solid white;
 }
 
 
@@ -454,12 +461,8 @@ body {
       height: 80px;
       width: 80px;
       margin: 3px;
-      margin-left: 30px;
       display: inline-block;
       padding-top: 15px;
-   }
-   .mobileNavbar {
-      font-size: 15px;
    }
 }
 
