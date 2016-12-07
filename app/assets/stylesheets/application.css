@@ -162,6 +162,10 @@ body {
 .legislatorInfo {
    background-color: white;
 }
+.legislatorInfo:hover {
+   background-color: rgb(238, 238, 238);
+   cursor: pointer;
+}
 .newsInfo {
    background-color: white;
    padding: 0px;
@@ -183,7 +187,6 @@ body {
    text-transform: uppercase;
    letter-spacing: 2px;
    font-size: 15px;
-   padding-top: 20px;
 }
 .followBtn {
    background-color: white;
