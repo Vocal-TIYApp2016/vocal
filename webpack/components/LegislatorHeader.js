@@ -30,6 +30,7 @@ class LegislatorHeader extends React.Component {
     fetch('/self?' + 'user_email=' + sessionStorage.getItem('email') + '&user_token=' +  sessionStorage.getItem('api_token'))
     .then(response => response.json())
     .then(this.updatePhoto)
+    // .then(response => console.log(response))
 
     fetch('/self?' + 'user_email=' + sessionStorage.getItem('email') + '&user_token=' +  sessionStorage.getItem('api_token'))
     .then(response => response.json())
@@ -135,7 +136,7 @@ class LegislatorHeader extends React.Component {
           <br />
           <h2 className="text-center profileText">{this.state.title}<br/>
           {this.state.firstName} {this.state.lastName}</h2>
-          <h5 className="text-center profileTextTwo">{this.state.party} | <button className="btn followBtn">Follow</button></h5>
+          <h5 className="text-center profileTextTwo">{this.state.party} | <button className="btn followBtn" onClick={this.follow}>{this.state.updateFollowBtn}</button></h5>
           <br/>
          </div>
         </div>

@@ -2,26 +2,30 @@ import React from 'react'
 import { Router, Route, Link, browserHistory } from 'react-router'
 
 class Legislator extends React.Component {
-  constructor(props) {
-    super(props)
-  }
+ constructor(props) {
+   super(props)
+   this.showLegislator = this.showLegislator.bind(this)
+ }
 
-  render() {
-    return <div>
-    <div className="row legislatorInfo">
-      <div className="col-xs-3 legislatorImg border">
-        <img className='img-circle' src={this.props.data.photo}/>
-      </div>
-      <div className="col-xs-6 legText text-center border">
-        {this.props.data.title}<br/>
-         {this.props.data.firstName} {this.props.data.lastName}
-      </div>
-      <div className="col-xs-3 text-center">
-        <button className='btn block-center btn-block profileFollowBtn pull-right'><span className="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
-      </div>
+ showLegislator(response) {
+   sessionStorage.removeItem('legislator_id', this.props.data.id)
+   sessionStorage.setItem('legislator_id', this.props.data.id)
+   window.location.href = '/legislatorprofile/committees'
+}
+
+ render() {
+   return <div>
+   <div className="row legislatorInfo" onClick={this.showLegislator}>
+     <div className="col-xs-2 legislatorImg border">
+       <img className='img-circle' src={this.props.data.leg_image_id} alt="legislator image"/>
+     </div>
+     <div className="col-xs-10 legText border">
+       {this.props.data.title}<br/>
+       {this.props.data.first_name} {this.props.data.last_name}
      </div>
     </div>
-  }
+   </div>
+ }
 }
 
 export default Legislator
