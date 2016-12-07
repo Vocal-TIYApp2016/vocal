@@ -6,7 +6,7 @@ class UserSerializer < ActiveModel::Serializer
   end
 
   def followed
-    @legislators = current_user&.followees(Legislator)
+    @legislators = current_user.try(followees(Legislator))
   end
 
 end
