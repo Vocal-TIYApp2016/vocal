@@ -501,14 +501,14 @@ setTimeout(() => this.secondFilterResult(), 0)
           <Panel collapsible expanded={this.state.open}>
           <div className="legText text-left">Filter by Year</div>
           <ul className='list-unstyled yearsNav text-right'>
-            <li className='btn legText yearText'>2016</li>
-            <li className='btn legText yearText'>2015</li>
-            <li className='btn legText yearText'>2014</li>
+            <li className='btn legText yearText' onClick={this.set2014}>{this.state.year2014Active}</li>
+            <li className='btn legText yearText' onClick={this.set2015}>{this.state.year2015Active}</li>
+            <li className='btn legText yearText' onClick={this.set2016}>{this.state.year2016Active}</li>
           </ul>
           <div className="legText text-left">Filter by Title</div>
           <ul className="list-unstyled yearsNav text-right">
-          <li className='btn legText yearText'>Senator</li>
-          <li className='btn legText yearText'>Representative</li>
+          <li className='btn legText yearText' onClick={this.firstShowSenators}>{this.state.senatorsActive}</li>
+          <li className='btn legText yearText' onClick={this.firstShowReps}>{this.state.repsActive}</li>
           </ul>
           </Panel>
           </div>
