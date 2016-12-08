@@ -13,6 +13,4 @@ def article_pull(url)
   end
 end
 
-
-
 end
