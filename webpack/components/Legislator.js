@@ -8,8 +8,8 @@ class Legislator extends React.Component {
  }
 
  showLegislator(response) {
-   sessionStorage.removeItem('legislator_id', this.props.data.id)
-   sessionStorage.setItem('legislator_id', this.props.data.id)
+   sessionStorage.removeItem('full_name', this.props.data.full_name)
+   sessionStorage.setItem('full_name', this.props.data.full_name)
    window.location.href = '/legislatorprofile/committees'
 }
 
@@ -17,7 +17,7 @@ class Legislator extends React.Component {
    return <div>
    <div className="row legislatorInfo" onClick={this.showLegislator}>
      <div className="col-sm-4 legislatorImg">
-       <img className='img-circle' src={this.props.data.leg_image_id} alt="legislator image"/>
+       <img className='img-circle' src={this.props.data.leg_image} alt="legislator image"/>
      </div>
      <span className="col-sm-8 legText">
        {this.props.data.title} {this.props.data.first_name} {this.props.data.last_name}
