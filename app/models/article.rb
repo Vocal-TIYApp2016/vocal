@@ -2,8 +2,7 @@ class Article < ApplicationRecord
   require 'rss'
   require 'open-uri'
 
-def article_pull
-  url = 'http://howeypolitics.com/RSS/0'
+def article_pull(url)
   open(url) do |rss|
     feed = RSS::Parser.parse(rss)
     puts "Title: #{feed.channel.title}"
@@ -13,5 +12,7 @@ def article_pull
     end
   end
 end
+
+
 
 end
