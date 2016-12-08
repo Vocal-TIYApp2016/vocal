@@ -76,11 +76,11 @@ class LegislatorHeader extends React.Component {
 
   follow(){
     var formData = new FormData()
-    formData.append('legislator[id]', sessionStorage.getItem('legislator_id'))
+    formData.append('legislator[full_name]', sessionStorage.getItem('full_name'))
     formData.append('user[authentication_token]', sessionStorage.getItem('api_token'))
     formData.append('user[email]', sessionStorage.getItem('email'))
 
-    fetch('/legislators/' +  sessionStorage.getItem('legislator_id') + '/follow?' + 'user_email=' + sessionStorage.getItem('email') + '&user_token=' + sessionStorage.getItem('api_token'), {
+    fetch('/legislators/' +  sessionStorage.getItem('full_name') + '/follow?' + 'user_email=' + sessionStorage.getItem('email') + '&user_token=' + sessionStorage.getItem('api_token'), {
       body: formData,
       method: 'POST'
     })

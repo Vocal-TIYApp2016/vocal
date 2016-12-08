@@ -95,7 +95,9 @@ body {
 .signupBtn {
    margin-top: 20px;
 }
-
+.profileHeight {
+   height: 600px;
+}
 .navItems {
    color: white;
    font-weight: bold;
@@ -273,12 +275,13 @@ body {
 .legislationInfo {
    background-color: white;
 }
-/*.profileBox{
-   height: 500px;
-   overflow-y: hidden;
-   overflow-x: scroll;
-   background-color: white;
-}*/
+.profileBox{
+   overflow-y: scroll;
+   overflow-x: inherit;
+}
+.columnContainer {
+   padding: 2px;
+}
 
 .billBtn {
    width: 100%;
