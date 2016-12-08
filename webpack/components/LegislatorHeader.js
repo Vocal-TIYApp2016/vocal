@@ -2,7 +2,6 @@ import React from 'react'
 import { Router, Route, Link, browserHistory } from 'react-router'
 import { DropdownButton, MenuItem } from 'react-bootstrap'
 
-
 class LegislatorHeader extends React.Component {
   constructor(props) {
     super(props)
@@ -23,19 +22,17 @@ class LegislatorHeader extends React.Component {
     }
   }
   componentDidMount() {
-    fetch('/legislators/' +  sessionStorage.getItem('legislator_id'))
-    .then(response => response.json())
-    .then(this.updateLegislator)
+    // fetch('/legislators/' +  sessionStorage.getItem('legislator_id'))
+    // .then(response => response.json())
+    // .then(this.updateLegislator)
+    // this.updateLegislator()
 
     fetch('/self?' + 'user_email=' + sessionStorage.getItem('email') + '&user_token=' +  sessionStorage.getItem('api_token'))
     .then(response => response.json())
-    .then(response => sessionStorage.setItem('response', response))
-    .then(this.updatePhoto)
-
-    fetch('/self?' + 'user_email=' + sessionStorage.getItem('email') + '&user_token=' +  sessionStorage.getItem('api_token'))
-    .then(response => response.json())
-    .then(this.updateFollowBtn)
-
+    .then((response) => {
+      this.updatePhoto(response)
+      this.updateFollowBtn(response)
+    })
    }
 
    updateLegislator(userData) {
@@ -111,8 +108,6 @@ class LegislatorHeader extends React.Component {
           <h2 className="text-center profileText">{this.state.title}<br/>
           {this.state.firstName} {this.state.lastName}</h2>
           <h5 className="text-center profileTextTwo">{this.state.party} | <button className="btn followBtn" onClick={this.follow}>{this.state.updateFollowBtn}</button></h5>
-
-
         </div>
       </div>
     </div>

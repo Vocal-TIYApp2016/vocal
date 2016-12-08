@@ -4,9 +4,26 @@ import LegislatorHeader from './LegislatorHeader'
 import LegislatorBills from './LegislatorBills'
 import LegislatorNewsItems from './LegislatorNewsItems'
 import LegislatorCommittees from './LegislatorCommittees'
+import MobileLegCommittees from './MobileLegCommittees'
 
 
 class LegislatorProfile extends React.Component {
+    constructor(props) {
+      super(props)
+      // this.updateLegislator = this.updateLegislator.bind(this)
+      // this.updateCommittees = this.updateCommittees.bind(this)
+    }
+
+    componentDidMount() {
+      fetch('/legislators/' +  sessionStorage.getItem('legislator_id'))
+      .then(response => response.json())
+      // .then((response) => {
+      //   this.updateLegislator(response)
+      //   this.updateCommittees(response)
+      // })
+      .then(response => console.log(response))
+    }
+
   render() {
     return <div>
       <div className='container-fluid'>
@@ -29,7 +46,6 @@ class LegislatorProfile extends React.Component {
           <LegislatorCommittees />
           <LegislatorNewsItems />
           <LegislatorBills />
-
         </div>
       </div>
     </div>
