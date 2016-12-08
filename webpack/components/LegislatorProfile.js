@@ -19,6 +19,7 @@ class LegislatorProfile extends React.Component {
     componentDidMount() {
       fetch('/legislators/' +  sessionStorage.getItem('legislator_id'))
       .then(response => response.json())
+      .then(response =>console.log(response))
       .then((response) => {
         window.currentLegislatorProfile = response
         this.setState({currentLegislatorProfile: response})
