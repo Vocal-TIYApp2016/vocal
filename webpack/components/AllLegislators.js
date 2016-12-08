@@ -386,18 +386,12 @@ setTimeout(() => this.secondFilterResult(), 0)
         <div className="row">
           <div className="col-sm-3 hiddenSection">
             <ul className='list-unstyled yearsNav text-right'>
-            <li className="input-group">
               <input type="text" id='legislatorSearch' className="form-control" placeholder="Search for..." onChange={this.setSearchText} />
-              <span className="input-group-btn">
-                <button className="btn" type="button">
-         <span className="glyphicon glyphicon-search" aria-hidden="true"></span></button>
-              </span>
-            </li><br/>
               <div className="legText text-center">Filter by Year</div>
                 <li className='btn legText yearText' onClick={this.set2016}>{this.state.year2016Active}</li>
                 <li className='btn legText yearText' onClick={this.set2015}>{this.state.year2015Active}</li>
                 <li className='btn legText yearText' onClick={this.set2014}>{this.state.year2014Active}</li>
-                <br/><br/>
+                <br/>
               <div className="legText text-center">Filter by Title</div>
                 <li className='btn legText yearText' onClick={this.firstShowAll}>{this.state.allActive}</li>
                 <li className='btn legText yearText' onClick={this.firstShowSenators}>{this.state.senatorsActive}</li>
@@ -405,13 +399,7 @@ setTimeout(() => this.secondFilterResult(), 0)
             </ul>
           </div>
           <div className="col-sm-3 mobileReveal">
-          <div className="input-group">
-            <input type="text" className="form-control" placeholder="Search for..." onChange={this.setSearchText} />
-            <span className="input-group-btn">
-              <button className="btn btn-default" type="button">
-          <span className="glyphicon glyphicon-search" aria-hidden="true"></span></button>
-            </span>
-          </div>
+            <input type="text" className="form-control" placeholder="Search for..." onChange={this.setSearchText} /> <br/>
           <Button className='billBtn' onClick={ ()=> this.setState({ open: !this.state.open })}>
             <div className="navItems text-left">filter</div>
           </Button>
@@ -426,7 +414,7 @@ setTimeout(() => this.secondFilterResult(), 0)
           <ul className="list-unstyled yearsNav text-right">
           <li className='btn legText yearText' onClick={this.firstShowAll}>{this.state.allActive}</li>
           <li className='btn legText yearText' onClick={this.firstShowSenators}>{this.state.senatorsActive}</li>
-          <li className='btn legText yearText' onClick={this.firstShowReps}>{this.state.repsActive}</li>          
+          <li className='btn legText yearText' onClick={this.firstShowReps}>{this.state.repsActive}</li>
           </ul>
           </Panel>
           </div>
