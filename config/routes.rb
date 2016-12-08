@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   get   '/legislators/search' => 'legislators#search'
 
 # News
-
+  get   '/articles' => 'articles#index'
 
 # => Follow Logic
   post  '/legislators/:full_name/follow' => 'legislators#follow_unfollow'

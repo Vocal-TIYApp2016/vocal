@@ -26,7 +26,7 @@ class LegislatorsController < ApplicationController
     Legislator.where(full_name: "#{params[:full_name]}").all.each do |leg|
       current_user.toggle_follow!(leg)
     end
-    render json: current_user, each_serializer: ProfileSerializer
+    render json: current_user, serializer: ProfileSerializer
   end
 
 end
