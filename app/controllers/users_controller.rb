@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
 before_action :require_user, only: [:show_self, :full_profile]
 
-  def show_self
+  def short_self
     render json: current_user
   end
 
