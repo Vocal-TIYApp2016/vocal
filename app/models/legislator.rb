@@ -2,6 +2,7 @@ class Legislator < ApplicationRecord
   include PgSearch
   pg_search_scope :search_by_full_name, against: [:first_name, :last_name]
   acts_as_followable
+  has_many :users, through: :follows
   attachment :leg_image
 
   def full_name

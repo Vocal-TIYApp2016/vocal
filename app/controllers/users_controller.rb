@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 before_action :require_user, only: :show_self
 
   def show_self
-    @user = current_user
+    render json: current_user
   end
 
   def show
