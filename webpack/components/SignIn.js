@@ -6,11 +6,18 @@ class SignIn extends React.Component {
     super(props)
     this.signIn = this.signIn.bind(this)
     this.signedinHandler = this.signedinHandler.bind(this)
+    this.enter = this.enter.bind(this)
     this.state = {
       username: '',
       password: '',
     }
   }
+  enter(event){
+    if(event.key === "Enter" ){
+      this.signIn()
+    }
+  }
+
     signIn () {
       var formData = new FormData()
       formData.append('login[username]', this.state.username)
@@ -44,7 +51,7 @@ class SignIn extends React.Component {
           <div className="col-sm-12">
             <div className="form-group">
               <label htmlFor="password"></label>
-                <input type="password" id="password" name="password" className="fieldForm" required value={this.state.password} onChange={(e) => this.setState({password:e.target.value})} placeholder="PASSWORD" />
+                <input type="password" id="password" name="password" className="fieldForm" required value={this.state.password} onChange={(e) => this.setState({password:e.target.value})} placeholder="PASSWORD"  onKeyPress={this.enter} />
             </div>
           </div>
           <div className="col-sm-12">
