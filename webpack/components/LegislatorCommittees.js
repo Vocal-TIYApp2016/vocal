@@ -12,15 +12,18 @@ class LegislatorCommittees extends React.Component {
 }
 
   componentDidMount() {
-    fetch('/legislators/' +  sessionStorage.getItem('legislator_id'))
-    .then(response => response.json())
-    .then(this.updateCommittees)
+    // fetch('/legislators/' +  sessionStorage.getItem('legislator_id'))
+    // .then(response => response.json())
+    // .then(this.updateCommittees)
     // .then(response => console.log(response))
+    // this.updateCommittees()
    }
+
    updateCommittees(data) {
      this.setState ({
        committees: data.legislator.committees
      })
+
    }
 
   render() {

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Router, Route, Link, browserHistory } from 'react-router'
-import Legislation from './Legislation'
+import LegislatorBill from './LegislatorBill'
 
 class LegislatorBills extends React.Component {
   constructor(props) {
@@ -13,18 +13,19 @@ class LegislatorBills extends React.Component {
   componentDidMount() {
     fetch('/legislators/' +  sessionStorage.getItem('legislator_id'))
     .then(response => response.json())
-    // .then(this.updateCommittees)
-    .then(response => console.log(response))
+    .then(this.updateLegislatorBills)
+    // .then(response => console.log(response))
    }
    updateLegislatorBills(data) {
      this.setState ({
-       committees: data.legislator.committees
+       legislatorBills: data.legislator.authored_expanded
      })
+    //  console.log(this.state.legislatorBills)
    }
 
   render() {
     var bill = this.state.legislatorBills.map((data, i) => {
-      return <Legislation data={data} key={i} />
+      return <LegislatorBill data={data} key={i} />
     })
     return <div>
     <div className='hiddenSection'>
