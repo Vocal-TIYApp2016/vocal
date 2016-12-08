@@ -6,28 +6,33 @@ import LegislatorNewsItems from './LegislatorNewsItems'
 import LegislatorCommittees from './LegislatorCommittees'
 import MobileLegCommittees from './MobileLegCommittees'
 
-
 class LegislatorProfile extends React.Component {
     constructor(props) {
       super(props)
       // this.updateLegislator = this.updateLegislator.bind(this)
       // this.updateCommittees = this.updateCommittees.bind(this)
+      this.state = {
+        currentLegislatorProfile: undefined
+      }
     }
 
-    // componentDidMount() {
-    //   fetch('/legislators/' +  sessionStorage.getItem('legislator_id'))
-    //   .then(response => response.json())
-    //   // .then((response) => {
-    //   //   this.updateLegislator(response)
-    //   //   this.updateCommittees(response)
-    //   // })
-    //   .then(response => console.log(response))
-    // }
+    componentDidMount() {
+      fetch('/legislators/' +  sessionStorage.getItem('legislator_id'))
+      .then(response => response.json())
+      .then((response) => {
+        window.currentLegislatorProfile = response
+        this.setState({currentLegislatorProfile: response})
+        // this.updateLegislator(response)
+        // this.updateCommittees(response)
+      })
+      // .then(response => console.log(response))
+      console.log(this.state.legislatorInfo)
+    }
 
   render() {
     return <div>
       <div className='container-fluid'>
-        <LegislatorHeader />
+        <LegislatorHeader profile={this.state.currentLegislatorProfile} />
       </div> <br/> <br/>
       <div className="container-fluid">
         <div className="row">
@@ -43,9 +48,9 @@ class LegislatorProfile extends React.Component {
             </div>
             {this.props.children}
           </div>
-          <LegislatorCommittees />
+          <LegislatorCommittees profile={this.state.currentLegislatorProfile} />
           <LegislatorNewsItems />
-          <LegislatorBills />
+          <LegislatorBills profile={this.state.currentLegislatorProfile} />
         </div>
       </div>
     </div>

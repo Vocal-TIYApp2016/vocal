@@ -19,6 +19,12 @@ class LegislatorCommittees extends React.Component {
     // this.updateCommittees()
    }
 
+   componentWillReceiveProps() {
+     if (window.currentLegislatorProfile) {
+       this.updateCommittees(window.currentLegislatorProfile)
+     }
+   }
+
    updateCommittees(data) {
      this.setState ({
        committees: data.legislator.committees

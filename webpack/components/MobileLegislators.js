@@ -20,6 +20,10 @@ class MobileLegislators extends React.Component {
       //  .then(response => console.log(response))
    }
 
+  //  componentWillReceiveProps() {
+  //     this.updateLegislators(window.currentLegislatorProfile)
+  //  }
+
    updateLegislators(userData) {
       this.setState({
          legislators: userData.user.followed,

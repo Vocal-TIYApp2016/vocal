@@ -11,11 +11,18 @@ class LegislatorBills extends React.Component {
     }
   }
   componentDidMount() {
-    fetch('/legislators/' +  sessionStorage.getItem('legislator_id'))
-    .then(response => response.json())
-    .then(this.updateLegislatorBills)
+    // fetch('/legislators/' +  sessionStorage.getItem('legislator_id'))
+    // .then(response => response.json())
+    // .then(this.updateLegislatorBills)
     // .then(response => console.log(response))
    }
+
+   componentWillReceiveProps() {
+      if (window.currentLegislatorProfile) {
+        this.updateLegislatorBills(window.currentLegislatorProfile)
+      }
+    }
+
    updateLegislatorBills(data) {
      this.setState ({
        legislatorBills: data.legislator.authored_expanded
