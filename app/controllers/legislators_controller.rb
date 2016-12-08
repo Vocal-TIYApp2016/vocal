@@ -23,7 +23,9 @@ class LegislatorsController < ApplicationController
   end
 
   def follow_unfollow
-    current_user.toggle_follow!(Legislator.find(params[:full_name]))
+    Legislator.where(params[:full_name]).all.each do |leg|
+      current_user.toggle_follow!(leg)
+    end
     render json: current_user, except: :authentication_token
   end
 
