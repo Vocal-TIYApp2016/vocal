@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
 
 # => Follow Logic
-  post  '/legislators/:id/follow' => 'legislators#follow_unfollow'
+  post  '/legislators/:full_name/follow' => 'legislators#follow_unfollow'
 
 # Users
   devise_for :users, controllers: {
@@ -27,7 +27,8 @@ Rails.application.routes.draw do
     patch '/users' => 'devise/registrations#update', :as => 'user_registration', constraints: {format: /(json)/}
     post  '/users/sign_in' => 'users/sessions#create', as: 'sign_in', constraints: {format: /(json)/}
   end
-  get   '/self' => 'users#show_self'
+  get   '/self' => 'users#full_profile'
+  get   '/short_self' => 'users#show_self'
   get   '/users/:id' => 'users#show'
 
 # Catchalls for React
