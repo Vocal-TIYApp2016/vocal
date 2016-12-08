@@ -28,7 +28,7 @@ Rails.application.routes.draw do
     post  '/users/sign_in' => 'users/sessions#create', as: 'sign_in', constraints: {format: /(json)/}
   end
   get   '/self' => 'users#full_profile'
-  get   '/short_self' => 'users#show_self'
+  get   '/short_self' => 'users#short_self'
   get   '/users/:id' => 'users#show'
 
 # Catchalls for React
