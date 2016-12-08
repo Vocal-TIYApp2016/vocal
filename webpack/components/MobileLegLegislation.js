@@ -1,27 +1,31 @@
 import React from 'react'
 import { Router, Route, Link, browserHistory } from 'react-router'
-import Legislation from './Legislation'
+import LegislatorBill from './LegislatorBill'
 
 class MobileLegLegislations extends React.Component {
   constructor(props) {
     super(props)
+    this.updateLegislatorBills = this.updateLegislatorBills.bind(this)
     this.state = {
-      allBills: [
-        {
-        billName: 'HB1001',
-        billDesc: 'lorem ;aslkdfjasd;lfkjasdlkfjsdlkfjsdlkfoiuewrijdsfncxvlkjdsfoiuewkljdsfiojewr',
-      },
-      {
-        billName: 'HB1002',
-        billDesc: 'lorem sjflkdsjf,cmnxlkjsdfiouerwkjndndlkdjsflkjewoiutdsknsf,dnvkdjlfkjdsfklsdlkjh',
-    }
-    ]
+      legislatorBills: []
     }
   }
+  componentDidMount() {
+    fetch('/legislators/' +  sessionStorage.getItem('legislator_id'))
+    .then(response => response.json())
+    .then(this.updateLegislatorBills)
+    // .then(response => console.log(response))
+   }
+   updateLegislatorBills(data) {
+     this.setState ({
+       legislatorBills: data.legislator.authored_expanded
+     })
+     console.log(this.state.legislatorBills)
+   }
 
   render() {
-    var bill = this.state.allBills.map((data, i) => {
-      return <Legislation data={data} key={i} />
+    var bill = this.state.legislatorBills.map((data, i) => {
+      return <LegislatorBill data={data} key={i} />
     })
     return <div>
 

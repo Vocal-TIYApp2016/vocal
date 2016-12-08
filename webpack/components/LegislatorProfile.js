@@ -14,15 +14,15 @@ class LegislatorProfile extends React.Component {
       // this.updateCommittees = this.updateCommittees.bind(this)
     }
 
-    componentDidMount() {
-      fetch('/legislators/' +  sessionStorage.getItem('legislator_id'))
-      .then(response => response.json())
-      // .then((response) => {
-      //   this.updateLegislator(response)
-      //   this.updateCommittees(response)
-      // })
-      .then(response => console.log(response))
-    }
+    // componentDidMount() {
+    //   fetch('/legislators/' +  sessionStorage.getItem('legislator_id'))
+    //   .then(response => response.json())
+    //   // .then((response) => {
+    //   //   this.updateLegislator(response)
+    //   //   this.updateCommittees(response)
+    //   // })
+    //   .then(response => console.log(response))
+    // }
 
   render() {
     return <div>
