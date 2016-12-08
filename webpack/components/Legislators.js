@@ -21,8 +21,8 @@ class Legislators extends React.Component {
 
    updateLegislators(userData) {
       this.setState({
-         legislators: userData.user.followed,
-         arrayLength: Number(userData.user.followed.length)
+         legislators: userData.user.legislators,
+         arrayLength: Number(userData.user.legislators.length)
       })
       // console.log(this.state.arrayLength)
    }

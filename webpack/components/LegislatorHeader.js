@@ -35,6 +35,12 @@ class LegislatorHeader extends React.Component {
     })
    }
 
+   componentWillReceiveProps() {
+     if (window.currentLegislatorProfile) {
+       this.updateLegislator(window.currentLegislatorProfile)
+     }
+   }
+
    updateLegislator(userData) {
     this.setState ({
       photo: userData.legislator.leg_image,
@@ -54,7 +60,7 @@ class LegislatorHeader extends React.Component {
     updateFollowBtn(userData) {
       console.log(userData)
       var followBtn = 'follow'
-      userData.user.followed.forEach(function(data) {
+      userData.user.legislators.forEach(function(data) {
           if (Number(data.id) === Number(sessionStorage.getItem('legislator_id'))) {
             followBtn = 'unfollow'
           }
