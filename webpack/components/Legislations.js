@@ -14,14 +14,24 @@ class Legislations extends React.Component {
     componentDidMount(){
       fetch('/self?' + 'user_email=' + sessionStorage.getItem('email') + '&user_token=' +  sessionStorage.getItem('api_token'))
       .then(response => response.json())
-      .then(response => console.log(response))
-      // .then(this.updateLegislation)
+      // .then(response => console.log(response))
+      .then(this.updateLegislation)
     }
 
-    updateLegislation() {
+    updateLegislation(userData) {
+      var finalArray = []
+      var defArray = []
+        // this.setState({
+        //    allBills: userData.user.legislators,
+        //   //  arrayLength: Number(userData.user.legislators.length)
+        // })
+        var expanded = userData.user.legislators.map((element) => {
+          var further = element.authored_expanded.map((bill) => {
+            finalArray.push(bill)
+          })
+          })
         this.setState({
-           allBills: userData.user.legislators,
-           arrayLength: Number(userData.user.legislators.length)
+          allBills: finalArray
         })
     }
 
