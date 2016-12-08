@@ -29,12 +29,13 @@ class LegislatorHeader extends React.Component {
 
     fetch('/self?' + 'user_email=' + sessionStorage.getItem('email') + '&user_token=' +  sessionStorage.getItem('api_token'))
     .then(response => response.json())
+    .then(response => sessionStorage.setItem('response', response))
     .then(this.updatePhoto)
-    // .then(response => console.log(response))
 
     fetch('/self?' + 'user_email=' + sessionStorage.getItem('email') + '&user_token=' +  sessionStorage.getItem('api_token'))
     .then(response => response.json())
     .then(this.updateFollowBtn)
+
    }
 
    updateLegislator(userData) {
@@ -54,11 +55,11 @@ class LegislatorHeader extends React.Component {
     }
 
     updateFollowBtn(userData) {
+      console.log(userData)
       var followBtn = 'follow'
       userData.user.followed.forEach(function(data) {
           if (Number(data.id) === Number(sessionStorage.getItem('legislator_id'))) {
             followBtn = 'unfollow'
-            console.log('true')
           }
       })
       this.setState({
