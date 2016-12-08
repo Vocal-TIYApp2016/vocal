@@ -6,22 +6,39 @@ import ShortHeader from './ShortHeader'
 class AllLegislations extends React.Component {
   constructor(props) {
     super(props)
-    // this.fetchAllLegislation = this.fetchAllLegislation.bind(this)
+    this.updateLegislation = this.updateLegislation.bind(this)
     this.state = {
       bills: []
     }
   }
 
-  // componentDidMount() {
-  //     this.fetchAllLegislation()
-  // }
-  //
-  // fetchAllLegislation(){
-  //     fetch('/2016/bills')
-  //     .then(response => response.json())
-  //   //.then(response => this.setState({legislators: response.legislators, results: response.legislators}))
-  //   .then(response => console.log(response))
-  // }
+  componentDidMount(){
+    fetch('/self?' + 'user_email=' + sessionStorage.getItem('email') + '&user_token=' +  sessionStorage.getItem('api_token'))
+    .then(response => response.json())
+    // .then(response => console.log(response))
+    .then(this.updateLegislation)
+  }
+
+  updateLegislation(userData) {
+    var finalArray = []
+    var defArray = []
+      // this.setState({
+      //    allBills: userData.user.legislators,
+      //   //  arrayLength: Number(userData.user.legislators.length)
+      // })
+      var expanded = userData.user.legislators.map((element) => {
+        var further = element.authored_expanded.map((bill) => {
+          finalArray.push(bill)
+        })
+        })
+      this.setState({
+        bills: finalArray
+      })
+      console.log(this.state.allBills)
+  }
+
+
+
 
   render() {
     var alllegislation = this.state.bills.map((data, i) => {
