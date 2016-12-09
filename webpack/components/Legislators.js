@@ -20,11 +20,13 @@ class Legislators extends React.Component {
    }
 
    updateLegislators(userData) {
+      var emptyArray = []
       var namesList = []
       var finalArray = []
       var legArray = userData.user.legislators
       legArray.map((data, i) => {
         if (namesList.includes(data.first_name + ' ' + data.last_name){
+           emptyArray.push(data)
         }
         else{
            push.namesList(data.first_name + ' ' + data.last_name)
