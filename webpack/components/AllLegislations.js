@@ -58,7 +58,7 @@ class AllLegislations extends React.Component {
     var array = []
     var starter = this.state.default.map((data, i) => {
       var stupid = data.latestVersion.shortDescription
-      if(stupid.includes('cars') || stupid.includes('trucks') || stupid.includes('highway') || stupid.includes('street') || stupid.includes('automobile')) {
+      if(stupid.includes('cars') || stupid.includes('trucks') || stupid.includes('highway') || stupid.includes('street') || stupid.includes('automobile') || stupid.includes(' INDOT ')) {
         array.push(data)
       }
     })

@@ -22,6 +22,7 @@ class Legislation extends React.Component {
   }
 
   render() {
+    // console.log(this.props.data.latestVersion)
     var allAuthors = []
     var authors = this.props.data.latestVersion.authors.forEach(function(data) {
       return allAuthors.push(data.firstName + ' ' + data.lastName + ' ')
