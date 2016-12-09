@@ -20,8 +20,19 @@ class Legislators extends React.Component {
    }
 
    updateLegislators(userData) {
+      var namesList = []
+      var finalArray = []
+      var legArray = userData.user.legislators
+      legArray.map((data, i) => {
+        if (namesList.includes(data.first_name + ' ' + data.last_name){
+        }
+        else{
+           push.namesList(data.first_name + ' ' + data.last_name)
+           push.finalArray(data)
+        }
+     })
       this.setState({
-         legislators: userData.user.legislators,
+         legislators: finalArray,
          arrayLength: Number(userData.user.legislators.length)
       })
       // console.log(this.state.arrayLength)
