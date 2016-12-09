@@ -24,12 +24,13 @@ class Legislators extends React.Component {
       var namesList = []
       var finalArray = []
       var legArray = userData.user.legislators
-      legArray.map((data, i) => {
-        if (namesList.includes(data.first_name + ' ' + data.last_name){
+      var trash = legArray.map((data, i) => {
+         // console.log(data.full_name)
+        if (namesList.includes(data.full_name)) {
            emptyArray.push(data)
         }
         else{
-           push.namesList(data.first_name + ' ' + data.last_name)
+           push.namesList(data.full_name)
            push.finalArray(data)
         }
      })
