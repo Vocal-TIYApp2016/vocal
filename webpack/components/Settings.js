@@ -27,7 +27,7 @@ class Settings extends React.Component {
     formData.append('user[profile_image]', this.state.photo)
     formData.append('user[zip_code]', this.state.zip)
     console.log(formData)
-    fetch('/users' + 'user_email=' + sessionStorage.getItem('email') + '&user_token=' +  sessionStorage.getItem('api_token'), {
+    fetch('/users' + '?user_email=' + sessionStorage.getItem('email') + '&user_token=' +  sessionStorage.getItem('api_token'), {
       body: formData,
       method: 'PATCH',
     })
