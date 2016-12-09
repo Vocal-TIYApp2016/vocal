@@ -10,7 +10,7 @@ class Users::SessionsController < Devise::SessionsController
 
   # POST /resource/sign_in
   def create
-    resource = User.find_for_database_authentication(login:  params[:login][:username])
+    resource = User.find_for_database_authentication(login: params[:login][:username])
     if resource.nil?
       render json: {success:false, message:"Error with your login or password"}, status: 401
     else

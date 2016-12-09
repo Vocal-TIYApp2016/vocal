@@ -9,7 +9,7 @@
   User.create!(
     email: "cflack@vocal-in.com",
     username: "admincf",
-    password: "vocal",
+    password: "vocal16",
     first_name: "Chris",
     last_name: "Flack",
     zip_code: "46205",
@@ -17,9 +17,9 @@
   )
 
   User.create!(
-  email: "swieland@vocal-in.com",
+    email: "swieland@vocal-in.com",
     username: "adminsw",
-    password: "vocal",
+    password: "vocal16",
     first_name: "Sally",
     last_name: "Wieland",
     zip_code: "46204",
@@ -27,9 +27,9 @@
   )
 
   User.create!(
-  email: "khuff@vocal-in.com",
+    email: "khuff@vocal-in.com",
     username: "adminkh",
-    password: "vocal",
+    password: "vocal16",
     first_name: "Kyle",
     last_name: "Huff",
     zip_code: "46204",
