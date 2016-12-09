@@ -74,7 +74,7 @@ class LegislatorHeader extends React.Component {
       var followBtn = 'follow'
       console.log(userData.legislator.following)
           if (userData.legislator.following === true) {
-              followBtn: 'unfollow'
+              followBtn = 'unfollow'
           }
           this.setState({
             updateFollowBtn: followBtn
@@ -99,7 +99,7 @@ class LegislatorHeader extends React.Component {
       method: 'POST'
     })
     .then(response => response.json())
-    .then(this.updateFollowBtn)
+    .then(setTimeout(() => this.updateFollowBtn(), 0))
   }
 
   render(){
