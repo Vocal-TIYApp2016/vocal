@@ -30,8 +30,8 @@ class Legislators extends React.Component {
            emptyArray.push(data)
         }
         else{
-           push.namesList(data.full_name)
-           push.finalArray(data)
+           namesList.push(data.full_name)
+           finalArray.push(data)
         }
      })
       this.setState({
