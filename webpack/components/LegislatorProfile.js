@@ -23,6 +23,7 @@ class LegislatorProfile extends React.Component {
         window.currentLegislatorProfile = response
         this.setState({currentLegislatorProfile: response})
       })
+      // .then(response => console.log(response))
     }
 
   render() {
