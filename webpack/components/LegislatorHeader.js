@@ -30,6 +30,7 @@ class LegislatorHeader extends React.Component {
     fetch('/self?' + 'user_email=' + sessionStorage.getItem('email') + '&user_token=' +  sessionStorage.getItem('api_token'))
     .then(response => response.json())
     .then((response) => {
+      console.log(response)
       this.updatePhoto(response)
     })
    }
@@ -74,7 +75,7 @@ class LegislatorHeader extends React.Component {
       var followBtn = 'follow'
       console.log(userData.legislator.following)
           if (userData.legislator.following === true) {
-              followBtn: 'unfollow'
+              followBtn = 'unfollow'
           }
           this.setState({
             updateFollowBtn: followBtn
@@ -86,6 +87,9 @@ class LegislatorHeader extends React.Component {
   }
 
   follow(){
+    this.setState({
+      updateFollowBtn: '...'
+    })
     var formData = new FormData()
     formData.append('legislator[full_name]', sessionStorage.getItem('full_name'))
     formData.append('user[authentication_token]', sessionStorage.getItem('api_token'))
@@ -96,7 +100,8 @@ class LegislatorHeader extends React.Component {
       method: 'POST'
     })
     .then(response => response.json())
-    .then(this.updateFollowBtn)
+    .then(response => console.log(response))
+    // .then(setTimeout(() => this.updateFollowBtn(), 0))
   }
 
   render(){
