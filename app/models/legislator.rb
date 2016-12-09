@@ -25,11 +25,15 @@ class Legislator < ApplicationRecord
     end
     hydra.run
     responses = requests.map do |request|
-      JSON.parse(request.response.body).deep_symbolize_keys
+      begin
+        JSON.parse(request.response.body).deep_symbolize_keys
+      rescue JSON::ParserError, TypeError => e
+        []
+      end
     end
       Rails.cache.fetch("#{cache_key}/authored", expires_in: 12.hours) do
         responses.each.map do |response|
-        response[:latest_version]
+          response[:latest_version]
       end
     end
     responses
@@ -51,11 +55,19 @@ class Legislator < ApplicationRecord
     end
     hydra.run
     responses = requests.map do |request|
-      JSON.parse(request.response.body).deep_symbolize_keys
+      begin
+        JSON.parse(request.response.body).deep_symbolize_keys
+      rescue JSON::ParserError, TypeError => e
+        []
+      end
     end
       Rails.cache.fetch("#{cache_key}/sponsored", expires_in: 12.hours) do
-        responses.each.map do |response|
-        response[:latest_version]
+        responses.each.map do |hash|
+          hash.each do |responsekey, responsevalue|
+            response[responsekey] = cleanup(responsevalue)
+          end
+          reseponse[:latest_version]
+
       end
     end
     responses
