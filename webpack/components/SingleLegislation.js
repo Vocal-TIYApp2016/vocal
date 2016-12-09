@@ -24,25 +24,26 @@ class SingleLegislation extends React.Component {
     return <div>
     <div>
       <Button className='billBtn' onClick={ ()=> this.setState({ open: !this.state.open })}>
-        <div className="navItems text-left">{this.props.data.latestVersion.billName} - {this.props.data.latestVersion.shortDescription}</div>
+        <div className="text-left billTitle">{this.props.data.latestVersion.billName} - {this.props.data.latestVersion.shortDescription}</div>
       </Button>
       <Panel collapsible expanded={this.state.open}>
-      <div bsClass="modal-body">
-        <div className="container">
+      <div className="modal-body">
+        {/* <div className="container"> */}
           <div className="row">
             <div className="col-sm-12">
-              <div className="accordionHeaderText">Authors</div>
-            <img className="smlProfileImg img-circle" src="https://unsplash.it/400?random" />
-            <div className="authorText">{allAuthors}</div>
+              <div className="accordionHeaderText">Authors</div> <br/>
+            <div className="authorText">{allAuthors}</div> <br/>
             </div>
           </div>
           <div className="row">
             <div className="col-sm-12">
-              <div className="accordionHeaderText">Digest</div>
-                {this.props.data.latestVersion.digest}
+              <div className="accordionHeaderText">Digest</div> <br/>
+                <div className='billDigest'>
+                  {this.props.data.latestVersion.digest}
+                </div>
             </div>
           </div>
-        </div>
+        {/* </div> */}
       </div>
       </Panel>
     </div>
