@@ -80,16 +80,12 @@ class AllLegislators extends React.Component {
       return data.charAt().toUpperCase() + data.slice(1)
     })
     var searchText = upperTesteroni.join(' ')
-    console.log(searchText)
     var defaultArray = this.state.legislators
-    console.log(this.state.legislators)
     var newResults = defaultArray.forEach(function(element){
       var fullName = element.first_name + ' ' + element.last_name
-      console.log(element.full_name)
       if(fullName.includes(searchText))
       {
         resultsArray.push(element)
-        console.log(resultsArray)
       }
     })
     this.setState({
