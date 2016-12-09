@@ -31,13 +31,13 @@ class LegislatorHeader extends React.Component {
     .then(response => response.json())
     .then((response) => {
       this.updatePhoto(response)
-      this.updateFollowBtn(response)
     })
    }
 
    componentWillReceiveProps() {
      if (window.currentLegislatorProfile) {
        this.updateLegislator(window.currentLegislatorProfile)
+       this.updateFollowBtn(window.currentLegislatorProfile)
      }
    }
 
@@ -57,17 +57,28 @@ class LegislatorHeader extends React.Component {
      })
     }
 
+    // updateFollowBtn(userData) {
+    //   console.log(userData)
+    //   var followBtn = 'follow'
+    //   userData.user.legislators.forEach(function(data) {
+    //       if (Number(data.id) === Number(sessionStorage.getItem('legislator_id'))) {
+    //         followBtn = 'unfollow'
+    //       }
+    //   })
+    //   this.setState({
+    //     updateFollowBtn: followBtn
+    //   })
+    // }
+
     updateFollowBtn(userData) {
-      console.log(userData)
       var followBtn = 'follow'
-      userData.user.legislators.forEach(function(data) {
-          if (Number(data.id) === Number(sessionStorage.getItem('legislator_id'))) {
-            followBtn = 'unfollow'
+      console.log(userData.legislator.following)
+          if (userData.legislator.following === true) {
+              followBtn: 'unfollow'
           }
-      })
-      this.setState({
-        updateFollowBtn: followBtn
-      })
+          this.setState({
+            updateFollowBtn: followBtn
+          })
     }
 
   logout(){
