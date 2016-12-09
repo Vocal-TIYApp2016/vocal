@@ -10,6 +10,7 @@ class LegislatorHeader extends React.Component {
     this.logout = this.logout.bind(this)
     this.follow = this.follow.bind(this)
     this.updateFollowBtn = this.updateFollowBtn.bind(this)
+    // this.doNext = this.doNext.bind(this)
     this.state = {
       title: "--",
       firstName: "--",
@@ -59,7 +60,7 @@ class LegislatorHeader extends React.Component {
     }
 
     updateFollowBtn(userData) {
-      console.log(userData)
+      // console.log(userData)
       var followBtn = 'follow'
       userData.user.legislators.forEach(function(data) {
           if (data.full_name === sessionStorage.getItem('full_name')) {
@@ -89,9 +90,12 @@ class LegislatorHeader extends React.Component {
       method: 'POST'
     })
     .then(response => response.json())
-    .then(response => console.log(response))
-    // .then(setTimeout(() => this.updateFollowBtn(), 0))
+    // .then(response => console.log(response))
+    .then(this.updateFollowBtn)
   }
+  // doNext(){
+  //   setTimeout(() => this.updateFollowBtn(), 0)
+  // }
 
   render(){
     return <div>
