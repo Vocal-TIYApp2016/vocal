@@ -30,6 +30,7 @@ class LegislatorHeader extends React.Component {
     fetch('/self?' + 'user_email=' + sessionStorage.getItem('email') + '&user_token=' +  sessionStorage.getItem('api_token'))
     .then(response => response.json())
     .then((response) => {
+      console.log(response)
       this.updatePhoto(response)
     })
    }
@@ -99,7 +100,8 @@ class LegislatorHeader extends React.Component {
       method: 'POST'
     })
     .then(response => response.json())
-    .then(setTimeout(() => this.updateFollowBtn(), 0))
+    .then(response => console.log(response))
+    // .then(setTimeout(() => this.updateFollowBtn(), 0))
   }
 
   render(){
