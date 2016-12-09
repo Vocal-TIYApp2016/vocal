@@ -86,6 +86,9 @@ class LegislatorHeader extends React.Component {
   }
 
   follow(){
+    this.setState({
+      updateFollowBtn: '...'
+    })
     var formData = new FormData()
     formData.append('legislator[full_name]', sessionStorage.getItem('full_name'))
     formData.append('user[authentication_token]', sessionStorage.getItem('api_token'))
