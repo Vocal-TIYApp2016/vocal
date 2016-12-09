@@ -439,7 +439,30 @@ body {
   position: fixed;
   z-index: 1;
 }
-
+.billTitle{
+  color: white;
+  font-weight: bold;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-right: 15px;
+  line-height: 20px;
+  margin-bottom: 15px;
+  margin-top: 8px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.billDigest{
+   /*padding-right: 20px;*/
+   width: 100%;
+   line-height: 25px;
+}
+.modal-body{
+   width: 100%;
+   padding-right: 25px;
+   /*word-break: break-all;*/
+   word-wrap: normal;
+}
 
 /*mobile classes*/
 @media all and (max-width: 768px) {
