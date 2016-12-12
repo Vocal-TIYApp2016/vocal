@@ -3,18 +3,16 @@ class ArticlesController < ApplicationController
   require 'open-uri'
 
   def article_pull(sources)
+    newshash = []
     sources.each do |url|
-
-      open(url) do |rss|
-        feed = RSS::Parser.parse(rss)
-        puts "Title: #{feed.channel.title}"
-        feed.items.each do |item|
-          puts "Item: #{item.title}"
-          puts "Link: #{item.link}"
+    feed = RSS::Parser.parse(url)
+    origin = feed.channel.title
+      articles = feed.items.map do |item|
+          [item.title, item.link, item.pubDate]
         end
-      end
-
+      newshash = {origin => articles}
     end
+    newshash
   end
 
   def sources
@@ -23,6 +21,6 @@ class ArticlesController < ApplicationController
 
   def index
     @articles = article_pull(sources)
-    render @articles
+    render json: @articles
   end
 end

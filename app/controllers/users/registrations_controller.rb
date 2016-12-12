@@ -32,7 +32,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # PUT /resource
   def update
-    user = User.find_by(:email)
+    user = User.find_by(params :email)
     user.update!(account_update_params)
     if user.save
       render json:user, status: 201
