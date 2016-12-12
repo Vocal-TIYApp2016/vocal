@@ -134,6 +134,9 @@ body {
    color: white;
    text-decoration: none;
 }
+.noDecoration:hover {
+   text-decoration: none;
+}
 .signupBtn {
    margin-top: 20px;
 }
@@ -295,7 +298,7 @@ body {
 
 .dateAndSourceText {
    color: #8B2635;
-   font-size: 14px;
+   font-size: 10px;
    text-transform: uppercase;
    letter-spacing: 1.5px;
 }
@@ -443,6 +446,10 @@ body {
 
 #page-wrap {
    height: 500px;
+}
+.userDropdownImg {
+   height: 30px;
+   width: 30px;
 }
 .dropdown-menu {
    left: -100px;
