@@ -5,7 +5,6 @@ import Legislators from './Legislators'
 import NewsItems from './NewsItems'
 import Legislations from './Legislations'
 
-
 class Profile extends React.Component {
   render() {
     return <div>
