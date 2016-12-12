@@ -6,28 +6,30 @@ import ProfileHeader from './ProfileHeader'
 class MobileNewsItems extends React.Component {
   constructor(props) {
     super(props)
+    this.updateNews = this.updateNews.bind(this)
     this.state = {
-      newsItems: [
-        {
-        headline: 'lorem lorem lorem lorem',
-        source: 'New york times',
-        date: '12/1/16',
-      },
-      {
-      headline: 'lorem lorem lorem lorem headline',
-      source: 'cnn',
-      date: '12/3/16',
-    }
-    ]
+      newsItems: []
     }
   }
+
+    componentDidMount(){
+      fetch('/articles')
+      .then(response => response.json())
+      // .then(response => console.log(response))
+      .then(this.updateNews)
+    }
+    updateNews(response){
+      this.setState({
+        newsItems: response
+      })
+    }
 
   render() {
     var news = this.state.newsItems.map((data, i) => {
       return <NewsItem data={data} key={i} />
     })
     return <div>
-     
+
       <div className="col-xs-12 columnContainer">
         <div className='profileBox'>
           {news}
