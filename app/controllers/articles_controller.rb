@@ -3,20 +3,18 @@ class ArticlesController < ApplicationController
   require 'open-uri'
 
   def article_pull(sources)
-    newshash = []
     sources.each do |url|
     feed = RSS::Parser.parse(url)
     origin = feed.channel.title
-      articles = feed.items.map do |item|
+      articles = feed.items.each.map do |item|
           {title: item.title,
           link: item.link,
           description: item.description,
           source: origin,
           date: (item.try(:pubDate) || item.dc_date) }
         end
-      newshash << articles
+        articles
     end
-    newshash
   end
 
   def sources
