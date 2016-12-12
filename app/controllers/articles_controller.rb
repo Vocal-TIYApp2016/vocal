@@ -19,7 +19,7 @@ class ArticlesController < ApplicationController
   end
 
   def sources
-    ['http://indypolitics.org/feed/']
+    ['http://indypolitics.org/feed/', 'http://howeypolitics.com/RSS/0']
   end
 
   def index
