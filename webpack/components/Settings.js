@@ -26,11 +26,12 @@ class Settings extends React.Component {
     formData.append('user[password]', this.state.password)
     formData.append('user[profile_image]', this.state.photo)
     formData.append('user[zip_code]', this.state.zip)
-    console.log(formData)
+    // console.log(formData)
     fetch('/users' + '?user_email=' + sessionStorage.getItem('email') + '&user_token=' +  sessionStorage.getItem('api_token'), {
       body: formData,
       method: 'PATCH',
     })
+    // .then(console.log('hiiiiii'))
     .then(response => response.json())
     // .then(response => console.log(response))
     .then(this.settingsHandler)

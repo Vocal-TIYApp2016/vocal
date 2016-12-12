@@ -27,6 +27,7 @@ class ShortHeader extends React.Component {
 
    logout(){
      sessionStorage.removeItem('user_id')
+     sessionStorage.removeItem('api_token')
   }
 
   render(){
