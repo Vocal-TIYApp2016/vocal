@@ -263,8 +263,7 @@ body {
    padding-top: 25px;
 }
 #committeeText{
-   padding-top: 10px;
-   padding-bottom: 10px;
+   padding: 10px;
 }
 
 .followBtn {

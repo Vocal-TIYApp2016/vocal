@@ -1,5 +1,7 @@
 import React from 'react'
 import { Router, Route, Link, browserHistory } from 'react-router'
+import moment from 'moment'
+
 
 class NewsItem extends React.Component {
   constructor(props) {
@@ -18,7 +20,7 @@ class NewsItem extends React.Component {
     return <div>
     <div className="row newsInfo">
       <div className="col-sm-12" onClick={this.goToSite}>
-      <span className="text-right dateAndSourceText">{this.props.data.date}</span><br/>
+      <span className="text-right dateAndSourceText">{moment(this.props.data.date).format('MMMM Do YYYY')}</span><br/>
         <span className="text-left headlineText">{this.props.data.title}</span>
         <div className="dateAndSourceText">{this.props.data.source}</div>
      </div>
