@@ -2,6 +2,8 @@ class Article < ApplicationRecord
   require 'rss'
   require 'open-uri'
 
+  default_scope { order(date: :desc) }
+
   def self.update(sources)
     articles = []
     sources.each do |url|
