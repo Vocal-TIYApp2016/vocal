@@ -23,7 +23,7 @@ class SignIn extends React.Component {
       formData.append('login[username]', this.state.username)
       formData.append('login[password]', this.state.password)
       console.log(formData)
-      fetch('/users/sign_in', {
+      fetch('/users/sign_in/', {
         body: formData,
         method: 'POST'
       })
@@ -33,7 +33,9 @@ class SignIn extends React.Component {
   signedinHandler(response) {
     sessionStorage.setItem('api_token', response.user.authentication_token)
     sessionStorage.setItem('email', response.user.email)
+    sessionStorage.setItem('username', response.user.username)
     location.href = '/profile/legislators'
+    // location.href = '/profile/:username/legislators'
   }
   render() {
     return <div>

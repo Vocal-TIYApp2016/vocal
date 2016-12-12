@@ -278,9 +278,12 @@ body {
 .profileBox{
    overflow-y: scroll;
    overflow-x: inherit;
+   height: 350px;
 }
 .columnContainer {
    padding: 2px;
+   height: 400px;
+   text-overflow: ellipsis;
 }
 
 .billBtn {

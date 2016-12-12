@@ -37,6 +37,7 @@ class Legislations extends React.Component {
 
 
   render() {
+    // console.log(this.state.allBills)
     var bill = this.state.allBills.map((data, i) => {
       return <Legislation data={data} key={i} />
     })
