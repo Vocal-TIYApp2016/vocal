@@ -29,8 +29,8 @@ class NewsItems extends React.Component {
       return <NewsItem data={data} key={i} />
     })
     return <div className='hiddenSection'>
-      <div className="col-sm-6 columnContainer">
-        <div className="text-center titleFont">News Feed</div>
+      <div className="leftBottom">
+        <div className="titleFont" id="titleFont">News Feed</div>
         <div className='profileBox'>
           {news}
           </div>

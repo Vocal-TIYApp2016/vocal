@@ -50,9 +50,9 @@ class Legislators extends React.Component {
    else {
    return <div>
       <div className='hiddenSection'>
-        <div className="col-sm-3 columnContainer">
-          <div className="text-center titleFont">Legislators</div>
-            <Link to="/alllegislators"><button className="btn avatarText text-center">start<br/> following</button></Link>
+        <div className="rightSide">
+          <div className="titleFont" id="titleFont">Legislators</div>
+            <Link to="/alllegislators"><button className="btn avatarText text-center center-block" id="profileAvatarTextBtn"><div className="noDecoration">start<br/> following</div></button></Link>
           </div>
         </div>
       </div>
@@ -60,12 +60,12 @@ class Legislators extends React.Component {
 
    return <div>
    <div className='hiddenSection'>
-     <div className="col-sm-3 columnContainer">
-       <div className="text-center titleFont">Legislators</div>
-        <div className='profileBox'>
-         {legislator}
-         </div>
-       </div>
+   <div className="rightSide">
+     <div className="text-left titleFont" id="titleFont">Legislators</div>
+     <div className="profileBox" id="legislatorBox">
+      {legislator}
+      </div>
+     </div>
      </div>
    </div>
  }

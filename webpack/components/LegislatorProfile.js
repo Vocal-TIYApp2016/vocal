@@ -5,25 +5,28 @@ import LegislatorBills from './LegislatorBills'
 import LegislatorNewsItems from './LegislatorNewsItems'
 import LegislatorCommittees from './LegislatorCommittees'
 import MobileLegCommittees from './MobileLegCommittees'
+import URL from 'url-parse'
 
 class LegislatorProfile extends React.Component {
     constructor(props) {
       super(props)
+      let url = new URL(window.location.href, true)
       // this.updateLegislator = this.updateLegislator.bind(this)
       // this.updateCommittees = this.updateCommittees.bind(this)
       this.state = {
+        url: url,
         currentLegislatorProfile: undefined
       }
     }
 
     componentDidMount() {
-      fetch('/legislators/' +  sessionStorage.getItem('legislator_id'))
+      fetch('/legislators/' +  this.state.url.query.id)
       .then(response => response.json())
       .then((response) => {
         window.currentLegislatorProfile = response
         this.setState({currentLegislatorProfile: response})
       })
-      // .then(response => console.log(response))
+      .then(response => console.log(response))
     }
 
   render() {

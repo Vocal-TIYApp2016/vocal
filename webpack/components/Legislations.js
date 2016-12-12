@@ -37,15 +37,14 @@ class Legislations extends React.Component {
 
 
   render() {
-    // console.log(this.state.allBills)
     var bill = this.state.allBills.map((data, i) => {
       return <Legislation data={data} key={i} />
     })
     return <div>
     <div className='hiddenSection'>
-      <div  className="col-sm-3 columnContainer">
-        <div className="text-center titleFont">Legislation</div>
-          <div className='profileBox'>
+      <div  className="rightBottom">
+        <div className="titleFont" id="titleFont">Legislation</div>
+          <div className='profileBox' id="legislationBox">
           {bill}
           </div>
       </div>

@@ -12,7 +12,7 @@ class MobileLegCommittees extends React.Component {
 }
 
   componentDidMount() {
-    fetch('/legislators/' +  sessionStorage.getItem('legislator_id'))
+    fetch('/legislators/' +  this.state.url.query.id)
     .then(response => response.json())
     .then(this.updateCommittees)
     // .then(response => console.log(response))
