@@ -33,8 +33,8 @@ class Settings extends React.Component {
     })
     // .then(console.log('hiiiiii'))
     .then(response => response.json())
-    // .then(response => console.log(response))
-    .then(this.settingsHandler)
+    .then(response => console.log(response))
+    // .then(this.settingsHandler)
   }
   settingsHandler(response) {
     // sessionStorage.setItem('api_token', response.authentication_id)
