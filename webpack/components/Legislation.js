@@ -22,7 +22,7 @@ class Legislation extends React.Component {
   }
 
   render() {
-    console.log(this.props.data.latestVersion)
+    // console.log(this.props.data.latestVersion)
     var billBillArray = []
     billBillArray.push(this.props.data.latestVersion)
     var allAuthors = []
