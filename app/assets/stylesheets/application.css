@@ -450,8 +450,15 @@ body {
 #page-wrap {
    height: 500px;
 }
+
 .dropdown {
    margin-right: 10px;
+}
+
+.userDropdownImg {
+   height: 30px;
+   width: 30px;
+
 }
 .dropdown-menu {
    left: -100px;
