@@ -26,6 +26,36 @@ body {
    background-color: #223843;
 }
 
+.leftSide {
+    background-color: white;
+    height: 100px;
+    margin-right: 10px;
+    margin-left: 5px;
+}
+.leftBottom {
+    margin-top: 10px;
+    background-color: white;
+    height: 500px;
+    margin-right: 10px;
+    margin-left: 5px;
+}
+.rightSide {
+    background-color: white;
+    height: 300px;
+    margin-right: 10px;
+}
+.rightBottom {
+    background-color: white;
+    height: 300px;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+.userProfileImg {
+   width: 75px;
+   height: 75px;
+   margin: 15px;
+}
+
  .logoFont {
     color: white;
     letter-spacing: 5px;
@@ -92,6 +122,18 @@ body {
    background-color: white;
    color: #223843;
 }
+#profileAvatarTextBtn {
+   color: #223843;
+   border: 1px solid #223843;
+   width: 200px;
+   margin-top: 75px;
+}
+#profileAvatarTextBtn:hover {
+   cursor: pointer;
+   background-color: #223843;
+   color: white;
+   text-decoration: none;
+}
 .signupBtn {
    margin-top: 20px;
 }
@@ -115,8 +157,14 @@ body {
 
 .profileImg {
    margin-top: 50px;
-   cursor: pointer;
+  cursor: pointer;
 }
+
+/*.profileImg {
+   height: 100px;
+   width: 100px;
+   padding: 15px;
+}*/
 
 #fixedPhoto {
     width: 200px;
@@ -152,13 +200,27 @@ body {
 }
 
 .titleFont {
-   background-color: #223843 ;
+   background-color: #223843;
    color: white;
    font-size: 2vw;
    letter-spacing: 3px;
-   text-align: center;
-   /*border-right: 1px solid white;*/
    text-transform: uppercase;
+}
+#titleFont {
+   padding-left: 5px;
+   background-color: white;
+   color: #223843;
+   border-bottom: 1px solid #223843;
+}
+#nameFont {
+   margin-left: -40px;
+   background-color: white;
+   color: #223843;
+}
+#usernameFont {
+   margin-left: -40px;
+   padding-top: 0px;
+   font-size: 12px;
 }
 
 .legislatorInfo {
@@ -190,7 +252,6 @@ body {
    letter-spacing: 2px;
    font-size: 1vw;
    padding-top: 25px;
-
 }
 
 .followBtn {
@@ -210,7 +271,7 @@ body {
    border: 1px solid white;
 }
 
-.profileFollowBtn {
+/*.profileFollowBtn {
    background-color: #8B2635;
    border-radius: 4px;
    height: 30px;
@@ -225,7 +286,7 @@ body {
    background-color: white;
    border: 1px solid #8B2635;
    color: #8B2635;
-}
+}*/
 
 .headlineText {
    font-size: 20px;
@@ -276,15 +337,19 @@ body {
 .legislationInfo {
    background-color: white;
 }
-.profileBox{
+.profileBox {
    overflow-y: scroll;
    overflow-x: inherit;
-   height: 350px;
+   height: 460px;
+}
+#legislatorBox {
+   height: 260px;
+}
+#legislationBox {
+   height: 260px;
 }
 .columnContainer {
    padding: 2px;
-   height: 400px;
-   text-overflow: ellipsis;
 }
 
 .billBtn {

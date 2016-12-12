@@ -1,15 +1,22 @@
 import React from 'react'
 import { Router, Route, Link, browserHistory } from 'react-router'
-import ProfileHeader from './ProfileHeader'
 import Legislators from './Legislators'
 import NewsItems from './NewsItems'
 import Legislations from './Legislations'
+import ShortHeader from './ShortHeader'
+import MainHeader from './MainHeader'
+import UserInfo from './UserInfo'
+// import URL from 'url-parse'
 
 class Profile extends React.Component {
   render() {
+    // let url = new URL(window.location.href, true)
+    // console.log(url.query.id)
+    // console.log(url.query.id)
+
     return <div>
       <div className='container-fluid'>
-        <ProfileHeader />
+        <MainHeader />
       </div> <br/> <br/>
       <div className="container-fluid">
         <div className="row">
@@ -25,9 +32,18 @@ class Profile extends React.Component {
           </div>
           {this.props.children}
         </div>
-        <Legislators />
-        <NewsItems />
-        <Legislations />
+        <div className="container">
+            <div className="row">
+              <div className="col-sm-6 noPadding">
+                <UserInfo />
+                <NewsItems />
+              </div>
+              <div className="col-sm-6 noPadding">
+                <Legislators />
+                <Legislations />
+              </div>
+            </div>
+        </div>
       </div>
     </div>
     </div>
