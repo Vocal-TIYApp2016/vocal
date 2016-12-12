@@ -6,19 +6,19 @@ class LegislatorNewsItems extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      LegislatorNewsItems: [
-        {
-        headline: 'lorem lorem lorem lorem',
-        source: 'New york times',
-        date: '12/1/16',
-      },
-      {
-      headline: 'lorem lorem LEGISLATOR lorem lorem headline',
-      source: 'cnn',
-      date: '12/3/16',
+      LegislatorNewsItems: []
     }
-    ]
-    }
+  }
+  componentDidMount(){
+    fetch('/articles')
+    .then(response => response.json())
+    // .then(response => console.log(response))
+    .then(this.updateNews)
+  }
+  updateNews(response){
+    this.setState({
+      legislatorNewsItems: response
+    })
   }
 
   render() {
