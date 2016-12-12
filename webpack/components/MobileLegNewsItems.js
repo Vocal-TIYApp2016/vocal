@@ -5,24 +5,25 @@ import NewsItem from './NewsItem'
 class MobileLegNewsItems extends React.Component {
   constructor(props) {
     super(props)
+    this.updateNews = this.updateNews.bind(this)
     this.state = {
-      newsItems: [
-        {
-        headline: 'lorem lorem lorem lorem',
-        source: 'New york times',
-        date: '12/1/16',
-      },
-      {
-      headline: 'lorem lorem lorem lorem headline',
-      source: 'cnn',
-      date: '12/3/16',
+      LegislatorNewsItems: []
     }
-    ]
     }
-  }
+    componentDidMount(){
+    fetch('/articles')
+    .then(response => response.json())
+    // .then(response => console.log(response))
+    .then(this.updateNews)
+    }
+    updateNews(response){
+    this.setState({
+      legislatorNewsItems: response
+    })
+    }
 
   render() {
-    var news = this.state.newsItems.map((data, i) => {
+    var news = this.state.legislatorNewsItems.map((data, i) => {
       return <NewsItem data={data} key={i} />
     })
     return <div>

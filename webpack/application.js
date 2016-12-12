@@ -22,7 +22,6 @@ document.addEventListener('DOMContentLoaded', function(event) {
            <Route path='/' component={Landing} />
            <Route path='/signup' component={SignUp} />
            <Route path='/signin' component={SignIn} />
-           {/* <Route path='/profile/:username' component={Profile}> */}
            <Route path='/profile' component={Profile}>
                <Route path='legislation' component={MobileLegislations} />
                <Route path='news' component={MobileNewsItems} />
