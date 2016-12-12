@@ -262,6 +262,10 @@ body {
    font-size: 1vw;
    padding-top: 25px;
 }
+#committeeText{
+   padding-top: 10px;
+   padding-bottom: 10px;
+}
 
 .followBtn {
    background-color: white;
