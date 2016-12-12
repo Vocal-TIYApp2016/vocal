@@ -447,6 +447,10 @@ body {
 #page-wrap {
    height: 500px;
 }
+.userDropdownImg {
+   height: 30px;
+   width: 30px;
+}
 .dropdown-menu {
    left: -100px;
 }
