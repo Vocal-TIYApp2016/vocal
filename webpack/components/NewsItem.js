@@ -18,8 +18,8 @@ class NewsItem extends React.Component {
     return <div>
     <div className="row newsInfo">
       <div className="col-sm-12" onClick={this.goToSite}>
+      <span className="text-right dateAndSourceText">{this.props.data.date}</span><br/>
         <span className="text-left headlineText">{this.props.data.title}</span>
-        <span className="text-right dateAndSourceText" id="floatRight">{this.props.data.date}</span>
         <div className="dateAndSourceText">{this.props.data.source}</div>
      </div>
     </div>
