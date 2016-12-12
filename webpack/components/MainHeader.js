@@ -37,7 +37,8 @@ class ShortHeader extends React.Component {
             <h1 className='logoFont text-left'>vocal</h1>
             <div className='pull-right'>
             <DropdownButton title='' id="bg-nested-dropdown" className='glyphicon glyphicon-cog dropdownBtn'>
-             <MenuItem eventKey="1"><Link to='/profile/legislators'>Profile</Link></MenuItem>
+             {/* <MenuItem eventKey="1"><Link to='/profile/legislators'>Profile</Link></MenuItem> */}
+             <MenuItem eventKey="1"><Link to='/profile/legislators'>{this.props.photo}</Link></MenuItem>
              <MenuItem eventKey="2"><Link to='/alllegislators'>Legislators</Link></MenuItem>
              <MenuItem eventKey="2"><Link to='/alllegislation'>Legislation</Link></MenuItem>
              <MenuItem eventKey="3"><Link to='/settings'>Settings</Link></MenuItem>

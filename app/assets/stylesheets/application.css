@@ -134,6 +134,9 @@ body {
    color: white;
    text-decoration: none;
 }
+.noDecoration:hover {
+   text-decoration: none;
+}
 .signupBtn {
    margin-top: 20px;
 }
