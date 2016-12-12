@@ -243,6 +243,7 @@ body {
    border-bottom: 1px solid grey;
    padding-top: 10px;
    padding-bottom: 10px;
+
 }
 .newsInfo:hover{
    cursor: pointer;
@@ -260,7 +261,7 @@ body {
    text-transform: uppercase;
    letter-spacing: 2px;
    font-size: 1vw;
-   padding-top: 25px;
+   padding-top: 35px;
 }
 #committeeText{
    padding: 10px;
@@ -347,7 +348,7 @@ body {
 }
 .profileBox {
    overflow-y: scroll;
-   overflow-x: inherit;
+   overflow-x: hidden;
    height: 460px;
    width: 100%;
 }
