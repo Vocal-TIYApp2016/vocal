@@ -1,13 +1,16 @@
 import React from 'react'
 import { Router, Route, Link, browserHistory } from 'react-router'
 import LegislatorCommittee from './LegislatorCommittee'
+import URL from 'url-parse'
 
 class MobileLegCommittees extends React.Component {
   constructor(props) {
     super(props)
+    let url = new URL(window.location.href, true)
     this.updateCommittees = this.updateCommittees.bind(this)
     this.state = {
-      committees: []
+      committees: [],
+      url: url
   }
 }
 

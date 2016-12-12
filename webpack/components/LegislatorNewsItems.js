@@ -5,8 +5,9 @@ import NewsItem from './NewsItem'
 class LegislatorNewsItems extends React.Component {
   constructor(props) {
     super(props)
+    this.updateNews = this.updateNews.bind(this)
     this.state = {
-      LegislatorNewsItems: []
+      legislatorNewsItems: []
     }
   }
   componentDidMount(){
@@ -22,7 +23,7 @@ class LegislatorNewsItems extends React.Component {
   }
 
   render() {
-    var news = this.state.LegislatorNewsItems.map((data, i) => {
+    var news = this.state.legislatorNewsItems.map((data, i) => {
       return <NewsItem data={data} key={i} />
     })
     return <div>

@@ -6,12 +6,12 @@ import Legislations from './Legislations'
 import ShortHeader from './ShortHeader'
 import MainHeader from './MainHeader'
 import UserInfo from './UserInfo'
-// import URL from 'url-parse'
+import URL from 'url-parse'
 
 class Profile extends React.Component {
   render() {
     // let url = new URL(window.location.href, true)
-    // console.log(url.query.id)
+    // console.log(url)
     // console.log(url.query.id)
 
     return <div>
@@ -21,13 +21,13 @@ class Profile extends React.Component {
       <div className="container-fluid">
         <div className="row">
         <div className="mobileReveal">
-          <div className='col-xs-4 noPadding'>
+          <div className='col-xs-12 noPadding'>
           <Link to='/profile/legislators'><button className='btn btn-block mobileNavbar'>Legislators</button></Link>
           </div>
-          <div className='col-xs-4 noPadding' id="navBorders">
+          <div className='col-xs-12 noPadding'>
           <Link to='/profile/news'><button className='btn btn-block mobileNavbar'>News Feed</button></Link>
           </div>
-          <div className='col-xs-4 noPadding'>
+          <div className='col-xs-12 noPadding'>
           <Link to='/profile/legislation'><button className='btn btn-block mobileNavbar'>Legislation</button></Link>
           </div>
           {this.props.children}

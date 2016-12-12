@@ -16,6 +16,7 @@
 /*.border {
    border: 1px solid black;
 }*/
+
 * {
    box-sizing: border-box;
 }
@@ -159,7 +160,6 @@ body {
 }
 
 .profileImg {
-   margin-top: 50px;
   cursor: pointer;
 }
 
@@ -228,6 +228,8 @@ body {
 
 .legislatorInfo {
    background-color: white;
+   width: 100%;
+   border-bottom: 1px solid #223843;
 }
 .legislatorInfo:hover {
    background-color: rgb(238, 238, 238);
@@ -241,6 +243,10 @@ body {
    border-bottom: 1px solid grey;
    padding-top: 10px;
    padding-bottom: 10px;
+}
+.newsInfo:hover{
+   cursor: pointer;
+   background-color: rgb(238, 238, 238);
 }
 .legislatorImg {
    height: 80px;
@@ -333,10 +339,6 @@ body {
 .modal-title {
    overflow: hidden;
 }
-.custom-modal {
-   margin-top: 200px;
-}
-
 .legislationInfo {
    background-color: white;
 }
@@ -344,6 +346,7 @@ body {
    overflow-y: scroll;
    overflow-x: inherit;
    height: 460px;
+   width: 100%;
 }
 #legislatorBox {
    height: 260px;
@@ -447,6 +450,9 @@ body {
 #page-wrap {
    height: 500px;
 }
+.dropdown {
+   margin-right: 10px;
+}
 .dropdown-menu {
    left: -100px;
 }
@@ -475,7 +481,7 @@ body {
 
 .mobileNavbar {
    color: white;
-   font-size: 2vw;
+   font-size: 4vw;
    text-transform: uppercase;
    letter-spacing: 3px;
    background: transparent;
@@ -485,7 +491,6 @@ body {
    width: 100%;
    margin: 0;
    text-decoration: none;
-
 }
 .mobileNavbar:hover {
    background-color: white;
@@ -498,14 +503,11 @@ body {
    color: #223843;
 }
 
-#navBorders {
-   border-left: 2px solid white;
-   border-right: 2px solid white;
-}
-
-
 .noPadding {
    padding: 0;
+}
+.noMargin {
+   margin: 0;
 }
 .fixed{
   position: fixed;
@@ -535,6 +537,10 @@ body {
    /*word-break: break-all;*/
    word-wrap: normal;
 }
+#navBorder{
+   border-top: 1px solid white;
+   border-bottom: 1px solid white;
+}
 
 /*mobile classes*/
 @media all and (max-width: 768px) {
@@ -543,10 +549,12 @@ body {
    }
 }
 @media all and (max-width: 767px) {
+   .container-fluid{
+      padding-right: 0;
+   }
    .profileImg {
       width: 200px;
       height: 200px;
-      margin-top: 50px;
    }
    .mobLandingBtnIn {
      margin-top: 0px;
@@ -575,6 +583,7 @@ body {
    }
    .legText {
       font-size: 20px;
+      width: 100%;
    }
    .yearText {
       padding-top: 5px;

@@ -22,14 +22,13 @@ class LegislatorCommittee extends React.Component {
 
 
   render() {
-    return <div>
-    <div className="row legislatorInfo">
-      <div className="col-sm-12">
+    return <div className="row legislatorInfo noMargin">
+      <div className="col-sm-12 noPadding">
         <div className="text-left legText">- {this.props.data.name}</div>
       </div>
 
     </div>
-    </div>
+
   }
 }
 
