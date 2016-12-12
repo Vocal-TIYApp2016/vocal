@@ -2,11 +2,26 @@ import React from 'react'
 import { Router, Route, Link, browserHistory } from 'react-router'
 import { DropdownButton, MenuItem } from 'react-bootstrap'
 
-class ShortHeader extends React.Component {
+class MainHeader extends React.Component {
   constructor(props) {
     super(props)
     this.logout = this.logout.bind(this)
+    this.updatePhoto = this.updatePhoto.bind(this)
+    this.state = {
+      photo: null
+    }
   }
+  componentDidMount() {
+    fetch('/self?' + 'user_email=' + sessionStorage.getItem('email') + '&user_token=' +  sessionStorage.getItem('api_token'))
+    .then(response => response.json())
+    .then(this.updatePhoto)
+    // .then(response => console.log(response))
+   }
+   updatePhoto(userData) {
+    this.setState ({
+      photo: userData.user.profile_image,
+    })
+   }
 
    logout(){
      sessionStorage.removeItem('user_id')
@@ -37,8 +52,7 @@ class ShortHeader extends React.Component {
             <h1 className='logoFont text-left'>vocal</h1>
             <div className='pull-right'>
             <DropdownButton title='' id="bg-nested-dropdown" className='glyphicon glyphicon-cog dropdownBtn'>
-             {/* <MenuItem eventKey="1"><Link to='/profile/legislators'>Profile</Link></MenuItem> */}
-             <MenuItem eventKey="1"><Link to='/profile/legislators'>{this.props.photo}</Link></MenuItem>
+             <MenuItem eventKey="1"><Link to='/profile/legislators'><img src={this.state.photo} className="img-responsive img-circle userDropdownImg" alt="user avatar photo"/></Link></MenuItem>
              <MenuItem eventKey="2"><Link to='/alllegislators'>Legislators</Link></MenuItem>
              <MenuItem eventKey="2"><Link to='/alllegislation'>Legislation</Link></MenuItem>
              <MenuItem eventKey="3"><Link to='/settings'>Settings</Link></MenuItem>
@@ -51,4 +65,4 @@ class ShortHeader extends React.Component {
     </div>
   }
 }
-export default ShortHeader
+export default MainHeader
