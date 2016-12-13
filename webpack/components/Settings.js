@@ -60,28 +60,28 @@ class Settings extends React.Component {
               <div className="col-sm-12">
                 <div className="form-group">
                   <label htmlFor="email"></label>
-                    <input type="text" id="email" name="email" className="fieldForm" value={this.state.email} onChange={(e) => this.setState({email:e.target.value})} placeholder="email" />
+                    <input type="text" id="email" name="email" className="fieldForm" value={this.state.email} onChange={(e) => this.setState({email:e.target.value})} placeholder="EMAIL" />
                 </div>
               </div>
               <div className="col-sm-12">
                 <div className="form-group">
                   <label htmlFor="username"></label>
-                    <input type="text" id="username" name="username" className="fieldForm" value={this.state.username} onChange={(e) => this.setState({username:e.target.value})} placeholder="username" />
+                    <input type="text" id="username" name="username" className="fieldForm" value={this.state.username} onChange={(e) => this.setState({username:e.target.value})} placeholder="USERNAME" />
                 </div>
               </div>
               <div className="col-sm-12">
                 <div className="form-group">
                   <label htmlFor="password"></label>
-                    <input type="password" id="password" name="password" className="fieldForm" value={this.state.password} onChange={(e) => this.setState({password:e.target.value})} placeholder="password" />
+                    <input type="password" id="password" name="password" className="fieldForm" value={this.state.password} onChange={(e) => this.setState({password:e.target.value})} placeholder="PASSWORD" />
                 </div>
               </div>
-              <div className="col-sm-6">
+              <div className="col-sm-12">
                 <div className="form-group">
                 <label htmlFor="address"></label>
-                  <input type="text" id="address" name="address" className="fieldForm" required value={this.state.address} onChange={(e) => this.setState({address:e.target.value})} placeholder="address" />
+                  <input type="text" id="address" name="address" className="fieldForm" required value={this.state.address} onChange={(e) => this.setState({address:e.target.value})} placeholder="ADDRESS" />
                 </div>
               </div>
-              <div className="col-sm-6">
+              <div className="col-sm-12">
                 <div className="form-group">
                   <label htmlFor="photo" className="btn avatarText">change Avatar</label>
                     <input onChange={(e) => this.setState({photo: e.target.files[0]})} type="file" id="photo" name="photo" className="hideFileButton" />
