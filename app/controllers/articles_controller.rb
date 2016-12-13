@@ -7,7 +7,7 @@ class ArticlesController < ApplicationController
   end
 
   def article_search
-    articles =[]
+    articles = []
     articles = current_user.legislators.each.map do |leg|
       Article.search_by_full_text(leg.full_name).to_a
     end
