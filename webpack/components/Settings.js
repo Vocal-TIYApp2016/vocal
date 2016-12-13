@@ -48,7 +48,10 @@ class Settings extends React.Component {
     .then(this.settingsHandler)
   }
   settingsHandler(response) {
-    // sessionStorage.setItem('api_token', response.authentication_id)
+    sessionStorage.setItem('lastName', response.user.last_name)
+    sessionStorage.setItem('firstName', response.user.first_name)
+    sessionStorage.setItem('photo', response.user.profile_image)
+    sessionStorage.setItem('address', response.user.address)
     window.location.href = '/profile/legislators'
   }
   render() {
