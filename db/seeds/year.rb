@@ -6,16 +6,19 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-def update_year
-  Legislator.all.each do |leg|
-    leg.update(year:
-      case leg.id
-      when 1..150 then 2016
-      when 151..302 then 2015
-      else 2014
-      end
-      )
-  end
-end
 
-update_year
+# DO NOT RUN, NOW BUILT INTO INITIAL LEGISLATOR SEED
+
+# def update_year
+#   Legislator.all.each do |leg|
+#     leg.update(year:
+#       case leg.id
+#       when 1..150 then 2016
+#       when 151..302 then 2015
+#       else 2014
+#       end
+#       )
+#   end
+# end
+#
+# update_year
