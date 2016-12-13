@@ -574,6 +574,11 @@ body {
    }
 }
 @media all and (max-width: 767px) {
+   .backArrow {
+      top: 0;
+      float: right;
+      margin-left: 0px;
+   }
    .container-fluid{
       padding-right: 0;
    }
