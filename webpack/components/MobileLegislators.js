@@ -49,7 +49,7 @@ class MobileLegislators extends React.Component {
     else {
     return <div>
         <div className="col-xs-12 columnContainer">
-            <Link to="/alllegislators"><button className="btn avatarText text-center">start following</button></Link>
+            <button className="btn avatarText text-center">loading legislators</button>
         </div>
     </div>
     }
