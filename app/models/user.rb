@@ -7,10 +7,17 @@ class User < ApplicationRecord
   end
 
   validates :username,
-  :presence => true,
-  :uniqueness => {
+  :presence => true, :uniqueness => {
     :case_sensitive => false
   }
+
+  validates :email,
+  :presence => true, :uniqueness => {
+    :case_sensitive => false
+  }
+
+  validates :address, :presence => true
+
   validates_format_of :username, with: /^[a-zA-Z0-9_\.]*$/, :multiline => true
   validate :validate_username
 

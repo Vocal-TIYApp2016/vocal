@@ -22,7 +22,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     else
       warden.custom_failure!
       puts user.errors.full_messages
-      render json: user.errors, status:422
+      render json: user.errors.full_messages, status:422
     end
 
   end
@@ -41,7 +41,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     else
       warden.custom_failure!
       puts user.errors.full_messages
-      render json: user.errors, status: 422
+      render json: user.errors.full_messages, status: 422
     end
   end
 
