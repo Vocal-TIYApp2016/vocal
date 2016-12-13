@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
   def index
     @articles = article_search
     @articles = Article.all if @articles == []
-    render json: @articles, each_serializer: ArticleSerializer
+    render json: @articles, serializer: ArticleSerializer
   end
 
   def article_search
