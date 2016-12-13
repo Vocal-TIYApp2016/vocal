@@ -7,7 +7,7 @@ class MobileLegNewsItems extends React.Component {
     super(props)
         this.updateNews = this.updateNews.bind(this)
         this.state = {
-          LegislatorNewsItems: []
+          legislatorNewsItems: []
         }
     }
     componentDidMount(){

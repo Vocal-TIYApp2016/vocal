@@ -95,8 +95,8 @@ class LegislatorHeader extends React.Component {
                       <Link to="/alllegislation" className="linkStyle"><li className='navItems'>Legislation</li></Link>
                       <span className='navItems dropdownText'>
                       <DropdownButton title='' id="bg-nested-dropdown" className='glyphicon glyphicon-cog dropdownBtn'>
-                       <MenuItem eventKey="1"><Link to='/settings'>Settings</Link></MenuItem>
-                       <MenuItem eventKey="2"><Link to="/" onClick={this.logout}>Logout</Link></MenuItem>
+                       <MenuItem eventKey="1" href='/settings'>Settings</MenuItem>
+                       <MenuItem eventKey="2" href="/" onClick={this.logout}>Logout</MenuItem>
                      </DropdownButton>
                      </span>
                       <Link className="linkStyleImg" to='/profile/legislators'><li><img src={this.state.userPhoto} alt='profile photo' className='img-responsive img-circle smlProfileImg' /></li></Link>
@@ -119,11 +119,11 @@ class LegislatorHeader extends React.Component {
                     <h1 className='logoFont text-left'>vocal</h1>
                     <div className='pull-right'>
                     <DropdownButton title='' id="bg-nested-dropdown" className='glyphicon glyphicon-cog dropdownBtn'>
-                     <MenuItem eventKey="1"><Link to='/profile/legislators'>Profile</Link></MenuItem>
-                     <MenuItem eventKey="2"><Link to='/alllegislators'>Legislators</Link></MenuItem>
-                     <MenuItem eventKey="2"><Link to='/alllegislation'>Legislation</Link></MenuItem>
-                     <MenuItem eventKey="3"><Link to='/settings'>Settings</Link></MenuItem>
-                     <MenuItem eventKey="4"><Link to="/" onClick={this.logout}>Logout</Link></MenuItem>
+                     <MenuItem eventKey="1" href='/profile/legislators'>Profile</MenuItem>
+                     <MenuItem eventKey="2" href='/alllegislators'>Legislators</MenuItem>
+                     <MenuItem eventKey="2" href='/alllegislation'>Legislation</MenuItem>
+                     <MenuItem eventKey="3" href='/settings'>Settings</MenuItem>
+                     <MenuItem eventKey="4" href='/' onClick={this.logout}>Logout</MenuItem>
                    </DropdownButton>
                     </div>
                   </div>
