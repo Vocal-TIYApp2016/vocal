@@ -325,10 +325,15 @@ body {
    margin-bottom: 5px;
    color: white;
    padding: 10px;
+   border-radius: 0px;
 }
 .legislationBtn:hover {
    background-color: white;
    color: #8B2635;
+}
+.btn-toolbar {
+   margin-left: 0px;
+   margin-right: 10px;
 }
 .billDesc {
    overflow: hidden;
@@ -567,7 +572,13 @@ body {
    color: white;
 }
 
+
 /*mobile classes*/
+@media all and (max-width: 550px){
+   #legText{
+      font-size: 3vw;
+   }
+}
 @media all and (max-width: 768px) {
    .yearText{
       padding-top: 12px;
@@ -578,6 +589,10 @@ body {
       top: 0;
       float: right;
       margin-left: 0px;
+      position: absolute;
+      right: 0;
+      margin-right: 10px;
+      margin-top: 10px;
    }
    .container-fluid{
       padding-right: 0;

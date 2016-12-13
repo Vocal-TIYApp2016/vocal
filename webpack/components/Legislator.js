@@ -8,10 +8,8 @@ class Legislator extends React.Component {
  }
 
  showLegislator(response) {
-   sessionStorage.removeItem('legislator_id', this.props.data.id)
-   sessionStorage.setItem('legislator_id', this.props.data.id)
    sessionStorage.setItem('full_name', this.props.data.full_name)
-   window.location.href = '/legislatorprofile/committees'
+   window.location.href = '/legislatorprofile/committees?id=' +  this.props.data.id
  }
 
  render() {
@@ -20,7 +18,7 @@ class Legislator extends React.Component {
              <div className="col-sm-4 legislatorImg">
                <img className='img-circle' src={this.props.data.leg_image} alt="legislator image"/>
              </div>
-             <span className="col-sm-8 legText noMargin">
+             <span className="col-sm-8 legText noMargin" id='legText'>
                {this.props.data.title} {this.props.data.first_name} {this.props.data.last_name}
              </span>
             </div>
