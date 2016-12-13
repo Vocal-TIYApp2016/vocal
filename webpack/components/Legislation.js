@@ -63,7 +63,7 @@ class Legislation extends React.Component {
           <Modal.Body>
             <div className="col-sm-12">
               <div className="accordionHeaderText">Authors</div>
-            <img className="smlProfileImg img-circle" src="https://unsplash.it/400?random" />
+            {/* <img className="smlProfileImg img-circle" src="https://unsplash.it/400?random" /> */}
             <div className="authorText">{allAuthors}</div>
             </div>
             <div className="col-sm-12">
