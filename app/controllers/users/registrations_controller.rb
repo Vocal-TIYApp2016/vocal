@@ -2,6 +2,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   respond_to :json
 
+  skip_before_action :authenticate_scope!, only: [:update, :destroy]
+
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
@@ -32,15 +34,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # PUT /resource
   def update
-    user = User.find_by(params :user_token)
-    user.update!(account_update_params)
-    if user.save
+    user = User.find_by(authentication_token: params[:user_token])
+    if user.update_without_password(account_update_params.reject{|k, v| v.blank?})
       render json:user, status: 201
       return
     else
       warden.custom_failure!
       puts user.errors.full_messages
-      render json: user.erros, status: 422
+      render json: user.errors, status: 422
     end
   end
 
@@ -67,9 +68,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # If you have extra params to permit, append them to the sanitizer.
-  # def configure_account_update_params
-  #   devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :username, :email, :password, :profile_image, :zip_code])
-  # end
+  def configure_account_update_params
+    devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :username, :email, :password, :profile_image, :zip_code, :address])
+  end
 
   # The path used after sign up.
   # def after_sign_up_path_for(user)
