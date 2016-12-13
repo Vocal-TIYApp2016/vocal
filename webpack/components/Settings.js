@@ -19,20 +19,33 @@ class Settings extends React.Component {
 
   changeSettings () {
     var formData = new FormData()
+    if(this.state.firstName != ''){
     formData.append('user[first_name]', this.state.firstName)
+  }
+    if(this.state.lastName != ''){
     formData.append('user[last_name]', this.state.lastName)
+  }
+    if(this.state.email != ''){
     formData.append('user[email', this.state.email)
+  }
+    if(this.state.username != ''){
     formData.append('user[username]', this.state.username)
+  }
+  if(this.state.password != ''){
     formData.append('user[password]', this.state.password)
+  }
+  if(this.state.photo != null){
     formData.append('user[profile_image]', this.state.photo)
+  }
+  if(this.state.address != ''){
     formData.append('user[address]', this.state.address)
+  }
     fetch('/users' + '?user_email=' + sessionStorage.getItem('email') + '&user_token=' +  sessionStorage.getItem('api_token'), {
       body: formData,
       method: 'PATCH',
     })
     .then(response => response.json())
-    .then(response => console.log(response))
-    // .then(this.settingsHandler)
+    .then(this.settingsHandler)
   }
   settingsHandler(response) {
     // sessionStorage.setItem('api_token', response.authentication_id)
