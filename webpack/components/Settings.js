@@ -39,7 +39,8 @@ class Settings extends React.Component {
     window.location.href = '/profile/legislators'
   }
   render() {
-    return <div className="container-fluid">
+    return <div>
+    <div className="container-fluid">
       <h1 className="logoFont">vocal</h1>
         <div className="row text-center">
           <div className='col-sm-6 col-sm-offset-3'>
@@ -95,6 +96,8 @@ class Settings extends React.Component {
             </div>
           </div>
         </div>
+    </div>
+      <Link to="/profile/legislators" className="backArrow"><span className="glyphicon glyphicon-arrow-left" aria-hidden="true"></span></Link>
     </div>
   }
 }
