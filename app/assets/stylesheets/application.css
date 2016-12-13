@@ -567,6 +567,10 @@ body {
    color: white;
 }
 
+.btn-toolbar>.btn, .btn-toolbar>.btn-group, .btn-toolbar>.input-group {
+   margin: 0;
+}
+
 /*mobile classes*/
 @media all and (max-width: 768px) {
    .yearText{
