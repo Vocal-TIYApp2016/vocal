@@ -15,6 +15,7 @@ class NewsItems extends React.Component {
     fetch('/articles?' + 'user_email=' + sessionStorage.getItem('email') + '&user_token=' +  sessionStorage.getItem('api_token'))
     .then(response => response.json())
     .then(this.updateNews)
+    // .then(response => console.log(response))
   }
 
   updateNews(response){
