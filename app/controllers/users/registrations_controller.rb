@@ -36,7 +36,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def update
     user = User.find_by(authentication_token: params[:user_token])
     if user.update_without_password(account_update_params.reject{|k, v| v.blank?})
-      render json:user, status: 201
+      render json: user, status: 201
       return
     else
       warden.custom_failure!
