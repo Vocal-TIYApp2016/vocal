@@ -36,18 +36,18 @@ class LegislatorBill extends React.Component {
                   <Modal {...this.props} show={this.state.show} onHide={this.hideModal} dialogClassName="custom-modal">
                     <Modal.Header closeButton>
                       <Modal.Title id="contained-modal-title-lg">
-                        <div className="accordionHeaderText text-left">{this.props.data.latestVersion.billName}: {this.props.data.latestVersion.shortDescription}</div>
+                        <div className="headlineText text-left">{this.props.data.latestVersion.billName}: {this.props.data.latestVersion.shortDescription}</div>
                       </Modal.Title>
-                    </Modal.Header>
+                    </Modal.Header><br/>
                     <Modal.Body>
                       <div className="col-sm-12">
                         <div className="accordionHeaderText">Authors</div>
-                      <div className="authorText">{allAuthors}</div>
+                      <div className="authorText" id="modalText">{allAuthors}</div>
                       </div>
                       <div className="col-sm-12">
                         <div className="accordionHeaderText">Digest</div>
+                          <div className='billDigest' id="modalText">{this.props.data.latestVersion.digest}</div>
                       </div>
-                      {this.props.data.latestVersion.digest}
                     </Modal.Body>
                     <Modal.Footer>
                       <Button className="profileFollowBtn" onClick={this.hideModal}>Close</Button>

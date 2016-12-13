@@ -127,7 +127,7 @@ body {
 #profileAvatarTextBtn {
    color: #223843;
    border: 1px solid #223843;
-   width: 200px;
+   width: 250px;
    margin-top: 75px;
 }
 #profileAvatarTextBtn:hover {
@@ -244,6 +244,7 @@ body {
    border-bottom: 1px solid grey;
    padding-top: 10px;
    padding-bottom: 10px;
+   padding-left: 3px;
 
 }
 .newsInfo:hover{
@@ -338,6 +339,7 @@ body {
 .billDesc {
    overflow: hidden;
    text-overflow: ellipsis;
+   text-align: left;
 }
 /* modal */
 .btn-default {
@@ -552,6 +554,10 @@ body {
    /*padding-right: 20px;*/
    width: 100%;
    line-height: 25px;
+}
+#modalText {
+    padding-top: 10px;
+    padding-bottom: 20px;
 }
 .modal-body{
    width: 100%;
