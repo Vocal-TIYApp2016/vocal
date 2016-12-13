@@ -16,15 +16,15 @@ class Legislator extends React.Component {
 
  render() {
    return <div>
-   <div className="row legislatorInfo noMargin" onClick={this.showLegislator}>
-     <div className="col-sm-4 legislatorImg">
-       <img className='img-circle' src={this.props.data.leg_image} alt="legislator image"/>
-     </div>
-     <span className="col-sm-8 legText noMargin">
-       {this.props.data.title} {this.props.data.first_name} {this.props.data.last_name}
-     </span>
-    </div>
-   </div>
+            <div className="row legislatorInfo noMargin" onClick={this.showLegislator}>
+             <div className="col-sm-4 legislatorImg">
+               <img className='img-circle' src={this.props.data.leg_image} alt="legislator image"/>
+             </div>
+             <span className="col-sm-8 legText noMargin">
+               {this.props.data.title} {this.props.data.first_name} {this.props.data.last_name}
+             </span>
+            </div>
+          </div>
  }
 }
 

@@ -11,12 +11,13 @@ class MobileLegislations extends React.Component {
       allBills: []
     }
   }
+
   componentDidMount(){
     fetch('/self?' + 'user_email=' + sessionStorage.getItem('email') + '&user_token=' +  sessionStorage.getItem('api_token'))
     .then(response => response.json())
-    // .then(response => console.log(response))
     .then(this.updateLegislations)
   }
+
   updateLegislations(userData) {
     var finalArray = []
     var defArray = []
@@ -31,19 +32,16 @@ class MobileLegislations extends React.Component {
   }
 
   render() {
-    console.log(this.state.allBills)
     var bill = this.state.allBills.map((data, i) => {
       return <Legislation data={data} key={i} />
     })
     return <div>
-
-      <div  className="col-xs-12 columnContainer">
-          <div className='profileBox'>
-          {bill}
-          </div>
-      </div>
-
-    </div>
+            <div  className="col-xs-12 columnContainer">
+              <div className='profileBox'>
+              {bill}
+              </div>
+             </div>
+           </div>
   }
 }
 

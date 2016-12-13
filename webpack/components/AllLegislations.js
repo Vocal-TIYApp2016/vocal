@@ -21,17 +21,12 @@ class AllLegislations extends React.Component {
   componentDidMount(){
     fetch('/self?' + 'user_email=' + sessionStorage.getItem('email') + '&user_token=' +  sessionStorage.getItem('api_token'))
     .then(response => response.json())
-    // .then(response => console.log(response))
     .then(this.updateLegislation)
   }
 
   updateLegislation(userData) {
     var finalArray = []
     var defArray = []
-      // this.setState({
-      //    allBills: userData.user.legislators,
-      //   //  arrayLength: Number(userData.user.legislators.length)
-      // })
       var expanded = userData.user.legislators.map((element) => {
         var further = element.authored_expanded.map((bill) => {
           finalArray.push(bill)
@@ -42,6 +37,7 @@ class AllLegislations extends React.Component {
         default: finalArray
       })
   }
+
   filterEducation(){
     var array = []
     var starter = this.state.default.map((data, i) => {
@@ -54,6 +50,7 @@ class AllLegislations extends React.Component {
       bills: array
     })
   }
+
   filterTransportation(){
     var array = []
     var starter = this.state.default.map((data, i) => {
@@ -66,6 +63,7 @@ class AllLegislations extends React.Component {
       bills: array
     })
   }
+
   filterHealth(){
     var array = []
     var starter = this.state.default.map((data, i) => {
@@ -78,6 +76,7 @@ class AllLegislations extends React.Component {
       bills: array
     })
   }
+
   filterTaxes(){
     var array = []
     var starter = this.state.default.map((data, i) => {
@@ -90,17 +89,14 @@ class AllLegislations extends React.Component {
       bills: array
     })
   }
+
   showAll(){
     this.setState({
       bills: this.state.default
     })
   }
 
-
-
-
   render() {
-    console.log(this.state.bills)
     var alllegislation = this.state.bills.map((data, i) => {
       return <SingleLegislation data={data} key={i} />
     })
@@ -113,13 +109,6 @@ class AllLegislations extends React.Component {
         <div className="row">
           <div className="col-sm-3">
             <ul className='list-unstyled yearsNav text-right'>
-            {/* <li className="input-group">
-              <input type="text" className="form-control" placeholder="Search for..." />
-              <span className="input-group-btn">
-                <button className="btn" type="button">
-         <span className="glyphicon glyphicon-search" aria-hidden="true"></span></button>
-              </span>
-              </li><br/> */}
               <div className="legText text-center">Filter by Category</div> <br/>
               <li className='btn legText yearText' onClick={this.showAll}>Show All</li>
               <li className='btn legText yearText' onClick={this.filterEducation}>Education</li>
