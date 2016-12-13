@@ -18,7 +18,7 @@ def raw_parts(end_point)
     headers: {
       Accept: "application/vnd.myiga.v1+json",
       Authorization: "#{ENV['IGA_TOKEN']}"
-    },
+    }
   )
 end
 

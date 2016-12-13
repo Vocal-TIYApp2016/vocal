@@ -1,5 +1,7 @@
 class User < ApplicationRecord
 
+  after_create :follow_local_legislators
+
   before_validation(:on => :create) do
     self.password_confirmation = nil
   end
@@ -36,7 +38,37 @@ class User < ApplicationRecord
      end
   end
 
+  protected
 
+  def find_legislators(user)
+    response = Typhoeus.get(
+      'https://www.googleapis.com/civicinfo/v2/representatives',
+      method: :get,
+      params: {
+        address: "#{CGI.escape(user.address)}",
+        levels: 'administrativeArea1',
+        "roles" => ["legislatorLowerBody", "legislatorUpperBody"],
+        key: "#{ENV['GOOGLE_CIVIC_INFO_KEY']}"
+      }.to_query,
+      headers: {
+        accept: "application/json"
+      }
+    )
+    parsed = JSON.parse(response.body).deep_symbolize_keys
+    legislators = []
+    parsed[:officials].each do |official|
+      legislators << official[:name]
+    end
+    legislators
+  end
+
+  def follow_local_legislators
+    find_legislators(self).each do |name|
+      Legislator.where(full_name: name).all.each do |leg|
+        self.follow!(leg)
+      end
+    end
+  end
 
   def validate_username
     if User.where(email: username).exists?
