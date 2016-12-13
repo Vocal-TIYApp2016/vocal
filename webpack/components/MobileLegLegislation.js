@@ -1,18 +1,21 @@
 import React from 'react'
 import { Router, Route, Link, browserHistory } from 'react-router'
 import LegislatorBill from './LegislatorBill'
+import URL from 'url-parse'
 
 class MobileLegLegislations extends React.Component {
     constructor(props) {
         super(props)
+        let url = new URL(window.location.href, true)
         this.updateLegislatorBills = this.updateLegislatorBills.bind(this)
         this.state = {
-            legislatorBills: []
+            legislatorBills: [],
+            url: url
         }
     }
 
     componentDidMount() {
-        fetch('/legislators/' +  sessionStorage.getItem('legislator_id'))
+        fetch('/legislators/' +  this.state.url.query.id)
         .then(response => response.json())
         .then(this.updateLegislatorBills)
     }
