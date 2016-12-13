@@ -8,10 +8,8 @@ class Legislator extends React.Component {
  }
 
  showLegislator(response) {
-   sessionStorage.removeItem('legislator_id', this.props.data.id)
-   sessionStorage.setItem('legislator_id', this.props.data.id)
    sessionStorage.setItem('full_name', this.props.data.full_name)
-   window.location.href = '/legislatorprofile/committees'
+   window.location.href = '/legislatorprofile/committees?id=' +  this.props.data.id
  }
 
  render() {
