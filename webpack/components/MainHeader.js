@@ -25,6 +25,12 @@ class MainHeader extends React.Component {
 
    logout(){
      sessionStorage.removeItem('user_id')
+     sessionStorage.removeItem('api_token')
+     sessionStorage.removeItem('photo')
+     sessionStorage.removeItem('firstName')
+     sessionStorage.removeItem('lastName')
+     sessionStorage.removeItem('username')
+     sessionStorage.removeItem('email')
   }
 
   render(){

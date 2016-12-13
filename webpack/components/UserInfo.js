@@ -14,18 +14,19 @@ class UserInfo extends React.Component {
  }
 
    componentDidMount() {
-     fetch('/self?' + 'user_email=' + sessionStorage.getItem('email') + '&user_token=' +  sessionStorage.getItem('api_token'))
-     .then(response => response.json())
-     .then(this.updateUser)
+   //   fetch('/self?' + 'user_email=' + sessionStorage.getItem('email') + '&user_token=' +  sessionStorage.getItem('api_token'))
+   //   .then(response => response.json())
+   //   .then(this.updateUser)
     //  .then(response => console.log(response))
+    this.updateUser()
     }
 
-    updateUser(userData) {
+    updateUser() {
     this.setState ({
-      photo: userData.user.profile_image,
-      firstName: userData.user.first_name,
-      lastName: userData.user.last_name,
-      username: userData.user.username
+      photo: sessionStorage.getItem('photo'),
+      lastName: sessionStorage.getItem('lastName'),
+      firstName: sessionStorage.getItem('firstName'),
+      username: sessionStorage.getItem('username')
     })
    }
 
