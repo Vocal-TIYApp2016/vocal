@@ -38,6 +38,7 @@ class User < ApplicationRecord
      end
   end
 
+  protected
 
   def find_legislators(user)
     response = Typhoeus.get(
