@@ -52,6 +52,8 @@ class Settings extends React.Component {
     sessionStorage.setItem('firstName', response.user.first_name)
     sessionStorage.setItem('photo', response.user.profile_image)
     sessionStorage.setItem('address', response.user.address)
+    sessionStorage.setItem('email', response.user.email)
+    sessionStorage.setItem('username', response.user.username)
     window.location.href = '/profile/legislators'
   }
   render() {
