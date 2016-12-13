@@ -21,7 +21,6 @@ class AllLegislators extends React.Component {
     this.set2014 = this.set2014.bind(this)
     this.lastShowSenators = this.lastShowSenators.bind(this)
     this.lastShowReps = this.lastShowReps.bind(this)
-    this.lastShowAll = this.lastShowAll.bind(this)
     this.setSearchText = this.setSearchText.bind(this)
     this.firstShowSenators = this.firstShowSenators.bind(this)
     this.firstShowReps = this.firstShowReps.bind(this)
@@ -65,6 +64,7 @@ class AllLegislators extends React.Component {
       .then(response => response.json())
       .then(response => this.setState({results: response.legislators, legislators: response.legislators}))
   }
+
   setSearchText(e){
     var newText = e.target.value
     this.setState({
@@ -72,6 +72,7 @@ class AllLegislators extends React.Component {
     })
     setTimeout(() => this.firstFilterResult(), 0)
   }
+
   mainFilterResult(){
     const searchTerm = this.state.searchText
     var resultsArray = []
@@ -92,6 +93,7 @@ class AllLegislators extends React.Component {
       results: resultsArray
     })
   }
+
   firstFilterResult(){
     this.mainFilterResult()
     if(this.state.year2014 === true){
@@ -104,6 +106,7 @@ class AllLegislators extends React.Component {
       this.nextGet2016()
     }
   }
+
   nextFilterResult(){
     this.mainFilterResult()
       if(this.state.senators === true){
@@ -113,6 +116,7 @@ class AllLegislators extends React.Component {
         this.lastShowReps()
       }
     }
+
     secondFilterResult(){
       this.mainFilterResult()
         if(this.state.year2016 === true){
@@ -125,6 +129,7 @@ class AllLegislators extends React.Component {
           this.lastGet2014()
         }
       }
+
   set2014(){
     this.setState({
       year2014: true,
@@ -136,6 +141,7 @@ class AllLegislators extends React.Component {
     })
     setTimeout(() => this.firstGet2014(), 0)
   }
+
   firstGet2014(){
     var array2014 = []
     var newArray2014 = this.state.defaultAll.map(function(data){
@@ -146,6 +152,7 @@ class AllLegislators extends React.Component {
     this.setState({legislators: array2014})
     setTimeout(() => this.nextFilterResult(), 0)
   }
+
   nextGet2014(){
     var array2014 = []
     var newArray2014 = this.state.results.map(function(data){
@@ -161,6 +168,7 @@ class AllLegislators extends React.Component {
       this.lastShowReps()
     }
   }
+
   lastGet2014(){
     var array2014 = []
     var newArray2014 = this.state.results.map(function(data){
@@ -170,6 +178,7 @@ class AllLegislators extends React.Component {
     })
     this.setState({results: array2014})
   }
+
   lastGet2015(){
     var array2015 = []
     var newArray2015 = this.state.results.map(function(data){
@@ -179,6 +188,7 @@ class AllLegislators extends React.Component {
     })
     this.setState({results: array2015})
   }
+
   lastGet2016(){
     var array2016 = []
     var newArray2016 = this.state.results.map(function(data){
@@ -188,6 +198,7 @@ class AllLegislators extends React.Component {
     })
     this.setState({results: array2016})
   }
+
   set2015(){
     this.setState({
       year2014: false,
@@ -199,6 +210,7 @@ class AllLegislators extends React.Component {
     })
     setTimeout(() => this.firstGet2015(), 0)
   }
+
   firstGet2015(){
     var array2015 = []
     var newArray2015 = this.state.defaultAll.map(function(data){
@@ -209,6 +221,7 @@ class AllLegislators extends React.Component {
     this.setState({legislators: array2015})
     setTimeout(() => this.nextFilterResult(), 0)
   }
+
   nextGet2015(){
     var array2015 = []
     var newArray2015 = this.state.results.map(function(data){
@@ -224,6 +237,7 @@ class AllLegislators extends React.Component {
       this.lastShowReps()
     }
   }
+
   set2016(){
     this.setState({
       year2014: false,
@@ -235,6 +249,7 @@ class AllLegislators extends React.Component {
     })
     setTimeout(() => this.firstGet2016(), 0)
   }
+
   firstGet2016(){
     var array2016 = []
     var newArray2016 = this.state.defaultAll.map(function(data){
@@ -245,6 +260,7 @@ class AllLegislators extends React.Component {
     this.setState({legislators: array2016})
     setTimeout(() => this.nextFilterResult(), 0)
   }
+
   nextGet2016(){
     var array2016 = []
     var newArray2016 = this.state.results.map(function(data){
@@ -260,6 +276,7 @@ class AllLegislators extends React.Component {
       this.lastShowReps()
     }
   }
+
   firstShowSenators(){
     if(this.state.senators === false){
     this.setState({
@@ -293,6 +310,7 @@ class AllLegislators extends React.Component {
   setTimeout(() => this.secondFilterResult(), 0)
   }
 }
+
   firstShowReps(){
     if(this.state.house === false){
     this.setState({
@@ -321,11 +339,12 @@ else{
     allActive: 'show all',
     repsActive: 'representatives'
   })
-  var repArray = this.state.defaultAll
-this.setState({legislators: repArray})
-setTimeout(() => this.secondFilterResult(), 0)
+    var repArray = this.state.defaultAll
+  this.setState({legislators: repArray})
+  setTimeout(() => this.secondFilterResult(), 0)
+ }
 }
-  }
+
   firstShowAll(){
       this.setState({
         senators: false,
@@ -339,7 +358,7 @@ setTimeout(() => this.secondFilterResult(), 0)
     this.setState({legislators: repArray})
     setTimeout(() => this.secondFilterResult(), 0)
   }
-  lastShowAll(){}
+
   lastShowSenators(){
     this.setState({
       senators: true,
@@ -354,6 +373,7 @@ setTimeout(() => this.secondFilterResult(), 0)
   })
   this.setState({results: newSenatorArray})
 }
+
   lastShowReps(){
     this.setState({
       senators: false,

@@ -13,9 +13,9 @@ class LegislatorNewsItems extends React.Component {
   componentDidMount(){
     fetch('/articles')
     .then(response => response.json())
-    // .then(response => console.log(response))
     .then(this.updateNews)
   }
+
   updateNews(response){
     this.setState({
       legislatorNewsItems: response
@@ -27,15 +27,15 @@ class LegislatorNewsItems extends React.Component {
       return <NewsItem data={data} key={i} />
     })
     return <div>
-    <div className='hiddenSection'>
-      <div className="col-sm-6 columnContainer">
-        <div className="text-center titleFont">News Feed</div>
-        <div className='profileBox'>
-          {news}
-          </div>
-      </div>
-    </div>
-    </div>
+            <div className='hiddenSection'>
+              <div className="col-sm-6 columnContainer">
+                <div className="text-center titleFont">News Feed</div>
+                <div className='profileBox'>
+                  {news}
+                  </div>
+              </div>
+            </div>
+           </div>
   }
 }
 

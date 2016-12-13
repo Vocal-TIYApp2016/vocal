@@ -11,14 +11,6 @@ class LegislatorCommittees extends React.Component {
   }
 }
 
-  componentDidMount() {
-    // fetch('/legislators/' +  sessionStorage.getItem('legislator_id'))
-    // .then(response => response.json())
-    // .then(this.updateCommittees)
-    // .then(response => console.log(response))
-    // this.updateCommittees()
-   }
-
    componentWillReceiveProps() {
      if (window.currentLegislatorProfile) {
        this.updateCommittees(window.currentLegislatorProfile)
@@ -29,7 +21,6 @@ class LegislatorCommittees extends React.Component {
      this.setState ({
        committees: data.legislator.committees
      })
-
    }
 
   render() {
@@ -37,15 +28,15 @@ class LegislatorCommittees extends React.Component {
       return <LegislatorCommittee data={data} key={i} />
     })
     return <div>
-    <div className='hiddenSection'>
-      <div  className="col-sm-3 columnContainer">
-        <div className="text-center titleFont">Committees</div>
-         <div className='profileBox'>
-          {committee}
-          </div>
-      </div>
-    </div>
-  </div>
+            <div className='hiddenSection'>
+              <div  className="col-sm-3 columnContainer">
+                <div className="text-center titleFont">Committees</div>
+                 <div className='profileBox'>
+                  {committee}
+                 </div>
+              </div>
+            </div>
+           </div>
   }
 }
 

@@ -16,7 +16,6 @@ class ShortHeader extends React.Component {
     fetch('/self?' + 'user_email=' + sessionStorage.getItem('email') + '&user_token=' +  sessionStorage.getItem('api_token'))
     .then(response => response.json())
     .then(this.updatePhoto)
-    // .then(response => console.log(response))
    }
 
    updatePhoto(userData) {
@@ -32,41 +31,42 @@ class ShortHeader extends React.Component {
 
   render(){
     return <div>
-    <div className='hiddenSection'>
-      <div className='row'>
-        <div className='col-sm-12'>
-          <h1 className='logoFont'>vocal</h1>
-          <ul className='inlineHeader pull-right list-unstyled list-inline'>
-            <Link to="/alllegislators" className="linkStyle"><li className='navItems'>Legislators</li></Link>
-            <Link to="/alllegislation" className="linkStyle"><li className='navItems'>Legislation</li></Link>
-            <span className='navItems dropdownText'>
-            <DropdownButton title='' id="bg-nested-dropdown" className='glyphicon glyphicon-cog dropdownBtn'>
-             <MenuItem eventKey="1"><Link to='/settings'>Settings</Link></MenuItem>
-             <MenuItem eventKey="2"><Link to="/" onClick={this.logout}>Logout</Link></MenuItem>
-           </DropdownButton>
-           </span>
-            <Link className="linkStyleImg" to='/profile/legislators'><li><img src={this.state.photo} alt='profile photo' className='img-responsive img-circle smlProfileImg' /></li></Link>
-          </ul>
-      </div>
-      </div>
-      </div>
-      <div className='mobileReveal'>
-        <div className='row'>
-          <div className='col-xs-12'>
-            <h1 className='logoFont text-left'>vocal</h1>
-            <div className='pull-right'>
-            <DropdownButton title='' id="bg-nested-dropdown" className='glyphicon glyphicon-cog dropdownBtn'>
-             <MenuItem eventKey="1"><Link to='/profile/legislators'>Profile</Link></MenuItem>
-             <MenuItem eventKey="2"><Link to='/alllegislators'>Legislators</Link></MenuItem>
-             <MenuItem eventKey="2"><Link to='/alllegislation'>Legislation</Link></MenuItem>
-             <MenuItem eventKey="3"><Link to='/settings'>Settings</Link></MenuItem>
-             <MenuItem eventKey="4"><Link to="/" onClick={this.logout}>Logout</Link></MenuItem>
-           </DropdownButton>
+        <div className='hiddenSection'>
+            <div className='row'>
+                <div className='col-sm-12'>
+                    <h1 className='logoFont'>vocal</h1>
+                        <ul className='inlineHeader pull-right list-unstyled list-inline'>
+                            <Link to="/alllegislators" className="linkStyle"><li className='navItems'>Legislators</li></Link>
+                            <Link to="/alllegislation" className="linkStyle"><li className='navItems'>Legislation</li></Link>
+                            <span className='navItems dropdownText'>
+                                <DropdownButton title='' id="bg-nested-dropdown" className='glyphicon glyphicon-cog dropdownBtn'>
+                                    <MenuItem eventKey="1"><Link to='/settings'>Settings</Link></MenuItem>
+                                    <MenuItem eventKey="2"><Link to="/" onClick={this.logout}>Logout</Link></MenuItem>
+                                </DropdownButton>
+                            </span>
+                            <Link className="linkStyleImg" to='/profile/legislators'><li><img src={this.state.photo} alt='profile photo' className='img-responsive img-circle smlProfileImg' /></li></Link>
+                        </ul>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
+        <div className='mobileReveal'>
+            <div className='row'>
+                <div className='col-xs-12'>
+                    <h1 className='logoFont text-left'>vocal</h1>
+                        <div className='pull-right'>
+                          <DropdownButton title='' id="bg-nested-dropdown" className='glyphicon glyphicon-cog dropdownBtn'>
+                            <MenuItem eventKey="1"><Link to='/profile/legislators'><img src={this.state.photo} className="img-responsive img-circle userDropdownImg" alt="user avatar photo"/></Link></MenuItem>
+                            <MenuItem eventKey="2"><Link to='/alllegislators'>Legislators</Link></MenuItem>
+                            <MenuItem eventKey="2"><Link to='/alllegislation'>Legislation</Link></MenuItem>
+                            <MenuItem eventKey="3"><Link to='/settings'>Settings</Link></MenuItem>
+                            <MenuItem eventKey="4"><Link to="/" onClick={this.logout}>Logout</Link></MenuItem>
+                          </DropdownButton>
+                        </div>
+                </div>
+            </div>
+        </div>
     </div>
   }
 }
+
 export default ShortHeader

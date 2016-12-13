@@ -10,12 +10,6 @@ class LegislatorBills extends React.Component {
       legislatorBills: []
     }
   }
-  componentDidMount() {
-    // fetch('/legislators/' +  sessionStorage.getItem('legislator_id'))
-    // .then(response => response.json())
-    // .then(this.updateLegislatorBills)
-    // .then(response => console.log(response))
-   }
 
    componentWillReceiveProps() {
       if (window.currentLegislatorProfile) {
@@ -27,7 +21,6 @@ class LegislatorBills extends React.Component {
      this.setState ({
        legislatorBills: data.legislator.authored_expanded
      })
-    //  console.log(this.state.legislatorBills)
    }
 
   render() {
@@ -35,15 +28,15 @@ class LegislatorBills extends React.Component {
       return <LegislatorBill data={data} key={i} />
     })
     return <div>
-    <div className='hiddenSection'>
-      <div  className="col-sm-3 columnContainer">
-        <div className="text-center titleFont">Legislation</div>
-          <div className='profileBox'>
-          {bill}
-          </div>
-      </div>
-    </div>
-    </div>
+            <div className='hiddenSection'>
+              <div  className="col-sm-3 columnContainer">
+                <div className="text-center titleFont">Legislation</div>
+                  <div className='profileBox'>
+                    {bill}
+                  </div>
+              </div>
+             </div>
+            </div>
   }
 }
 

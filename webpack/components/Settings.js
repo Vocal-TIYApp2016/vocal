@@ -13,7 +13,7 @@ class Settings extends React.Component {
       email: '',
       password: '',
       photo: null,
-      zip: ''
+      address: ''
     }
   }
 
@@ -25,29 +25,26 @@ class Settings extends React.Component {
     formData.append('user[username]', this.state.username)
     formData.append('user[password]', this.state.password)
     formData.append('user[profile_image]', this.state.photo)
-    formData.append('user[zip_code]', this.state.zip)
-    // console.log(formData)
+    formData.append('user[address]', this.state.address)
     fetch('/users' + '?user_email=' + sessionStorage.getItem('email') + '&user_token=' +  sessionStorage.getItem('api_token'), {
       body: formData,
       method: 'PATCH',
     })
-    // .then(console.log('hiiiiii'))
     .then(response => response.json())
     .then(response => console.log(response))
     // .then(this.settingsHandler)
   }
   settingsHandler(response) {
     // sessionStorage.setItem('api_token', response.authentication_id)
-    window.location.href = '/Profile'
+    window.location.href = '/profile/legislators'
   }
   render() {
-    return <div>
-      <div className="container-fluid">
-        <h1 className="logoFont">vocal</h1>
-          <div className="row text-center">
-            <div className='col-sm-6 col-sm-offset-3'>
+    return <div className="container-fluid">
+      <h1 className="logoFont">vocal</h1>
+        <div className="row text-center">
+          <div className='col-sm-6 col-sm-offset-3'>
             <div className="row">
-            <div className="col-sm-12 fieldForm">change settings</div>
+              <div className="col-sm-12 fieldForm">change settings</div>
               <div className="col-sm-6">
                 <div className="form-group">
                   <label htmlFor="firstName"></label>
@@ -80,8 +77,8 @@ class Settings extends React.Component {
               </div>
               <div className="col-sm-6">
                 <div className="form-group">
-                  <label htmlFor="zip"></label>
-                    <input type="text" id="zip" name="zip" className="fieldForm" value={this.state.zip} onChange={(e) => this.setState({zip:e.target.value})} placeholder="zip" />
+                <label htmlFor="address"></label>
+                  <input type="text" id="address" name="address" className="fieldForm" required value={this.state.address} onChange={(e) => this.setState({address:e.target.value})} placeholder="address" />
                 </div>
               </div>
               <div className="col-sm-6">
@@ -98,9 +95,8 @@ class Settings extends React.Component {
             </div>
           </div>
         </div>
-      </div>
     </div>
-
   }
 }
+
 export default Settings
