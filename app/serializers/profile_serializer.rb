@@ -1,6 +1,6 @@
 class ProfileSerializer < ActiveModel::Serializer
 
-  attributes :id, :authentication_token, :email, :username, :profile_image, :first_name, :last_name, :legislators
+  attributes :id, :authentication_token, :email, :username, :profile_image, :first_name, :last_name, :legislators, :address
 
   has_many :legislators
 
