@@ -6,6 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+def seed_image(file_name)
+  File.open(File.join(Rails.root, "/app/assets/images/seed/#{file_name}"))
+end
+
 User.delete_all
 
   User.create!(
@@ -14,8 +18,8 @@ User.delete_all
     password: "vocal16",
     first_name: "Chris",
     last_name: "Flack",
-    zip_code: "46205",
-    profile_image: "url(/assets//images/aja-hawkeye.png)"
+    address: "4901 Guilford Ave. Indianapolis, IN",
+    profile_image: seed_image('aja-hawkeye.png')
   )
 
   User.create!(
@@ -24,8 +28,8 @@ User.delete_all
     password: "vocal16",
     first_name: "Sally",
     last_name: "Wieland",
-    zip_code: "46204",
-    profile_image: "url(/assets//images/headshot.jpg)"
+    address: "475 E Market St, Indianapolis, IN ",
+    profile_image: seed_image('headshot.jpg')
   )
 
   User.create!(
@@ -34,6 +38,6 @@ User.delete_all
     password: "vocal16",
     first_name: "Kyle",
     last_name: "Huff",
-    zip_code: "46204",
-    profile_image: "url(/assets//images/khuff.png)"
+    address: "475 E Market St, Indianapolis, IN ",
+    profile_image: seed_image('khuff.png')
   )
