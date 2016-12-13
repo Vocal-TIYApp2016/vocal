@@ -31,7 +31,7 @@ class LegislatorCommittees extends React.Component {
             <div className='hiddenSection'>
               <div  className="col-sm-3 columnContainer">
                 <div className="text-center titleFont">Committees</div>
-                 <div className='profileBox'>
+                 <div className='profileBox' id="committeeBox">
                   {committee}
                  </div>
               </div>
