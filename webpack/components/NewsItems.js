@@ -12,7 +12,7 @@ class NewsItems extends React.Component {
   }
 
   componentDidMount(){
-    fetch('/articles/' + 'user_email=' + sessionStorage.getItem('email') + '&user_token=' +  sessionStorage.getItem('api_token'))
+    fetch('/articles?' + 'user_email=' + sessionStorage.getItem('email') + '&user_token=' +  sessionStorage.getItem('api_token'))
     .then(response => response.json())
     .then(this.updateNews)
   }
