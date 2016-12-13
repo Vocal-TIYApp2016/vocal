@@ -36,12 +36,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
     user.update!(account_update_params)
     if user.save
       render json:user, status: 201
+      return
     else
       warden.custom_failure!
       puts user.errors.full_messages
       render json: user.erros, status: 422
     end
   end
+
 
   # DELETE /resource
   # def destroy

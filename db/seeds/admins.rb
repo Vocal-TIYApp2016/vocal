@@ -18,7 +18,7 @@ User.delete_all
     password: "vocal16",
     first_name: "Chris",
     last_name: "Flack",
-    zip_code: "46205",
+    address: "4901 Guilford Ave. Indianapolis, IN",
     profile_image: seed_image('aja-hawkeye.png')
   )
 
@@ -28,7 +28,7 @@ User.delete_all
     password: "vocal16",
     first_name: "Sally",
     last_name: "Wieland",
-    zip_code: "46204",
+    address: "475 E Market St, Indianapolis, IN ",
     profile_image: seed_image('headshot.jpg')
   )
 
@@ -38,6 +38,6 @@ User.delete_all
     password: "vocal16",
     first_name: "Kyle",
     last_name: "Huff",
-    zip_code: "46204",
+    address: "475 E Market St, Indianapolis, IN ",
     profile_image: seed_image('khuff.png')
   )
