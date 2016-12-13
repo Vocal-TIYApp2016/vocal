@@ -13,20 +13,23 @@ class ShortHeader extends React.Component {
   }
 
   componentDidMount() {
-    fetch('/self?' + 'user_email=' + sessionStorage.getItem('email') + '&user_token=' +  sessionStorage.getItem('api_token'))
-    .then(response => response.json())
-    .then(this.updatePhoto)
+    this.updatePhoto()
    }
 
-   updatePhoto(userData) {
+   updatePhoto() {
     this.setState ({
-      photo: userData.user.profile_image,
+      photo: sessionStorage.getItem('photo'),
     })
    }
 
    logout(){
      sessionStorage.removeItem('user_id')
      sessionStorage.removeItem('api_token')
+     sessionStorage.removeItem('photo')
+     sessionStorage.removeItem('firstName')
+     sessionStorage.removeItem('lastName')
+     sessionStorage.removeItem('username')
+     sessionStorage.removeItem('email')
   }
 
   render(){
