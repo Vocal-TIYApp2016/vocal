@@ -13,7 +13,10 @@ class LegislatorProfile extends React.Component {
       let url = new URL(window.location.href, true)
       this.state = {
         url: url,
-        currentLegislatorProfile: undefined
+        currentLegislatorProfile: undefined,
+        committees: '',
+        news: '',
+        legislation: '',
       }
     }
 
@@ -23,6 +26,12 @@ class LegislatorProfile extends React.Component {
       .then((response) => {
         window.currentLegislatorProfile = response
         this.setState({currentLegislatorProfile: response})
+      })
+
+      this.setState({
+        committees: '/legislatorprofile/committees?id=' + this.state.url.query.id,
+        news: '/legislatorprofile/news?id=' + this.state.url.query.id,
+        legislation: '/legislatorprofile/legislation?id=' + this.state.url.query.id,
       })
     }
 
@@ -35,13 +44,13 @@ class LegislatorProfile extends React.Component {
               <div className="row">
                 <div className="mobileReveal">
                   <div className='col-xs-12 noPadding'>
-                  <Link to='/legislatorprofile/committees' className="noDecoration"><button className='btn btn-block mobileNavbar'>Committees</button></Link>
+                  <Link to={this.state.committees} className="noDecoration"><button className='btn btn-block mobileNavbar'>Committees</button></Link>
                   </div>
                   <div className='col-xs-12 noPadding'>
-                  <Link to='/legislatorprofile/news' className="noDecoration"><button id='navBorder' className='btn btn-block mobileNavbar'>News Feed</button></Link>
+                  <Link to={this.state.news} className="noDecoration"><button id='navBorder' className='btn btn-block mobileNavbar'>News Feed</button></Link>
                   </div>
                   <div className='col-xs-12 noPadding'>
-                  <Link to='/legislatorprofile/legislation' className="noDecoration"><button className='btn btn-block mobileNavbar'>Legislation</button></Link>
+                  <Link to={this.state.legislation} className="noDecoration"><button className='btn btn-block mobileNavbar'>Legislation</button></Link>
                   </div>
                   {this.props.children}
                 </div>
