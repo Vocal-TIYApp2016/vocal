@@ -18,7 +18,7 @@ class LegislatorNewsItems extends React.Component {
 
   updateNews(response){
     this.setState({
-      legislatorNewsItems: response
+      legislatorNewsItems: response.articles
     })
   }
 
