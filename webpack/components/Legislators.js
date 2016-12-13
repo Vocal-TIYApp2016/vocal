@@ -48,7 +48,7 @@ class Legislators extends React.Component {
      return <div className='hiddenSection'>
               <div className="rightSide">
                 <div className="titleFont" id="titleFont">Legislators</div>
-                  <Link to="/alllegislators" className="noDecoration"><button className="btn avatarText text-center center-block" id="profileAvatarTextBtn">start<br/> following</button></Link>
+                  <button className="btn avatarText text-center center-block" id="profileAvatarTextBtn">loading<br/> legislators</button>
                 </div>
               </div>
    }
