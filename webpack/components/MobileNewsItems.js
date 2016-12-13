@@ -20,7 +20,7 @@ class MobileNewsItems extends React.Component {
 
     updateNews(response) {
         this.setState({
-            newsItems: response
+            newsItems: response.articles
         })
     }
 
