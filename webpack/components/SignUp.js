@@ -13,7 +13,7 @@ class SignUp extends React.Component {
       email: '',
       password: '',
       photo: null,
-      zip: ''
+      address: ''
     }
   }
 
@@ -25,7 +25,7 @@ class SignUp extends React.Component {
     formData.append('user[username]', this.state.username)
     formData.append('user[password]', this.state.password)
     formData.append('user[profile_image]', this.state.photo)
-    formData.append('user[zip_code]', this.state.zip)
+    formData.append('user[address]', this.state.address)
     console.log(formData)
     fetch('/users', {
       body: formData,
@@ -79,8 +79,8 @@ class SignUp extends React.Component {
               </div>
               <div className="col-sm-6">
                 <div className="form-group">
-                  <label htmlFor="zip"></label>
-                    <input type="tel" id="zip" name="zip" className="fieldForm" required value={this.state.zip} onChange={(e) => this.setState({zip:e.target.value})} placeholder="ZIP CODE" />
+                  <label htmlFor="address"></label>
+                    <input type="text" id="address" name="address" className="fieldForm" required value={this.state.address} onChange={(e) => this.setState({address:e.target.value})} placeholder="address" />
                 </div>
               </div>
               <div className="col-sm-6">

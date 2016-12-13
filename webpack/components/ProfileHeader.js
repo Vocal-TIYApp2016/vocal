@@ -64,7 +64,7 @@ class ProfileHeader extends React.Component {
       </div>
       </div>
       <div className='mobileReveal'>
-        <div className='row'>
+        <div className='row noMargin noPadding'>
           <div className='col-xs-12'>
             <h1 className='logoFont text-left'>vocal</h1>
             <div className='pull-right'>

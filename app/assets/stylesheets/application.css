@@ -25,6 +25,7 @@ img {
 }
 body {
    background-color: #223843;
+   /*overflow-x: hidden;*/
 }
 
 .leftSide {
@@ -616,5 +617,15 @@ body {
 @media all and (min-width: 1017px) and (max-width:1500px) {
    .mobileReveal {
       display: none;
+   }
+}
+@media all and (max-width: 991px) {
+   #nameFont {
+      margin-left: -20px;
+      margin-top: 10px;
+
+   }
+   #usernameFont {
+      margin-left: -20px;
    }
 }
