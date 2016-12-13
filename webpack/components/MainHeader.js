@@ -48,7 +48,7 @@ class MainHeader extends React.Component {
       </div>
       <div className='mobileReveal'>
         <div className='row'>
-          <div className='col-xs-12'>
+          <div className='col-xs-12 noMargin noPadding'>
             <h1 className='logoFont text-left'>vocal</h1>
             <div className='pull-right'>
             <DropdownButton title='' id="bg-nested-dropdown" className='glyphicon glyphicon-cog dropdownBtn'>

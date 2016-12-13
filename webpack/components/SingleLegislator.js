@@ -19,7 +19,7 @@ class SingleLegislator extends React.Component {
         <div className='col-sm-3'>
           <img src={this.props.data.leg_image} className='profileImg img-circle img-responsive center-block' alt='legislator photo' onClick={this.showLegislator} />
           <div className='text-center legText'>{this.props.data.title} <br/>
-          {this.props.data.first_name} {this.props.data.last_name}</div>
+          {this.props.data.first_name} {this.props.data.last_name}</div><br/><br/>
         </div>
     </div>
   }
