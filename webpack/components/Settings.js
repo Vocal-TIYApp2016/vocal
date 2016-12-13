@@ -39,7 +39,8 @@ class Settings extends React.Component {
     window.location.href = '/profile/legislators'
   }
   render() {
-    return <div className="container-fluid">
+    return <div>
+    <div className="container-fluid">
       <h1 className="logoFont">vocal</h1>
         <div className="row text-center">
           <div className='col-sm-6 col-sm-offset-3'>
@@ -60,28 +61,28 @@ class Settings extends React.Component {
               <div className="col-sm-12">
                 <div className="form-group">
                   <label htmlFor="email"></label>
-                    <input type="text" id="email" name="email" className="fieldForm" value={this.state.email} onChange={(e) => this.setState({email:e.target.value})} placeholder="email" />
+                    <input type="text" id="email" name="email" className="fieldForm" value={this.state.email} onChange={(e) => this.setState({email:e.target.value})} placeholder="EMAIL" />
                 </div>
               </div>
               <div className="col-sm-12">
                 <div className="form-group">
                   <label htmlFor="username"></label>
-                    <input type="text" id="username" name="username" className="fieldForm" value={this.state.username} onChange={(e) => this.setState({username:e.target.value})} placeholder="username" />
+                    <input type="text" id="username" name="username" className="fieldForm" value={this.state.username} onChange={(e) => this.setState({username:e.target.value})} placeholder="USERNAME" />
                 </div>
               </div>
               <div className="col-sm-12">
                 <div className="form-group">
                   <label htmlFor="password"></label>
-                    <input type="password" id="password" name="password" className="fieldForm" value={this.state.password} onChange={(e) => this.setState({password:e.target.value})} placeholder="password" />
+                    <input type="password" id="password" name="password" className="fieldForm" value={this.state.password} onChange={(e) => this.setState({password:e.target.value})} placeholder="PASSWORD" />
                 </div>
               </div>
-              <div className="col-sm-6">
+              <div className="col-sm-12">
                 <div className="form-group">
                 <label htmlFor="address"></label>
-                  <input type="text" id="address" name="address" className="fieldForm" required value={this.state.address} onChange={(e) => this.setState({address:e.target.value})} placeholder="address" />
+                  <input type="text" id="address" name="address" className="fieldForm" required value={this.state.address} onChange={(e) => this.setState({address:e.target.value})} placeholder="ADDRESS" />
                 </div>
               </div>
-              <div className="col-sm-6">
+              <div className="col-sm-12">
                 <div className="form-group">
                   <label htmlFor="photo" className="btn avatarText">change Avatar</label>
                     <input onChange={(e) => this.setState({photo: e.target.files[0]})} type="file" id="photo" name="photo" className="hideFileButton" />
@@ -95,6 +96,8 @@ class Settings extends React.Component {
             </div>
           </div>
         </div>
+    </div>
+      <Link to="/profile/legislators" className="backArrow"><span className="glyphicon glyphicon-arrow-left" aria-hidden="true"></span></Link>
     </div>
   }
 }

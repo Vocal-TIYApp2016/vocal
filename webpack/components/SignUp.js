@@ -41,7 +41,8 @@ class SignUp extends React.Component {
   }
 
   render() {
-    return <div className="container-fluid">
+    return <div>
+    <div className="container-fluid">
         <h1 className="logoFont">vocal</h1>
             <div className="row text-center">
                 <div className='col-sm-6 col-sm-offset-3'>
@@ -76,13 +77,13 @@ class SignUp extends React.Component {
                             <input type="password" id="password" name="password" className="fieldForm" required value={this.state.password} onChange={(e) => this.setState({password:e.target.value})} placeholder="PASSWORD" />
                     </div>
                 </div>
-                <div className="col-sm-6">
+                <div className="col-sm-12">
                     <div className="form-group">
                         <label htmlFor="address"></label>
-                            <input type="text" id="address" name="address" className="fieldForm" required value={this.state.address} onChange={(e) => this.setState({address:e.target.value})} placeholder="address" />
+                            <input type="text" id="address" name="address" className="fieldForm" required value={this.state.address} onChange={(e) => this.setState({address:e.target.value})} placeholder="STREET, CITY, STATE" />
                     </div>
                 </div>
-                <div className="col-sm-6">
+                <div className="col-sm-12">
                     <div className="form-group">
                         <label htmlFor="photo" className="btn avatarText">Upload Avatar</label>
                             <input onChange={(e) => this.setState({photo: e.target.files[0]})} type="file" id="photo" name="photo" className="hideFileButton" required />
@@ -96,6 +97,8 @@ class SignUp extends React.Component {
                 </div>
                 </div>
             </div>
+    </div>
+        <Link to="/" className="backArrow"><span className="glyphicon glyphicon-arrow-left" aria-hidden="true"></span></Link>
     </div>
   }
 }
