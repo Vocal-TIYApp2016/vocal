@@ -18,14 +18,7 @@ class MobileLegCommittees extends React.Component {
     fetch('/legislators/' +  this.state.url.query.id)
     .then(response => response.json())
     .then(this.updateCommittees)
-    // .then(response => console.log(response))
-    // this.updateCommittees()
-
    }
-
-  //  componentWillReceiveProps() {
-  //    this.updateCommittees(window.currentLegislatorProfile)
-  //  }
 
    updateCommittees(data) {
      this.setState ({
@@ -38,14 +31,12 @@ class MobileLegCommittees extends React.Component {
       return <LegislatorCommittee data={data} key={i} />
     })
     return <div>
-
-      <div  className="col-xs-12 columnContainer">
-         <div className='profileBox'>
-          {committee}
-          </div>
-      </div>
-    </div>
-
+            <div className="col-xs-12 columnContainer">
+             <div className='profileBox'>
+              {committee}
+             </div>
+            </div>
+           </div>
   }
 }
 
