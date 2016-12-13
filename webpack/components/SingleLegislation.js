@@ -26,7 +26,7 @@ class SingleLegislation extends React.Component {
                     <div className="accordionHeaderText">Authors</div> <br/>
                         <div className="authorText">{allAuthors}</div> <br/>
                 </div>
-            </div>
+            </div><br/>
             <div className="row">
                 <div className="col-sm-12">
                     <div className="accordionHeaderText">Digest</div> <br/>
