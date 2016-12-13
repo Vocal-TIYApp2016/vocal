@@ -325,10 +325,15 @@ body {
    margin-bottom: 5px;
    color: white;
    padding: 10px;
+   border-radius: 0px;
 }
 .legislationBtn:hover {
    background-color: white;
    color: #8B2635;
+}
+.btn-toolbar {
+   margin-left: 0px;
+   margin-right: 10px;
 }
 .billDesc {
    overflow: hidden;
@@ -565,10 +570,6 @@ body {
 .backArrow:hover {
    cursor: pointer;
    color: white;
-}
-
-.btn-toolbar>.btn, .btn-toolbar>.btn-group, .btn-toolbar>.input-group {
-   margin: 0;
 }
 
 /*mobile classes*/
