@@ -14,9 +14,9 @@ class NewsItems extends React.Component {
   componentDidMount(){
     fetch('/articles')
     .then(response => response.json())
-    // .then(response => console.log(response))
     .then(this.updateNews)
   }
+
   updateNews(response){
     this.setState({
       newsItems: response
@@ -24,16 +24,15 @@ class NewsItems extends React.Component {
   }
 
   render() {
-    console.log(this.state.newsItems)
     var news = this.state.newsItems.map((data, i) => {
       return <NewsItem data={data} key={i} />
     })
     return <div className='hiddenSection'>
       <div className="leftBottom">
         <div className="titleFont" id="titleFont">News Feed</div>
-        <div className='profileBox'>
-          {news}
-          </div>
+            <div className='profileBox'>
+              {news}
+            </div>
       </div>
     </div>
   }
