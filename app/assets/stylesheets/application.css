@@ -359,6 +359,10 @@ body {
    height: 460px;
    width: 100%;
 }
+#committeeBox {
+    height: 460px;
+    background-color:white;
+}
 #legislatorBox {
    height: 260px;
 }
