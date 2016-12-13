@@ -1,6 +1,9 @@
 class Article < ApplicationRecord
   require 'rss'
   require 'open-uri'
+  include PgSearch
+
+  pg_search_scope :search_by_full_text, against: [:description, :title]
 
   default_scope { order(date: :desc) }
 

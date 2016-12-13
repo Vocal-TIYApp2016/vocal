@@ -1,8 +1,5 @@
 class ArticlesController < ApplicationController
 
-  include PgSearch
-  pg_search_scope :search_by_full_text, against: [:description, :title]
-
   def index
     @articles = article_search
     @articles = Article.all if @articles == []
