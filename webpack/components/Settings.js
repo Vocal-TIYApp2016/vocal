@@ -97,7 +97,7 @@ class Settings extends React.Component {
           </div>
         </div>
         </div>
-      <Link to="/" className="backArrow"><span className="glyphicon glyphicon-arrow-left" aria-hidden="true"></span></Link>
+      <Link to="/profile/legislators" className="backArrow"><span className="glyphicon glyphicon-arrow-left" aria-hidden="true"></span></Link>
     </div>
   }
 }
