@@ -32,6 +32,13 @@ class SignIn extends React.Component {
         .then(this.signedinHandler)
     }
     signedinHandler(response) {
+      if(response.user === undefined){
+        alert('Username or Password is incorrect')
+        this.setState({
+          username: '',
+          password: ''
+        })
+      }
       sessionStorage.setItem('api_token', response.user.authentication_token)
       sessionStorage.setItem('email', response.user.email)
       sessionStorage.setItem('username', response.user.username)
