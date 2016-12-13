@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
   def index
     @articles = article_search
     @articles = Article.all if @articles == []
-    render json: @articles, except: :associations
+    render json: @articles
   end
 
   def article_search
