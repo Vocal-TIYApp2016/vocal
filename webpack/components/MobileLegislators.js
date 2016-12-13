@@ -24,13 +24,27 @@ class MobileLegislators extends React.Component {
   //     this.updateLegislators(window.currentLegislatorProfile)
   //  }
 
-   updateLegislators(userData) {
-      this.setState({
-         legislators: userData.user.legislators,
-         arrayLength: Number(userData.user.legislators.length)
-      })
-      // console.log(this.state.arrayLength)
-   }
+  updateLegislators(userData) {
+     var emptyArray = []
+     var namesList = []
+     var finalArray = []
+     var legArray = userData.user.legislators
+     var trash = legArray.map((data, i) => {
+        // console.log(data.full_name)
+       if (namesList.includes(data.full_name)) {
+          emptyArray.push(data)
+       }
+       else{
+          namesList.push(data.full_name)
+          finalArray.push(data)
+       }
+    })
+     this.setState({
+        legislators: finalArray,
+        arrayLength: Number(userData.user.legislators.length)
+     })
+     // console.log(this.state.arrayLength)
+  }
 
  render() {
     if(this.state.arrayLength != 0) {
