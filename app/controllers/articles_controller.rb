@@ -12,7 +12,7 @@ class ArticlesController < ApplicationController
   def article_search
     articles =[]
     current_user.legislators.each do |leg|
-      articles << Article.all.search_by_full_text(leg.full_name)
+      articles << Article.search_by_full_text(leg.full_name)
     end
     articles
   end
