@@ -63,8 +63,8 @@ class User < ApplicationRecord
     )
     parsed = JSON.parse(response.body).deep_symbolize_keys
     legislators = []
-    parsed[:officials].each do |official|
-      legislators << official[:name]
+    legislators = parsed[:officials].each.map do |official|
+      official[:name]
     end
     legislators
   end
