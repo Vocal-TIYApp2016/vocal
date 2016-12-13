@@ -76,13 +76,13 @@ class SignUp extends React.Component {
                             <input type="password" id="password" name="password" className="fieldForm" required value={this.state.password} onChange={(e) => this.setState({password:e.target.value})} placeholder="PASSWORD" />
                     </div>
                 </div>
-                <div className="col-sm-6">
+                <div className="col-sm-12">
                     <div className="form-group">
                         <label htmlFor="address"></label>
-                            <input type="text" id="address" name="address" className="fieldForm" required value={this.state.address} onChange={(e) => this.setState({address:e.target.value})} placeholder="address" />
+                            <input type="text" id="address" name="address" className="fieldForm" required value={this.state.address} onChange={(e) => this.setState({address:e.target.value})} placeholder="STREET, CITY, STATE" />
                     </div>
                 </div>
-                <div className="col-sm-6">
+                <div className="col-sm-12">
                     <div className="form-group">
                         <label htmlFor="photo" className="btn avatarText">Upload Avatar</label>
                             <input onChange={(e) => this.setState({photo: e.target.files[0]})} type="file" id="photo" name="photo" className="hideFileButton" required />
