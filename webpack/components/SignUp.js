@@ -41,7 +41,8 @@ class SignUp extends React.Component {
   }
 
   render() {
-    return <div className="container-fluid">
+    return <div>
+    <div className="container-fluid">
         <h1 className="logoFont">vocal</h1>
             <div className="row text-center">
                 <div className='col-sm-6 col-sm-offset-3'>
@@ -96,6 +97,8 @@ class SignUp extends React.Component {
                 </div>
                 </div>
             </div>
+    </div>
+        <Link to="/" className="backArrow"><span className="glyphicon glyphicon-arrow-left" aria-hidden="true"></span></Link>
     </div>
   }
 }
