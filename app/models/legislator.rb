@@ -5,7 +5,7 @@ class Legislator < ApplicationRecord
   has_many :users, through: :follows
   attachment :leg_image
 
-  default_scope { order(last_name: :desc) }
+  default_scope { order(:last_name) }
 
   def full_name
     "#{first_name} #{last_name}"
