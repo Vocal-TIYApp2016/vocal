@@ -13,13 +13,14 @@ class Article < ApplicationRecord
     sources.each do |url|
       feed = RSS::Parser.parse(url)
       origin = feed.channel.title
+      built = source_build(feed, origin)
       articles = feed.items.each.flat_map do |item|
         begin
           Article.create!(
             title: item.title,
             link: (item.try(:link) || item.guid),
             description: item.description,
-            source: source_build(feed, origin),
+            source: built,
             date: (item.try(:pubDate) || item.dc_date)
           )
         rescue SocketError
