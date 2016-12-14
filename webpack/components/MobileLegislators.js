@@ -49,13 +49,13 @@ class MobileLegislators extends React.Component {
     }
     else {
     return <div className="col-xs-12 columnContainer">
-        <div className="loadingIcon">
-          <Loading type='bubbles' color='white' />
+        <div className="profileBox" id="committeeBox">
+          <Loading type='bubbles' color='#223843' />
         </div>
     </div>
     }
     return <div className="col-xs-12 columnContainer">
-        <div className='profileBox'>
+        <div className='profileBox' id="committeeBox">
             {legislator}
         </div>
     </div>
