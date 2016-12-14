@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
-  acts_as_token_authentication_handler_for User,
-  fallback: :none
+  acts_as_token_authentication_handler_for User, fallback: :none
   respond_to :json
 
   protected
@@ -16,9 +15,7 @@ class ApplicationController < ActionController::Base
   private
 
   def require_user
-    if !current_user
-      render json: ["You must be signed in for this!"], status: :forbidden
-    end
+    render json: ['You must be signed in for this!'], status: :forbidden unless current_user
   end
 
 end

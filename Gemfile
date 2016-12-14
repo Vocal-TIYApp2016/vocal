@@ -34,7 +34,7 @@ gem 'jbuilder', '~> 2.5'
 # Cleaner console
 gem 'pry-rails', '~> 0.3.4'
 # Secure keys
-gem "figaro"
+gem 'figaro'
 # ActiveModelSerializers
 gem 'active_model_serializers', '~> 0.10.0'
 # Search/Filter
@@ -44,7 +44,7 @@ gem 'ransack'
 gem 'webpack-rails'
 # Spaghetti for images
 gem 'sinatra', github: 'sinatra/sinatra'
-gem "refile", require: "refile/rails", github: 'refile/refile'
+gem 'refile', require: 'refile/rails', github: 'refile/refile'
 gem 'refile-mini_magick'
 gem 'refile-postgres', '~> 1.4'
 # Use Redis adapter to run Action Cable in production
@@ -52,7 +52,7 @@ gem 'refile-postgres', '~> 1.4'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 # Advanced functionality for better_errors
-gem "binding_of_caller"
+gem 'binding_of_caller'
 # API Connection/manipulation
 gem 'omniauth', '~> 1.3', '>= 1.3.1'
 gem 'omniauth-google-oauth2', '~> 0.4.1'
@@ -61,7 +61,6 @@ gem 'typhoeus'
 # gem 'capistrano-rails', group: :development
 # For Heroku
 gem 'rails_12factor', group: :production
-
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -80,6 +79,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'better_errors'
+  gem 'rubocop', require: false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

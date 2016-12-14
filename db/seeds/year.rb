@@ -5,10 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
-
+#
+#
 # DO NOT RUN, NOW BUILT INTO INITIAL LEGISLATOR SEED
-
+#
 # def update_year
 #   Legislator.all.each do |leg|
 #     leg.update(year:

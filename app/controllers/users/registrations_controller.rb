@@ -17,14 +17,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create
     user = User.new(sign_up_params)
     if user.save
-      render json: user, status:201
+      render json: user, status: 201
       return
     else
       warden.custom_failure!
       puts user.errors.full_messages
-      render json: user.errors.full_messages, status:422
+      render json: user.errors.full_messages, status: 422
     end
-
   end
 
   # GET /resource/edit
@@ -35,7 +34,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # PUT /resource
   def update
     user = User.find_by(authentication_token: params[:user_token])
-    if user.update_without_password(account_update_params.reject{|k, v| v.blank?})
+    if user.update_without_password(account_update_params.reject { |_k, v| v.blank? })
       render json: user, status: 201
       return
     else
@@ -44,7 +43,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
       render json: user.errors.full_messages, status: 422
     end
   end
-
 
   # DELETE /resource
   # def destroy
