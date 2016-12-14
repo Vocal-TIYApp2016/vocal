@@ -38,7 +38,7 @@ class MainHeader extends React.Component {
     <div className='hiddenSection'>
       <div className='row'>
         <div className='col-sm-12'>
-          <h1 className='logoFont'>vocal</h1>
+          <Link to="/profile/legislators"><h1 className='logoFont'>vocal</h1></Link>
           <ul className='inlineHeader pull-right list-unstyled list-inline'>
             <Link to="/alllegislators" className="linkStyle"><li className='navItems'>Legislators</li></Link>
             <Link to="/alllegislation" className="linkStyle"><li className='navItems'>Legislation</li></Link>
@@ -55,7 +55,7 @@ class MainHeader extends React.Component {
       <div className='mobileReveal'>
         <div className='row'>
           <div className='col-xs-12 noMargin noPadding'>
-            <h1 className='logoFont text-left'>vocal</h1>
+            <Link to="/profile/legislators"><h1 className='logoFont text-left'>vocal</h1></Link>
             <div className='pull-right'>
             <DropdownButton title='' id="bg-nested-dropdown" className='glyphicon glyphicon-cog dropdownBtn'>
             <MenuItem eventKey="1" href='/profile/legislators'><img src={this.state.photo} className="img-responsive img-circle userDropdownImg" alt="user avatar photo"/>

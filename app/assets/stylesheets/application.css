@@ -599,6 +599,10 @@ body {
    }
 }
 @media all and (max-width: 767px) {
+   #committeeBox {
+       height: 75vh;
+       background-color:white;
+   }
    .backArrow {
       top: 0;
       float: right;

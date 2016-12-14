@@ -35,7 +35,7 @@ class MobileNewsItems extends React.Component {
     }
     else {
       return <div className="col-xs-12 columnContainer">
-        <div className='profileBox'>
+        <div className='profileBox' id="committeeBox">
           <div className="loadingIcon">
             <Loading type='bubbles' color='#223843' />
           </div>
@@ -43,7 +43,7 @@ class MobileNewsItems extends React.Component {
       </div>
     }
     return <div className="col-xs-12 columnContainer">
-        <div className='profileBox'>
+        <div className='profileBox' id="committeeBox">
             {news}
         </div>
     </div>
