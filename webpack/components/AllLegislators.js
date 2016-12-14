@@ -9,10 +9,6 @@ class AllLegislators extends React.Component {
     super(props)
     this.fetchAllLegislators = this.fetchAllLegislators.bind(this)
     this.firstFilterResult = this.firstFilterResult.bind(this)
-    // this.nextFilterResult = this.nextFilterResult.bind(this)
-    // this.firstGet2014 = this.firstGet2014.bind(this)
-    // this.firstGet2015 = this.firstGet2015.bind(this)
-    // this.firstGet2016 = this.firstGet2016.bind(this)
     this.nextGet2016 = this.nextGet2016.bind(this)
     this.nextGet2015 = this.nextGet2015.bind(this)
     this.nextGet2014 = this.nextGet2014.bind(this)
@@ -25,10 +21,6 @@ class AllLegislators extends React.Component {
     this.firstShowSenators = this.firstShowSenators.bind(this)
     this.firstShowReps = this.firstShowReps.bind(this)
     this.firstShowAll = this.firstShowAll.bind(this)
-    // this.secondFilterResult = this.secondFilterResult.bind(this)
-    // this.lastGet2016 = this.lastGet2016.bind(this)
-    // this.lastGet2015 = this.lastGet2015.bind(this)
-    // this.lastGet2014 = this.lastGet2014.bind(this)
     this.mainFilterResult = this.mainFilterResult.bind(this)
     this.state = {
       open: false,
@@ -58,11 +50,6 @@ class AllLegislators extends React.Component {
   fetchAllLegislators(){
       fetch('/legislators/')
       .then(response => response.json())
-      // .then(response => this.setState({defaultAll: response.legislators}))
-      //
-      // fetch('/legislators/filter?q[year_eq]=2016')
-      // .then(response => response.json())
-      // .then(response => this.setState({results: response.legislators, legislators: response.legislators}))
       .then((response) => {this.setState({defaultAll: response.legislators})
       setTimeout(() => this.firstFilterResult(), 0)
      })
@@ -110,29 +97,6 @@ class AllLegislators extends React.Component {
     }
   }
 
-  // nextFilterResult(){
-  //   this.mainFilterResult()
-  //     if(this.state.senators === true){
-  //       this.lastShowSenators()
-  //     }
-  //     else if(this.state.house === true){
-  //       this.lastShowReps()
-  //     }
-  //   }
-
-    // secondFilterResult(){
-    //   this.mainFilterResult()
-    //     if(this.state.year2016 === true){
-    //       this.lastGet2016()
-    //     }
-    //     else if(this.state.year2015 === true){
-    //       this.lastGet2015()
-    //     }
-    //     else if(this.state.year2014 === true){
-    //       this.lastGet2014()
-    //     }
-    //   }
-
   set2014(){
     this.setState({
       year2014: true,
@@ -144,17 +108,6 @@ class AllLegislators extends React.Component {
     })
     setTimeout(() => this.firstFilterResult(), 0)
   }
-
-  // firstGet2014(){
-  //   var array2014 = []
-  //   var newArray2014 = this.state.defaultAll.map(function(data){
-  //     if(data.year === 2014){
-  //       array2014.push(data)
-  //     }
-  //   })
-  //   this.setState({legislators: array2014})
-  //   setTimeout(() => this.nextFilterResult(), 0)
-  // }
 
   nextGet2014(){
     var array2014 = []
@@ -172,36 +125,6 @@ class AllLegislators extends React.Component {
     }
   }
 
-  // lastGet2014(){
-  //   var array2014 = []
-  //   var newArray2014 = this.state.results.map(function(data){
-  //     if(data.year === 2014){
-  //       array2014.push(data)
-  //     }
-  //   })
-  //   this.setState({results: array2014})
-  // }
-
-  // lastGet2015(){
-  //   var array2015 = []
-  //   var newArray2015 = this.state.results.map(function(data){
-  //     if(data.year === 2015){
-  //       array2015.push(data)
-  //     }
-  //   })
-  //   this.setState({results: array2015})
-  // }
-
-  // lastGet2016(){
-  //   var array2016 = []
-  //   var newArray2016 = this.state.results.map(function(data){
-  //     if(data.year === 2016){
-  //       array2016.push(data)
-  //     }
-  //   })
-  //   this.setState({results: array2016})
-  // }
-
   set2015(){
     this.setState({
       year2014: false,
@@ -213,17 +136,6 @@ class AllLegislators extends React.Component {
     })
     setTimeout(() => this.firstFilterResult(), 0)
   }
-
-  // firstGet2015(){
-  //   var array2015 = []
-  //   var newArray2015 = this.state.defaultAll.map(function(data){
-  //     if(data.year === 2015){
-  //       array2015.push(data)
-  //     }
-  //   })
-  //   this.setState({legislators: array2015})
-  //   setTimeout(() => this.nextFilterResult(), 0)
-  // }
 
   nextGet2015(){
     var array2015 = []
@@ -252,17 +164,6 @@ class AllLegislators extends React.Component {
     })
     setTimeout(() => this.firstFilterResult(), 0)
   }
-  //
-  // firstGet2016(){
-  //   var array2016 = []
-  //   var newArray2016 = this.state.defaultAll.map(function(data){
-  //     if(data.year === 2016){
-  //       array2016.push(data)
-  //     }
-  //   })
-  //   this.setState({legislators: array2016})
-  //   setTimeout(() => this.nextFilterResult(), 0)
-  // }
 
   nextGet2016(){
     var array2016 = []
@@ -291,14 +192,6 @@ class AllLegislators extends React.Component {
       repsActive: 'representatives'
     })
     setTimeout(() => this.firstFilterResult(), 0)
-  //   var newSenatorArray = []
-  //   var senatorArray = this.state.defaultAll.forEach((data, i) => {
-  //     if(data.chamber ==='Senate'){
-  //     newSenatorArray.push(data)
-  //   }
-  // })
-  // this.setState({legislators: newSenatorArray})
-  // setTimeout(() => this.secondFilterResult(), 0)
   }
   else{
     this.setState({
@@ -310,9 +203,6 @@ class AllLegislators extends React.Component {
       repsActive: 'representatives'
     })
     setTimeout(() => this.firstFilterResult(), 0)
-  //   var repArray = this.state.defaultAll
-  // this.setState({legislators: repArray})
-  // setTimeout(() => this.secondFilterResult(), 0)
   }
 }
 
@@ -327,14 +217,6 @@ class AllLegislators extends React.Component {
       senatorsActive: 'senators'
     })
     setTimeout(() => this.firstFilterResult(), 0)
-  //   var newRepArray = []
-  //   var repArray = this.state.defaultAll.forEach((data, i) => {
-  //     if(data.chamber ==='House'){
-  //     newRepArray.push(data)
-  //   }
-  // })
-  // this.setState({legislators: newRepArray})
-  // setTimeout(() => this.secondFilterResult(), 0)
 }
 else{
   this.setState({
@@ -346,9 +228,6 @@ else{
     repsActive: 'representatives'
   })
   setTimeout(() => this.firstFilterResult(), 0)
-  //   var repArray = this.state.defaultAll
-  // this.setState({legislators: repArray})
-  // setTimeout(() => this.secondFilterResult(), 0)
  }
 }
 
@@ -362,9 +241,6 @@ else{
         repsActive: 'representatives'
       })
       setTimeout(() => this.firstFilterResult(), 0)
-    //   var repArray = this.state.defaultAll
-    // this.setState({legislators: repArray})
-    // setTimeout(() => this.secondFilterResult(), 0)
   }
 
   lastShowSenators(){
