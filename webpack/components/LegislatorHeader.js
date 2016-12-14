@@ -89,7 +89,7 @@ class LegislatorHeader extends React.Component {
             <div className='hiddenSection'>
               <div className='row'>
                 <div className='col-sm-12'>
-                  <h1 className='logoFont'>vocal</h1>
+                    <Link to="/profile/legislators"><h1 className='logoFont text-left'>vocal</h1></Link>
                   <ul className='inlineHeader pull-right list-unstyled list-inline'>
                       <Link to="/alllegislators" className="linkStyle"><li className='navItems'>Legislators</li></Link>
                       <Link to="/alllegislation" className="linkStyle"><li className='navItems'>Legislation</li></Link>
