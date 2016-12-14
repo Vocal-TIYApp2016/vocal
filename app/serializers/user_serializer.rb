@@ -4,4 +4,5 @@ class UserSerializer < ActiveModel::Serializer
   def profile_image
     Refile.attachment_url(object, :profile_image, :fill, 200, 200, format: 'jpg')
   end
+
 end
