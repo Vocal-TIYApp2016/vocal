@@ -33,7 +33,7 @@ class SignIn extends React.Component {
     }
     signedinHandler(response) {
       if(response.user === undefined){
-        alert('Username or Password is incorrect')
+        alert(response.message)
         this.setState({
           username: '',
           password: ''

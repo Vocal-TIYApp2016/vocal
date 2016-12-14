@@ -35,6 +35,10 @@ class SignUp extends React.Component {
   }
 
   signedupHandler(response) {
+    if(response.user === undefined){
+      alert(response)
+    }
+    else{
     sessionStorage.setItem('api_token', response.user.authentication_token)
     sessionStorage.setItem('email', response.user.email)
     sessionStorage.setItem('firstName', response.user.first_name)
@@ -42,6 +46,7 @@ class SignUp extends React.Component {
     sessionStorage.setItem('username', response.user.username)
     sessionStorage.setItem('photo', response.user.profile_image)
     location.href = '/profile/legislators'
+  }
   }
 
   render() {
