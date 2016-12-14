@@ -402,7 +402,7 @@ else{
         <div className="row">
           <div className="col-sm-3 hiddenSection">
             <ul className='list-unstyled yearsNav text-right'>
-              <input type="text" id='legislatorSearch' className="form-control" placeholder="Search for..." onChange={this.setSearchText} />
+              <input type="text" id='legislatorSearch' className="form-control" placeholder="Search Legislator Name" onChange={this.setSearchText} />
               <div className="legText text-center">Filter by Year</div>
                 <li className='btn legText yearText' onClick={this.set2016}>{this.state.year2016Active}</li>
                 <li className='btn legText yearText' onClick={this.set2015}>{this.state.year2015Active}</li>
@@ -415,7 +415,7 @@ else{
             </ul>
           </div>
           <div className="col-sm-3 mobileReveal">
-            <input type="text" className="form-control" placeholder="Search for..." onChange={this.setSearchText} /> <br/>
+            <input type="text" className="form-control" placeholder="Search Legislator Name" onChange={this.setSearchText} /> <br/>
           <Button className='billBtn' onClick={ ()=> this.setState({ open: !this.state.open })}>
             <div className="navItems text-left">filter</div>
           </Button>
