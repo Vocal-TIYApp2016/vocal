@@ -2,6 +2,7 @@ import React from 'react'
 import { Router, Route, Link, browserHistory } from 'react-router'
 import LegislatorCommittee from './LegislatorCommittee'
 import URL from 'url-parse'
+import Loading from 'react-loading'
 
 class MobileLegCommittees extends React.Component {
   constructor(props) {
@@ -10,7 +11,8 @@ class MobileLegCommittees extends React.Component {
     this.updateCommittees = this.updateCommittees.bind(this)
     this.state = {
       committees: [],
-      url: url
+      url: url,
+      arrayLength: ''
   }
 }
 
@@ -22,14 +24,24 @@ class MobileLegCommittees extends React.Component {
 
    updateCommittees(data) {
      this.setState ({
-       committees: data.legislator.committees
+       committees: data.legislator.committees,
+       arrayLength: Number(data.legislator.committees.length)
      })
    }
 
   render() {
-    var committee = this.state.committees.map((data, i) => {
-      return <LegislatorCommittee data={data} key={i} />
-    })
+    if(this.state.arrayLength != 0) {
+      var committee = this.state.committees.map((data, i) => {
+        return <LegislatorCommittee data={data} key={i} />
+      })
+    }
+    else {
+      return <div className="col-xs-12 columnContainer">
+        <div className="loadingIcon">
+          <Loading type='bubbles' color='white' />
+        </div>
+      </div>
+    }
     return <div>
             <div className="col-xs-12 columnContainer">
              <div className='profileBox'>

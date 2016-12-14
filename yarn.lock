@@ -2190,6 +2190,10 @@ react-json-tree@^0.10.0:
     react-base16-styling "^0.4.1"
     react-pure-render "^1.0.2"
 
+react-loading:
+  version "0.0.9"
+  resolved "https://registry.yarnpkg.com/react-loading/-/react-loading-0.0.9.tgz#e9fba6948915ba7742a508193828b6c73eb04956"
+
 react-localstorage@^0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/react-localstorage/-/react-localstorage-0.3.0.tgz#304eedd67f3aaa5a8eb1a83ab9ee01c46cef459e"
