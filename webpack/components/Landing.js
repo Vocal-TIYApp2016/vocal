@@ -31,7 +31,7 @@ render() {
               <div className="row">
                 <div className="col-sm-4 whiteBackground text-center" id="landingPage">
                       <div className="fa fa-user fa-4x"></div><hr/>
-                      <div className="text-left">Follow Indiana legislators learn more about what your representatives are busy with.</div><hr/>
+                      <div className="text-left">Follow Indiana legislators to learn more about what your representatives are busy with.</div><hr/>
                 </div>
                 <div className="col-sm-4 whiteBackground text-center" id="landingPage">
                       <div className="fa fa-university fa-4x"></div><hr/>
