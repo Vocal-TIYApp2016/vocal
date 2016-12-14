@@ -4,6 +4,7 @@ class Legislator < ApplicationRecord
   acts_as_followable
   has_many :users, through: :follows
   attachment :leg_image
+  cache key: 'image', only: :leg_image
 
   def full_name
     "#{first_name} #{last_name}"
