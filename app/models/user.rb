@@ -52,7 +52,7 @@ class User < ApplicationRecord
       'https://www.googleapis.com/civicinfo/v2/representatives',
       method: :get,
       params: {
-        address: CGI.escape(user.address).to_s,
+        address: CGI.escape(user.address),
         levels: 'administrativeArea1',
         roles: %w(legislatorLowerBody, legislatorUpperBody),
         key: ENV['GOOGLE_CIVIC_INFO_KEY'].to_s

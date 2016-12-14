@@ -3,6 +3,8 @@ class Article < ApplicationRecord
   require 'open-uri'
   include PgSearch
 
+  validates_presence_of [:title, :link, :description, :source, :date]
+
   pg_search_scope :search_by_full_text, against: [:description, :title]
 
   default_scope { order(date: :desc) }
