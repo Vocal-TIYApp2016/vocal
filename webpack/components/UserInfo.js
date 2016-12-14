@@ -14,10 +14,6 @@ class UserInfo extends React.Component {
  }
 
    componentDidMount() {
-   //   fetch('/self?' + 'user_email=' + sessionStorage.getItem('email') + '&user_token=' +  sessionStorage.getItem('api_token'))
-   //   .then(response => response.json())
-   //   .then(this.updateUser)
-    //  .then(response => console.log(response))
     this.updateUser()
     }
 

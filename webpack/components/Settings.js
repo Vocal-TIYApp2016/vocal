@@ -45,9 +45,14 @@ class Settings extends React.Component {
       method: 'PATCH',
     })
     .then(response => response.json())
+    // .then(response => console.log(response))
     .then(this.settingsHandler)
   }
   settingsHandler(response) {
+    if(response.user === undefined){
+      alert(response)
+      }
+    else{
     sessionStorage.setItem('lastName', response.user.last_name)
     sessionStorage.setItem('firstName', response.user.first_name)
     sessionStorage.setItem('photo', response.user.profile_image)
@@ -55,6 +60,7 @@ class Settings extends React.Component {
     sessionStorage.setItem('email', response.user.email)
     sessionStorage.setItem('username', response.user.username)
     window.location.href = '/profile/legislators'
+  }
   }
   render() {
     return <div>
