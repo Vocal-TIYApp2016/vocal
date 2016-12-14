@@ -2,23 +2,23 @@ class User < ApplicationRecord
 
   after_create :follow_local_legislators
 
-  before_validation(:on => :create) do
+  before_validation(on: :create) do
     self.password_confirmation = nil
   end
 
   validates :username,
-  :presence => true, :uniqueness => {
-    :case_sensitive => false
+  presence: true, uniqueness: {
+    case_sensitive: false
   }
 
   validates :email,
-  :presence => true, :uniqueness => {
-    :case_sensitive => false
+  presence: true, uniqueness: {
+    case_sensitive: false
   }
 
-  validates :address, :presence => true
+  validates :address, presence: true
 
-  validates_format_of :username, with: /^[a-zA-Z0-9_\.]*$/, :multiline => true
+  validates_format_of :username, with: /^[a-zA-Z0-9_\.]*$/, multiline: true
   validate :validate_username
 
   acts_as_follower
@@ -33,16 +33,16 @@ class User < ApplicationRecord
 
 
   def legislators
-    self.followees(Legislator)
+    followees(Legislator)
   end
 
   def self.find_for_database_authentication(warden_conditions)
-     conditions = warden_conditions.dup
-     if login = conditions.delete(:login)
-       where(conditions.to_h).where(["lower(username) = :value OR lower(email) = :value", { :value => login.downcase }]).first
-     elsif conditions.has_key?(:username) || conditions.has_key?(:email)
-       where(conditions.to_h).first
-     end
+    conditions = warden_conditions.dup
+    if login = conditions.delete(:login)
+      where(conditions.to_h).where(['lower(username) = :value OR lower(email) = :value', { value: login.downcase }]).first
+    elsif conditions.key?(:username) || conditions.key?(:email)
+      where(conditions.to_h).first
+    end
   end
 
   protected
@@ -52,17 +52,16 @@ class User < ApplicationRecord
       'https://www.googleapis.com/civicinfo/v2/representatives',
       method: :get,
       params: {
-        address: "#{CGI.escape(user.address)}",
+        address: CGI.escape(user.address).to_s,
         levels: 'administrativeArea1',
-        "roles" => ["legislatorLowerBody", "legislatorUpperBody"],
-        key: "#{ENV['GOOGLE_CIVIC_INFO_KEY']}"
+        roles: %w(legislatorLowerBody, legislatorUpperBody),
+        key: ENV['GOOGLE_CIVIC_INFO_KEY'].to_s
       }.to_query,
       headers: {
-        accept: "application/json"
+        accept: 'application/json'
       }
     )
     parsed = JSON.parse(response.body).deep_symbolize_keys
-    legislators = []
     legislators = parsed[:officials].each.map do |official|
       official[:name]
     end
@@ -72,16 +71,13 @@ class User < ApplicationRecord
   def follow_local_legislators
     find_legislators(self).each do |name|
       Legislator.where(full_name: name).all.each do |leg|
-        self.follow!(leg)
+        follow!(leg)
       end
     end
   end
 
   def validate_username
-    if User.where(email: username).exists?
-      errors.add(:username, :invalid)
-    end
+    errors.add(:username, :invalid) if User.where(email: username).exists?
   end
-
 
 end

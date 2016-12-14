@@ -8,9 +8,7 @@
 
 def add_full_name
   Legislator.all.each do |leg|
-    leg.update(full_name:
-      "#{leg.first_name} #{leg.last_name}"
-      )
+    leg.update(full_name: "#{leg.first_name} #{leg.last_name}")
   end
 end
 

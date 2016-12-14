@@ -14,12 +14,12 @@ class Article < ApplicationRecord
       origin = feed.channel.title
       articles << feed.items.each.map do |item|
         begin
-        Article.create!(
-          title: item.title,
-          link: (item.try(:link) || item.guid),
-          description: item.description,
-          source: origin,
-          date: (item.try(:pubDate) || item.dc_date)
+          Article.create!(
+            title: item.title,
+            link: (item.try(:link) || item.guid),
+            description: item.description,
+            source: origin,
+            date: (item.try(:pubDate) || item.dc_date)
           )
         rescue SocketError
           puts "#{origin} did not respond"

@@ -13,12 +13,12 @@ class Legislator < ApplicationRecord
     hydra = Typhoeus::Hydra.new
     requests = authored.map do |bill|
       request = Typhoeus::Request.new(
-      "https://api.iga.in.gov#{bill["link"]}",
+        "https://api.iga.in.gov#{bill['link']}",
         method: :get,
         headers: {
-          Accept: "application/vnd.myiga.v1+json",
+          Accept: 'application/vnd.myiga.v1+json',
           Authorization: "#{ENV['IGA_TOKEN']}"
-        },
+        }
       )
       hydra.queue(request)
       request
@@ -27,13 +27,13 @@ class Legislator < ApplicationRecord
     responses = requests.map do |request|
       begin
         JSON.parse(request.response.body).deep_symbolize_keys
-      rescue JSON::ParserError, TypeError => e
-        {latest_version: []}
+      rescue JSON::ParserError, TypeError
+        { latest_version: [] }
       end
     end
-      Rails.cache.fetch("#{cache_key}/authored", expires_in: 12.hours) do
-        responses.map do |response|
-          response[:latest_version]
+    Rails.cache.fetch("#{cache_key}/authored", expires_in: 12.hours) do
+      responses.map do |response|
+        response[:latest_version]
       end
     end
     responses
@@ -43,12 +43,12 @@ class Legislator < ApplicationRecord
     hydra = Typhoeus::Hydra.new
     requests = sponsored.each.map do |bill|
       request = Typhoeus::Request.new(
-      "https://api.iga.in.gov#{bill["link"]}",
+        "https://api.iga.in.gov#{bill['link']}",
         method: :get,
         headers: {
-          Accept: "application/vnd.myiga.v1+json",
+          Accept: 'application/vnd.myiga.v1+json',
           Authorization: "#{ENV['IGA_TOKEN']}"
-        },
+        }
       )
       hydra.queue(request)
       request
@@ -57,13 +57,13 @@ class Legislator < ApplicationRecord
     responses = requests.map do |request|
       begin
         JSON.parse(request.response.body).deep_symbolize_keys
-      rescue JSON::ParserError, TypeError => e
-        {latest_version: []}
+      rescue JSON::ParserError, TypeError
+        { latest_version: [] }
       end
     end
-      Rails.cache.fetch("#{cache_key}/sponsored", expires_in: 12.hours) do
-        responses.map do |response|
-          response[:latest_version]
+    Rails.cache.fetch("#{cache_key}/sponsored", expires_in: 12.hours) do
+      responses.map do |response|
+        response[:latest_version]
       end
     end
     responses

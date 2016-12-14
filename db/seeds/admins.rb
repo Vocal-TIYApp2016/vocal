@@ -12,32 +12,32 @@ end
 
 User.delete_all
 
-  User.create!(
-    email: "cflack@vocal-in.com",
-    username: "admincf",
-    password: "vocal16",
-    first_name: "Chris",
-    last_name: "Flack",
-    address: "4901 Guilford Ave. Indianapolis, IN",
-    profile_image: seed_image('aja-hawkeye.png')
-  )
+User.create!(
+  email: 'cflack@vocal-in.com',
+  username: 'admincf',
+  password: 'vocal16',
+  first_name: 'Chris',
+  last_name: 'Flack',
+  address: '4901 Guilford Ave. Indianapolis, IN',
+  profile_image: seed_image('aja-hawkeye.png')
+)
 
-  User.create!(
-    email: "swieland@vocal-in.com",
-    username: "adminsw",
-    password: "vocal16",
-    first_name: "Sally",
-    last_name: "Wieland",
-    address: "475 E Market St, Indianapolis, IN ",
-    profile_image: seed_image('headshot.jpg')
-  )
+User.create!(
+  email: 'swieland@vocal-in.com',
+  username: 'adminsw',
+  password: 'vocal16',
+  first_name: 'Sally',
+  last_name: 'Wieland',
+  address: '475 E Market St, Indianapolis, IN',
+  profile_image: seed_image('headshot.jpg')
+)
 
-  User.create!(
-    email: "khuff@vocal-in.com",
-    username: "adminkh",
-    password: "vocal16",
-    first_name: "Kyle",
-    last_name: "Huff",
-    address: "475 E Market St, Indianapolis, IN ",
-    profile_image: seed_image('khuff.png')
-  )
+User.create!(
+  email: 'khuff@vocal-in.com',
+  username: 'adminkh',
+  password: 'vocal16',
+  first_name: 'Kyle',
+  last_name: 'Huff',
+  address: '475 E Market St, Indianapolis, IN',
+  profile_image: seed_image('khuff.png')
+)
