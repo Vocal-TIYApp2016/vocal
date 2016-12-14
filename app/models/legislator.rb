@@ -10,7 +10,7 @@ class Legislator < ApplicationRecord
   end
 
   def authored_expanded
-    Rails.cache.fetch("#{cache_key}/authored", expires_in: 12.hours) do
+    Rails.cache.fetch("#{cache_key}/authored_expanded", expires_in: 12.hours) do
       hydra = Typhoeus::Hydra.new
       requests = authored.map do |bill|
         request = Typhoeus::Request.new(
@@ -40,7 +40,7 @@ class Legislator < ApplicationRecord
   end
 
   def sponsored_expanded
-    Rails.cache.fetch("#{cache_key}/sponsored", expires_in: 12.hours) do
+    Rails.cache.fetch("#{cache_key}/sponsored_expanded", expires_in: 12.hours) do
       hydra = Typhoeus::Hydra.new
       requests = sponsored.each.map do |bill|
         request = Typhoeus::Request.new(
