@@ -1,4 +1,5 @@
 class LegislatorSerializer < ActiveModel::Serializer
+  cache key: 'image', only: :leg_image
 
   attributes :id, :following, :title, :year, :first_name, :last_name, :full_name, :party, :chamber, :committees, :authored, :sponsored, :leg_image, :authored_expanded, :sponsored_expanded
 
