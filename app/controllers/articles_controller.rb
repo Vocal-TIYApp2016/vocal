@@ -7,11 +7,10 @@ class ArticlesController < ApplicationController
   end
 
   def article_search
-    articles = []
-    articles = current_user.legislators.each.map do |leg|
+    articles = current_user.legislators.each.flat_map do |leg|
       Article.search_by_full_text(leg.full_name).to_a
     end
-    articles.flatten
+    articles
   end
 
 end

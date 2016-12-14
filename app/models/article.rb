@@ -8,11 +8,10 @@ class Article < ApplicationRecord
   default_scope { order(date: :desc) }
 
   def self.update(sources)
-    articles = []
     sources.each do |url|
       feed = RSS::Parser.parse(url)
       origin = feed.channel.title
-      articles << feed.items.each.map do |item|
+      articles = feed.items.each.flat_map do |item|
         begin
           Article.create!(
             title: item.title,
@@ -25,8 +24,9 @@ class Article < ApplicationRecord
           puts "#{origin} did not respond"
         end
       end
+      articles
     end
-    articles.flatten
+    articles
   end
 
 end
