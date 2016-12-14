@@ -29,10 +29,9 @@ class Article < ApplicationRecord
       end
       articles
     end
-    articles
   end
 
-  def source_build(feed, origin)
+  def self.source_build(feed, origin)
     if feed.channel.link == 'http://www.ibj.com/rss'
       "IBJ - #{origin}"
     elsif feed.channel.link == 'https://www.fbi.gov/feeds/indianapolis-news'
