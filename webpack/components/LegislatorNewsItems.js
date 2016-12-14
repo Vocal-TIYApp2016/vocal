@@ -33,13 +33,13 @@ class LegislatorNewsItems extends React.Component {
     }
     else {
       return <div className='hiddenSection'>
-                  <div className="leftBottom">
-                    <div className="titleFont" id="titleFont">News Feed</div>
+            <div className="col-sm-6 columnContainer">
+                    <div className="titleFont text-center">News Feed</div>
                       {/* <button className="btn avatarText text-center center-block" id="profileAvatarTextBtn">loading<br/> legislators</button> */}
-                      <div className="loadingIcon">
+                      <div className="profileBox">
                          <Loading type='bubbles' color='#223843' />
                       </div>
-                    </div>
+                  </div>
                   </div>
     }
     return <div>

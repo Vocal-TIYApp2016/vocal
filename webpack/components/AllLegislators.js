@@ -31,7 +31,6 @@ class AllLegislators extends React.Component {
     // this.lastGet2014 = this.lastGet2014.bind(this)
     this.mainFilterResult = this.mainFilterResult.bind(this)
     this.state = {
-      legislators: [],
       open: false,
       searchText: '',
       results: [],
