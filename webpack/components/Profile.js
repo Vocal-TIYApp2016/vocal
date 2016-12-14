@@ -9,6 +9,21 @@ import UserInfo from './UserInfo'
 import URL from 'url-parse'
 
 class Profile extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      currentUserProfile: undefined,
+    }
+  }
+  componentDidMount() {
+      fetch('/self?' + 'user_email=' + sessionStorage.getItem('email') + '&user_token=' +  sessionStorage.getItem('api_token'))
+      .then(response => response.json())
+      // .then(response => console.log(response))
+      .then((response) => {
+        window.currentUserProfile = response
+        this.setState({currentUserProfile: response})
+      })
+  }
   render() {
     return <div>
       <div className='container-fluid'>
