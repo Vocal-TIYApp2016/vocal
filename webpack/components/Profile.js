@@ -18,13 +18,13 @@ class Profile extends React.Component {
             <div className="row">
                 <div className="mobileReveal">
                   <div className='col-xs-12 noPadding'>
-                    <Link to='/profile/legislators'><button className='btn btn-block mobileNavbar'>Legislators</button></Link>
+                    <Link to='/profile/legislators' className="noDecoration"><button className='btn btn-block mobileNavbar'>Legislators</button></Link>
                   </div>
                   <div className='col-xs-12 noPadding'>
-                    <Link to='/profile/news'><button className='btn btn-block mobileNavbar'>News Feed</button></Link>
+                    <Link to='/profile/news' className="noDecoration"><button id="navBorder" className='btn btn-block mobileNavbar'>News Feed</button></Link>
                   </div>
                   <div className='col-xs-12 noPadding'>
-                    <Link to='/profile/legislation'><button className='btn btn-block mobileNavbar'>Legislation</button></Link>
+                    <Link to='/profile/legislation' className="noDecoration"><button className='btn btn-block mobileNavbar'>Legislation</button></Link>
                   </div>
                     {this.props.children}
                 </div>
