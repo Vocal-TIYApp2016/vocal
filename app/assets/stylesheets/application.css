@@ -77,7 +77,8 @@ body {
    color: #223843;
    letter-spacing: 2px;
    margin: 10px;
-   margin-top: 40vh;
+   margin-top: 10vh;
+   margin-bottom: 10vh;
 }
 .landingBtn:hover {
    background-color: #223843;
@@ -163,13 +164,6 @@ body {
 .profileImg {
   cursor: pointer;
 }
-
-/*.profileImg {
-   height: 100px;
-   width: 100px;
-   padding: 15px;
-}*/
-
 #fixedPhoto {
     width: 200px;
     height: 200px;
@@ -179,7 +173,8 @@ body {
 .profileText {
    color: white;
    text-transform: uppercase;
-   letter-spacing: 2px;
+   letter-spacing: 3px;
+   font-weight: lighter;
 }
 .profileTextTwo {
    color: white;
@@ -397,6 +392,16 @@ body {
    /*height: 70vh;*/
    align-content: center;
 }
+#landingPage {
+   color: #223843;
+   border: 5px solid #223843;
+   font-size: 12px;
+   letter-spacing: 3px;
+   padding-top: 10px;
+   padding-bottom: 10px;
+   border-radius: 10px;
+}
+
 
 .smlProfileImg {
    width: 70px;
@@ -593,6 +598,11 @@ body {
       font-size: 3vw;
    }
 }
+@media all and (min-width: 768px) and (max-width: 1024px){
+   #landingPage{
+      height: 250px;
+   }
+}
 @media all and (max-width: 768px) {
    .yearText{
       padding-top: 12px;
@@ -622,6 +632,7 @@ body {
    }
    .mobLandingBtnUp {
       text-align: center;
+      margin-bottom: 3px;
    }
    .mobLandingBtnRow {
       text-align: center;
