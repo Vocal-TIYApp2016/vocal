@@ -1,7 +1,6 @@
 import React from 'react'
 import { Router, Route, Link, browserHistory } from 'react-router'
 import NewsItem from './NewsItem'
-import ProfileHeader from './ProfileHeader'
 import Loading from 'react-loading'
 
 class MobileNewsItems extends React.Component {
