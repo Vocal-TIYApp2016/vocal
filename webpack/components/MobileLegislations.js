@@ -1,7 +1,6 @@
 import React from 'react'
 import { Router, Route, Link, browserHistory } from 'react-router'
 import Legislation from './Legislation'
-import ProfileHeader from './ProfileHeader'
 import Loading from 'react-loading'
 
 class MobileLegislations extends React.Component {
