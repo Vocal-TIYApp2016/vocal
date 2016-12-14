@@ -1,6 +1,8 @@
 import React from 'react'
 import { Router, Route, Link, browserHistory } from 'react-router'
 import Legislator from './Legislator'
+import Loading from 'react-loading'
+
 
 class Legislators extends React.Component {
  constructor(props) {
@@ -42,13 +44,16 @@ class Legislators extends React.Component {
     if(this.state.arrayLength != 0) {
          var legislator = this.state.legislators.map((data, i) => {
             return <Legislator data={data} key={i} />
-               })
+         })
    }
    else {
      return <div className='hiddenSection'>
               <div className="rightSide">
                 <div className="titleFont" id="titleFont">Legislators</div>
-                  <button className="btn avatarText text-center center-block" id="profileAvatarTextBtn">loading<br/> legislators</button>
+                  {/* <button className="btn avatarText text-center center-block" id="profileAvatarTextBtn">loading<br/> legislators</button> */}
+                  <div className="loadingIcon">
+                     <Loading type='bubbles' color='#223843' />
+                  </div>
                 </div>
               </div>
    }

@@ -582,6 +582,10 @@ body {
    color: white;
 }
 
+.loadingIcon {
+   margin: 0 auto;
+}
+
 
 /*mobile classes*/
 @media all and (max-width: 550px){
@@ -604,7 +608,7 @@ body {
       margin-right: 10px;
       margin-top: 10px;
    }
-   
+
    .profileImg {
       width: 200px;
       height: 200px;

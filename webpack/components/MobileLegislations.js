@@ -2,13 +2,15 @@ import React from 'react'
 import { Router, Route, Link, browserHistory } from 'react-router'
 import Legislation from './Legislation'
 import ProfileHeader from './ProfileHeader'
+import Loading from 'react-loading'
 
 class MobileLegislations extends React.Component {
   constructor(props) {
     super(props)
     this.updateLegislations = this.updateLegislations.bind(this)
     this.state = {
-      allBills: []
+      allBills: [],
+      arrayLength: ''
     }
   }
 
@@ -27,14 +29,24 @@ class MobileLegislations extends React.Component {
         })
         })
       this.setState({
-        allBills: finalArray
+        allBills: finalArray,
+        arrayLength: Number(finalArray.length)
       })
   }
 
   render() {
-    var bill = this.state.allBills.map((data, i) => {
-      return <Legislation data={data} key={i} />
-    })
+    if(this.state.arrayLength != 0) {
+      var bill = this.state.allBills.map((data, i) => {
+        return <Legislation data={data} key={i} />
+      })
+    }
+    else {
+      return <div className="col-xs-12 columnContainer">
+          <div className="loadingIcon">
+            <Loading type='bubbles' color='white' />
+          </div>
+      </div>
+    }
     return <div>
             <div  className="col-xs-12 columnContainer">
               <div className='profileBox'>

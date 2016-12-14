@@ -2,6 +2,7 @@ import React from 'react'
 import { Router, Route, Link, browserHistory } from 'react-router'
 import LegislatorBill from './LegislatorBill'
 import URL from 'url-parse'
+import Loading from 'react-loading'
 
 class MobileLegLegislations extends React.Component {
     constructor(props) {
@@ -10,7 +11,8 @@ class MobileLegLegislations extends React.Component {
         this.updateLegislatorBills = this.updateLegislatorBills.bind(this)
         this.state = {
             legislatorBills: [],
-            url: url
+            url: url,
+            arrayLength: ''
         }
     }
 
@@ -22,14 +24,24 @@ class MobileLegLegislations extends React.Component {
 
     updateLegislatorBills(data) {
         this.setState ({
-            legislatorBills: data.legislator.authored_expanded
+            legislatorBills: data.legislator.authored_expanded,
+            arrayLength: Number(data.legislator.authored_expanded.length)
         })
     }
 
   render() {
-    var bill = this.state.legislatorBills.map((data, i) => {
-      return <LegislatorBill data={data} key={i} />
-    })
+    if(this.state.arrayLength != 0) {
+      var bill = this.state.legislatorBills.map((data, i) => {
+        return <LegislatorBill data={data} key={i} />
+      })
+    }
+    else {
+      return <div className="col-xs-12 columnContainer">
+        <div className="loadingIcon">
+          <Loading type='bubbles' color='white' />
+        </div>
+      </div>
+    }
     return <div className="col-xs-12 columnContainer">
         <div className='profileBox'>
             {bill}
