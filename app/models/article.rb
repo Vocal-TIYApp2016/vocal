@@ -19,7 +19,7 @@ class Article < ApplicationRecord
             title: item.title,
             link: (item.try(:link) || item.guid),
             description: item.description,
-            source: origin,
+            source: source_build(feed, origin),
             date: (item.try(:pubDate) || item.dc_date)
           )
         rescue SocketError
@@ -29,6 +29,16 @@ class Article < ApplicationRecord
       articles
     end
     articles
+  end
+
+  def source_build(feed, origin)
+    if feed.channel.link == 'http://www.ibj.com/rss'
+      "IBJ - #{origin}"
+    elsif feed.channel.link == 'https://www.fbi.gov/feeds/indianapolis-news'
+      "FBI.gov - #{origin}"
+    else
+      origin
+    end
   end
 
 end
