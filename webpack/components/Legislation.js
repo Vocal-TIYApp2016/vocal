@@ -50,9 +50,9 @@ class Legislation extends React.Component {
                         <div className="authorText" id="modalText">{allAuthors}</div>
                       </div>
                       <div className="col-sm-12">
-                        <div className="accordionHeaderText">Digest</div>
+                      <div className="accordionHeaderText">Digest</div>
+                        <div className='billDigest' id="modalText">{this.props.data.latestVersion.digest}</div>
                       </div>
-                      <div className='billDigest' id="modalText">{this.props.data.latestVersion.digest}</div>
                     </Modal.Body>
                     <Modal.Footer>
                       <Button className="profileFollowBtn" onClick={this.hideModal}>Close</Button>
