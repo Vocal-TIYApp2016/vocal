@@ -136,7 +136,6 @@ class LegislatorHeader extends React.Component {
                   <h2 className="text-center profileText">{this.state.title}<br/>
                   {this.state.firstName} {this.state.lastName}</h2>
                   <h5 className="text-center profileTextTwo">{this.state.party} | <button className="btn followBtn" onClick={this.follow}>{this.state.updateFollowBtn}</button></h5>
-                  <br/>
                  </div>
                 </div>
               </div>

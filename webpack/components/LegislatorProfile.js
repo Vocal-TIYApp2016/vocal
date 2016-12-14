@@ -39,7 +39,7 @@ class LegislatorProfile extends React.Component {
     return <div>
             <div className='container-fluid'>
               <LegislatorHeader profile={this.state.currentLegislatorProfile} />
-            </div> <br/> <br/>
+            </div><br/>
             <div className="container-fluid">
               <div className="row">
                 <div className="mobileReveal">

@@ -3,7 +3,6 @@ import { Router, Route, Link, browserHistory } from 'react-router'
 import Legislator from './Legislator'
 import Loading from 'react-loading'
 
-
 class Legislators extends React.Component {
  constructor(props) {
    super(props)
@@ -50,10 +49,7 @@ class Legislators extends React.Component {
      return <div className='hiddenSection'>
               <div className="rightSide">
                 <div className="titleFont" id="titleFont">Legislators</div>
-                  {/* <button className="btn avatarText text-center center-block" id="profileAvatarTextBtn">loading<br/> legislators</button> */}
-                  <div className="loadingIcon">
                      <Loading type='bubbles' color='#223843' />
-                  </div>
                 </div>
               </div>
    }
