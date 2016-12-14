@@ -25,8 +25,8 @@ class LegislatorHeader extends React.Component {
     .then(response => response.json())
     .then((response) => {
       this.updateFollowBtn(response)
-      this.updatePhoto(response)
     })
+    this.updatePhoto()
    }
 
    componentWillReceiveProps() {
@@ -47,7 +47,7 @@ class LegislatorHeader extends React.Component {
 
     updatePhoto(userData) {
      this.setState ({
-       userPhoto: userData.user.profile_image,
+       userPhoto: sessionStorage.getItem('photo'),
      })
     }
 
@@ -119,8 +119,9 @@ class LegislatorHeader extends React.Component {
                     <h1 className='logoFont text-left'>vocal</h1>
                     <div className='pull-right'>
                     <DropdownButton title='' id="bg-nested-dropdown" className='glyphicon glyphicon-cog dropdownBtn'>
-                     <MenuItem eventKey="1" href='/profile/legislators'>Profile</MenuItem>
-                     <MenuItem eventKey="2" href='/alllegislators'>Legislators</MenuItem>
+                    <MenuItem eventKey="1" href='/profile/legislators'><img src={this.state.userPhoto} className="img-responsive img-circle userDropdownImg" alt="user avatar photo"/>
+                    </MenuItem>
+                    <MenuItem eventKey="2" href='/alllegislators'>Legislators</MenuItem>
                      <MenuItem eventKey="2" href='/alllegislation'>Legislation</MenuItem>
                      <MenuItem eventKey="3" href='/settings'>Settings</MenuItem>
                      <MenuItem eventKey="4" href='/' onClick={this.logout}>Logout</MenuItem>
