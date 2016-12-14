@@ -16,6 +16,7 @@ class MainHeader extends React.Component {
     // .then(response => response.json())
     // .then(this.updatePhoto)
     // .then(response => console.log(response))
+    this.updatePhoto()
    }
    updatePhoto(userData) {
     this.setState ({
