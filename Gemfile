@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 
 ruby '2.3.1'
+# Secure keys
+gem 'figaro'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 # Use postgresql as the database for Active Record
@@ -33,8 +35,6 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 # Cleaner console
 gem 'pry-rails', '~> 0.3.4'
-# Secure keys
-gem 'figaro'
 # ActiveModelSerializers
 gem 'active_model_serializers', '~> 0.10.0'
 # Search/Filter
