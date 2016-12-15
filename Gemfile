@@ -61,6 +61,8 @@ gem 'typhoeus'
 # gem 'capistrano-rails', group: :development
 # For Heroku
 gem 'rails_12factor', group: :production
+gem "rack-timeout"
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
