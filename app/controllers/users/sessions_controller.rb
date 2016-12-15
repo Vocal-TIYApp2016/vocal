@@ -1,6 +1,6 @@
 class Users::SessionsController < Devise::SessionsController
   respond_to :json
-  prepend_before_filter :require_no_authentication, only: :create
+  skip_before_filter :require_no_authentication, only: :create
   # before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in
