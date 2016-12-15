@@ -61,7 +61,8 @@ gem 'typhoeus'
 # gem 'capistrano-rails', group: :development
 # For Heroku
 gem 'rails_12factor', group: :production
-gem "rack-timeout"
+gem "rack-timeout", require:"rack/timeout/base"
+
 
 
 group :development, :test do
