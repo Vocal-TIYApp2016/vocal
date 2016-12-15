@@ -4,7 +4,6 @@ class Legislator < ApplicationRecord
   acts_as_followable
   has_many :users, through: :follows
   attachment :leg_image
-
   default_scope { order(:last_name) }
 
   def full_name

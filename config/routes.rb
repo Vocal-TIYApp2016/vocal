@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   # Root Route
   root 'home#static'
-
+  get '/image_loader' => 'home#image_loader'
   # Legislators
   resources :legislators do
     collection do
