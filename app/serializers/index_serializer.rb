@@ -1,5 +1,5 @@
 class IndexSerializer < ActiveModel::Serializer
-  attributes :id, :title, :year, :full_name, :chamber, :leg_image
+  attributes :id, :title, :year, :first_name, :last_name, :chamber, :leg_image
 
   def leg_image
     Refile.attachment_url(object, :leg_image, :fill, 200, 200, format: 'jpg')
