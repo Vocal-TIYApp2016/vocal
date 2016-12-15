@@ -37,7 +37,6 @@ class LegislatorCommittees extends React.Component {
                <div className="col-sm-3 columnContainer">
                  <div className="titleFont text-center">Committees</div>
                   <div className='profileBox' id="committeeBox">
-                   {/* <button className="btn avatarText text-center center-block" id="profileAvatarTextBtn">loading<br/> legislators</button> */}
                     <div className="loadingIcon">
                       <Loading type='bubbles' color='#223843' />
                     </div>
