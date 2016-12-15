@@ -4,7 +4,6 @@ class Legislator < ApplicationRecord
   acts_as_followable
   has_many :users, through: :follows
   attachment :leg_image
-
   default_scope { order(:last_name) }
 
   def full_name
@@ -34,9 +33,6 @@ class Legislator < ApplicationRecord
           { latest_version: [] }
         end
       end
-      responses.map do |response|
-        response[:latest_version]
-      end
       responses
     end
   end
@@ -63,9 +59,6 @@ class Legislator < ApplicationRecord
         rescue JSON::ParserError, TypeError
           { latest_version: [] }
         end
-      end
-      responses.map do |response|
-        response[:latest_version]
       end
       responses
     end

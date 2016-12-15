@@ -1,0 +1,8 @@
+
+<ul>
+  <% @legislators.each do |leg| %>
+    <li>
+      <%= image_tag attachment_url(leg, :leg_image, :fill, 200, 200, format: "jpg") %>
+    </li>
+  <% end %>
+</ul>

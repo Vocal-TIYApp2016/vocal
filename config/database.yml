@@ -83,3 +83,5 @@ production:
   database: vocal_production
   username: vocal
   password: <%= ENV['VOCAL_DATABASE_PASSWORD'] %>
+  url:  <%= ENV["DATABASE_URL"] %>
+  pool: <%= ENV["DB_POOL"] || ENV['RAILS_MAX_THREADS'] || 5 %>
