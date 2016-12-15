@@ -13,13 +13,6 @@ class Legislations extends React.Component {
     }
   }
 
-    // componentDidMount(){
-    //   fetch('/self?' + 'user_email=' + sessionStorage.getItem('email') + '&user_token=' +  sessionStorage.getItem('api_token'))
-    //   .then(response => response.json())
-    //   .then(this.updateLegislation)
-    //   // .then(response => console.log(response))
-    // }
-
     componentWillReceiveProps() {
         if(window.currentUserProfile) {
             this.updateLegislation(window.currentUserProfile)
