@@ -33,9 +33,6 @@ class Legislator < ApplicationRecord
           { latest_version: [] }
         end
       end
-      responses.map do |response|
-        response[:latest_version]
-      end
       responses
     end
   end
@@ -62,9 +59,6 @@ class Legislator < ApplicationRecord
         rescue JSON::ParserError, TypeError
           { latest_version: [] }
         end
-      end
-      responses.map do |response|
-        response[:latest_version]
       end
       responses
     end
