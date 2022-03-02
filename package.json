@@ -10,7 +10,7 @@
     "react-bootstrap": "^0.30.7",
     "react-loading": "^0.0.9",
     "stats-webpack-plugin": "^0.2.1",
-    "url-parse": "^1.1.7",
+    "url-parse": "^1.5.9",
     "webpack": "^1.9.11",
     "webpack-dev-server": "^1.9.0"
   },
